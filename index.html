@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サポート | sundata apps</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #FF3B30 0%, #FF6B6B 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        header p { opacity: 0.9; font-size: 1.1em; }
+        .heart { display: inline-block; animation: pulse 1s infinite; }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .content { padding: 40px; }
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        .section:last-child { border-bottom: none; margin-bottom: 0; }
+        h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #FF3B30;
+            border-radius: 2px;
+        }
+        p, li { color: #666; line-height: 1.8; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .app-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .app-card .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .app-card h3 { color: #333; margin-bottom: 5px; }
+        .app-card p { font-size: 0.9em; }
+        .contact-box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .contact-box a {
+            display: inline-block;
+            background: #FF3B30;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .contact-box a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255,59,48,0.4);
+        }
+        footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="heart">❤️</div>
+            <h1>sundata apps</h1>
+            <p>Apps that make your life better</p>
+        </header>
+        
+        <div class="content">
+            <div class="section">
+                <h2>アプリ一覧</h2>
+                <div class="apps-grid">
+                    <div class="app-card">
+                        <div class="icon">❤️</div>
+                        <h3>Ikiteru</h3>
+                        <p>あなたの大切な人を<br>見守るアプリ</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="icon">📸</div>
+                        <h3>ID Photo</h3>
+                        <p>プロフェッショナルな<br>証明写真を作成</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>よくある質問</h2>
+                <ul>
+                    <li><strong>Q: アプリが起動しない場合は？</strong><br>A: 端末を再起動してから、もう一度アプリを起動してください。</li>
+                    <li><strong>Q: 通知が来ない場合は？</strong><br>A: 設定 > 通知 からアプリの設定を確認してください。</li>
+                    <li><strong>Q: データは安全に保存されますか？</strong><br>A: はい、すべてのデータは端末内に安全に保存されます。</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>お問い合わせ</h2>
+                <div class="contact-box">
+                    <p>お問い合わせやフィードバックがございましたら、<br>お気軽にどうぞ</p>
+                    <a href="mailto:sundata.jp@gmail.com">📧 sundata.jp@gmail.com</a>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>広告について</h2>
+                <p>無料版アプリでは広告が表示される場合があります。<br>広告をお楽しみください。</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2024 sundata. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

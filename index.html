@@ -69,6 +69,16 @@
             padding: 20px;
             border-radius: 12px;
             text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .app-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
         .app-card .icon {
             font-size: 2em;
@@ -119,14 +129,18 @@
                 <h2>アプリ一覧</h2>
                 <div class="apps-grid">
                     <div class="app-card">
-                        <div class="icon">❤️</div>
-                        <h3><a href="https://apps.apple.com/jp/app/%E3%81%BF%E3%81%BE%E3%82%82%E3%82%8A/id6760651931" style="color:inherit;text-decoration:none;">みまもり</a></h3>
-                        <p>大切な人を見守る<br>位置情報アプリ</p>
+                        <a href="https://apps.apple.com/jp/app/%E3%81%BF%E3%81%BE%E3%82%82%E3%82%8A/id6760651931">
+                            <div class="icon">❤️</div>
+                            <h3>みまもり</h3>
+                            <p>大切な人を見守る<br>位置情報アプリ</p>
+                        </a>
                     </div>
                     <div class="app-card">
-                        <div class="icon">📸</div>
-                        <h3><a href="https://apps.apple.com/jp/app/%E3%83%91%E3%82%B7%E3%83%A3%E3%81%A3%E3%81%A8%E8%A8%BC%E6%98%8E%E5%86%99%E7%9C%9F/id6761061360" style="color:inherit;text-decoration:none;">ID Photo</a></h3>
-                        <p>プロフェッショナルな<br>証明写真を作成</p>
+                        <a href="https://apps.apple.com/jp/app/%E3%83%91%E3%82%B7%E3%83%A3%E3%81%A3%E3%81%A8%E8%A8%BC%E6%98%8E%E5%86%99%E7%9C%9F/id6761061360">
+                            <div class="icon">📸</div>
+                            <h3>ID Photo</h3>
+                            <p>プロフェッショナルな<br>証明写真を作成</p>
+                        </a>
                     </div>
                 </div>
             </div>

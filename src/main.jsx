@@ -1232,12 +1232,16 @@ function App() {
                 : "This site runs without ads or paid downloads. Choose any way you’d like to help."}
             </p>
             <div className="sundataIntro">
-              <b>Sundata</b>
-              <span>Apps that make your life better.</span>
+              <b>{lang === "ja" ? "無料ツールを応援" : "Support free tools"}</b>
+              <span>
+                {lang === "ja"
+                  ? "無料・広告なし・プライバシー重視"
+                  : "Free, ad-free and privacy-first."}
+              </span>
               <p>
                 {lang === "ja"
-                  ? "ID Photo、みまもり、News Nowなど、毎日の生活を便利にするプライバシー重視のアプリを開発しています。"
-                  : "We build privacy-minded apps that make everyday life easier, including ID Photo, Mimamori and News Now."}
+                  ? "ご支援はサーバー運営、機能改善、そして高画質ダウンロードを誰でも無料で使える環境の維持に役立てられます。"
+                  : "Your support helps cover hosting, improve features, and keep high-quality downloads free for everyone."}
               </p>
               <a
                 href="https://sundata.tech/index-en.html"
@@ -1248,7 +1252,8 @@ function App() {
               </a>
             </div>
             <a href="https://ko-fi.com/" target="_blank" rel="noreferrer">
-              Ko-fi · {lang === "ja" ? "Sundataを応援" : "Support Sundata"}{" "}
+              Ko-fi ·{" "}
+              {lang === "ja" ? "無料ツールを応援" : "Support this free tool"}{" "}
               <ArrowRight />
             </a>
             <a

@@ -1243,13 +1243,6 @@ function App() {
                   ? "ご支援はサーバー運営、機能改善、そして高画質ダウンロードを誰でも無料で使える環境の維持に役立てられます。"
                   : "Your support helps cover hosting, improve features, and keep high-quality downloads free for everyone."}
               </p>
-              <a
-                href="https://sundata.tech/index-en.html"
-                target="_blank"
-                rel="noreferrer"
-              >
-                sundata.tech <ArrowRight />
-              </a>
             </div>
             <a href="https://ko-fi.com/" target="_blank" rel="noreferrer">
               Ko-fi ·{" "}

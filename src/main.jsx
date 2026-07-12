@@ -23,6 +23,7 @@ import {
   Menu,
 } from "lucide-react";
 import "./style.css";
+import UtilityTools from "./UtilityTools";
 
 const preset = (group, ja, en, w, h, face = "正面・無帽・均一な背景") => ({
   group,
@@ -696,6 +697,7 @@ function App() {
       a.download = `id-photo-${S.w}x${S.h}mm.png`;
       a.href = canvas.current.toDataURL("image/png");
       a.click();
+      window.setTimeout(() => setDonate(true), 700);
       return;
     }
     const c = document.createElement("canvas"),
@@ -723,6 +725,7 @@ function App() {
     a.download = "id-photo-print-sheet-4x6.png";
     a.href = c.toDataURL();
     a.click();
+    window.setTimeout(() => setDonate(true), 700);
   };
   const go = () =>
     document.querySelector("#maker").scrollIntoView({ behavior: "smooth" });
@@ -1124,6 +1127,7 @@ function App() {
             {L.note}
           </p>
         </section>
+        <UtilityTools lang={lang} onSuccess={() => setDonate(true)} />
         <section className="why" id="how">
           <div className="sectionHead">
             <span>OUR PROMISE</span>
@@ -1206,14 +1210,53 @@ function App() {
           </p>
         </div>
       </section>
+      <section className="aboutBlock" id="about">
+        <div>
+          <span>ABOUT & TRANSPARENCY</span>
+          <h2>
+            {lang === "ja" ? "無料であり続けるために" : "Built to stay free"}
+          </h2>
+          <p>
+            {lang === "ja"
+              ? "SHOMEIは、証明写真や日常の画像作業を、登録・透かし・有料ダウンロードなしで完了できるツール群です。写真はブラウザ内で処理され、サーバーには送信されません。"
+              : "SHOMEI is a collection of tools for ID photos and everyday image tasks—without accounts, watermarks or paid downloads. Photos are processed in your browser and never sent to our server."}
+          </p>
+          <a href="mailto:work.sundata@gmail.com">
+            work.sundata@gmail.com <ArrowRight />
+          </a>
+        </div>
+        <div className="changeLog">
+          <b>{lang === "ja" ? "更新履歴" : "What’s new"}</b>
+          <ul>
+            <li>
+              <time>2026.07</time>
+              {lang === "ja"
+                ? "各国規格、背景削除、手動消しゴム"
+                : "Global sizes, background removal and manual eraser"}
+            </li>
+            <li>
+              <time>2026.07</time>
+              {lang === "ja"
+                ? "画像圧縮、形式変換、DPI計算"
+                : "Compression, format conversion and DPI calculator"}
+            </li>
+            <li>
+              <time>2026.07</time>
+              {lang === "ja"
+                ? "PWA・オフライン対応、SEOガイド"
+                : "PWA, offline support and SEO guides"}
+            </li>
+          </ul>
+        </div>
+      </section>
       <footer>
         <a className="logo" href="#">
           <span>◉</span> SHOMEI
         </a>
         <p>© 2026 Shomei. Made with care in Japan.</p>
         <div>
-          <a href="#privacy">{L.privacy}</a>
-          <a href="#privacy">Terms</a>
+          <a href="./privacy-policy.html">{L.privacy}</a>
+          <a href="./terms.html">Terms</a>
         </div>
       </footer>
       {donate && (
@@ -1318,3 +1361,8 @@ function App() {
   );
 }
 createRoot(document.getElementById("root")).render(<App />);
+if ("serviceWorker" in navigator && import.meta.env.PROD) {
+  window.addEventListener("load", () =>
+    navigator.serviceWorker.register("./sw.js"),
+  );
+}

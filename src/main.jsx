@@ -21,6 +21,7 @@ import {
   Info,
   X,
   Menu,
+  Share2,
 } from "lucide-react";
 import "./style.css";
 import UtilityTools from "./UtilityTools";
@@ -1160,6 +1161,58 @@ function App() {
             <Heart />
             {L.support}
           </button>
+        </section>
+        <section className="shareBlock">
+          <div>
+            <Share2 />
+            <div>
+              <b>
+                {lang === "ja" ? "無料ツールをシェア" : "Share this free tool"}
+              </b>
+              <span>
+                {lang === "ja"
+                  ? "必要としている人に届けてください"
+                  : "Help someone who needs an ID photo"}
+              </span>
+            </div>
+          </div>
+          <div className="shareLinks">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(lang === "ja" ? "無料・登録不要・写真をアップロードしない証明写真ツール SHOMEI" : "Free, private ID photo tools—no upload, account, watermark or paid download.")}&url=${encodeURIComponent("https://sundata.tech/")}`}
+            >
+              X
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent("https://sundata.tech/")}`}
+            >
+              Facebook
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://sundata.tech/")}`}
+            >
+              LinkedIn
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={`https://www.reddit.com/submit?url=${encodeURIComponent("https://sundata.tech/")}&title=${encodeURIComponent("Free and private ID photo tools")}`}
+            >
+              Reddit
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={`https://social-plugins.line.me/lineit/share?url=${encodeURIComponent("https://sundata.tech/")}`}
+            >
+              LINE
+            </a>
+          </div>
         </section>
       </main>
       <section className="sizes" id="sizes">

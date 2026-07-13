@@ -27,6 +27,33 @@ https://sundata.tech/
 
 #buildinpublic #privacy #webtools
 
+## Facebook
+
+無料で使える証明写真ツール「SHOMEI」を公開しました。
+
+パスポート、ビザ、履歴書、各種IDの主要サイズに対応。背景変更、手動消しゴム、カメラ撮影、印刷用シート、画像圧縮、形式変換、DPI計算も利用できます。
+
+写真は端末内で処理され、サーバーにはアップロードされません。登録、透かし、有料ダウンロードもありません。
+
+https://sundata.tech/
+
+必要としている方へシェアしていただけると嬉しいです。
+
+## LinkedIn
+
+I’ve launched SHOMEI, a free and privacy-first collection of ID photo and image tools.
+
+It supports passport, visa, résumé and identity photo sizes worldwide, plus background replacement, manual cleanup, camera capture, printable sheets, compression, format conversion and DPI calculations. Processing stays in the browser—there are no accounts, watermarks or paid downloads.
+
+https://sundata.tech/
+
+Feedback and shares are welcome, particularly from people working with international students, travel, visa applications and public services.
+
+## LINE
+
+無料・登録不要の証明写真ツールです。写真はアップロードされず、スマホ内で処理されます。パスポート、履歴書、ビザ用写真やコンビニ印刷に使えます。
+https://sundata.tech/
+
 ## Reddit
 
 **Title:** I built a free passport/ID photo maker that processes everything locally

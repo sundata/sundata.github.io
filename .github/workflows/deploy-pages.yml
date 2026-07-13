@@ -40,3 +40,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Notify search engines with IndexNow
+        run: |
+          curl --fail-with-body -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json" \
+            --data '{"host":"sundata.tech","key":"57f45e60-67c1-42e7-8973-fe4dbe76c092","keyLocation":"https://sundata.tech/57f45e60-67c1-42e7-8973-fe4dbe76c092.txt","urlList":["https://sundata.tech/","https://sundata.tech/guides/japan-passport-photo.html","https://sundata.tech/guides/us-passport-photo.html","https://sundata.tech/guides/35x45-photo.html"]}'

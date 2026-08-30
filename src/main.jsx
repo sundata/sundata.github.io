@@ -327,6 +327,7 @@ const t = {
     nav2: "対応サイズ",
     nav3: "使い方",
     privacy: "プライバシー",
+    apps: "アプリ",
     donate: "応援する",
     eyebrow: "100% 無料・登録不要・写真は端末内で処理",
     title: "証明写真を、\n自分で正しく。",
@@ -375,6 +376,7 @@ const t = {
     nav2: "Photo sizes",
     nav3: "How it works",
     privacy: "Privacy",
+    apps: "Apps",
     donate: "Support us",
     eyebrow: "100% free · No account · Processed on your device",
     title: "ID photos,\ndone right by you.",
@@ -740,6 +742,7 @@ function App() {
           <a href="#maker">{L.nav1}</a>
           <a href="#sizes">{L.nav2}</a>
           <a href="#how">{L.nav3}</a>
+          <a href="./apps.html">{L.apps}</a>
           <a href="#privacy">{L.privacy}</a>
         </nav>
         <div className="actions">
@@ -1308,6 +1311,7 @@ function App() {
         </a>
         <p>© 2026 Shomei. Made with care in Japan.</p>
         <div>
+          <a href="./apps.html">{L.apps}</a>
           <a href="./privacy-policy.html">{L.privacy}</a>
           <a href="./terms.html">Terms</a>
         </div>

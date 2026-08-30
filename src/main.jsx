@@ -1344,13 +1344,13 @@ function App() {
                   : "Your support helps cover hosting, improve features, and keep high-quality downloads free for everyone."}
               </p>
             </div>
-            <a href="https://ko-fi.com/" target="_blank" rel="noreferrer">
+            <a href="https://ko-fi.com/sundata" target="_blank" rel="noreferrer">
               Ko-fi ·{" "}
               {lang === "ja" ? "無料ツールを応援" : "Support this free tool"}{" "}
               <ArrowRight />
             </a>
             <a
-              href="https://buymeacoffee.com/"
+              href="https://buymeacoffee.com/tokyosun"
               target="_blank"
               rel="noreferrer"
             >

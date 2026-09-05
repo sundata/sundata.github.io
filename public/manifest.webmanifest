@@ -1,1 +1,21 @@
-{"name":"SHOMEI Free ID Photo Tools","short_name":"SHOMEI","description":"Private, free ID photo editor and image utilities","start_url":"./","display":"standalone","background_color":"#f7f5ee","theme_color":"#1d4d43","lang":"ja","categories":["photo","utilities","productivity"]}
+{
+  "id": "/",
+  "name": "SunData Tools",
+  "short_name": "SunData",
+  "description": "Private, free image, PDF, QR and ID photo tools",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f5ee",
+  "theme_color": "#1d4d43",
+  "lang": "ja",
+  "categories": ["photo", "utilities", "productivity"],
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

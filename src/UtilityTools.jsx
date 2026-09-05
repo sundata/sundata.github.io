@@ -7,6 +7,8 @@ import {
   RefreshCw,
   Upload,
 } from "lucide-react";
+import { millimetresToPixels, safeImageDimension } from "./toolLogic";
+import ToolPulse from "./ToolPulse";
 
 const copy = {
   ja: {
@@ -63,13 +65,7 @@ export default function UtilityTools({ lang, onSuccess }) {
   const [mmW, setMmW] = useState(35);
   const [mmH, setMmH] = useState(45);
   const [dpi, setDpi] = useState(300);
-  const px = useMemo(
-    () => ({
-      w: Math.round((mmW / 25.4) * dpi),
-      h: Math.round((mmH / 25.4) * dpi),
-    }),
-    [mmW, mmH, dpi],
-  );
+  const px = useMemo(() => millimetresToPixels(mmW, mmH, dpi), [mmW, mmH, dpi]);
   const choose = (file) => {
     if (!file?.type.startsWith("image/")) return;
     const img = new Image();
@@ -88,8 +84,8 @@ export default function UtilityTools({ lang, onSuccess }) {
   const convert = () => {
     if (!image) return;
     const canvas = document.createElement("canvas");
-    canvas.width = Math.max(1, width);
-    canvas.height = Math.max(1, height);
+    canvas.width = safeImageDimension(width);
+    canvas.height = safeImageDimension(height);
     const context = canvas.getContext("2d");
     if (format === "image/jpeg") {
       context.fillStyle = "#fff";
@@ -132,7 +128,13 @@ export default function UtilityTools({ lang, onSuccess }) {
               <span>JPG · PNG · WebP</span>
             </div>
           </div>
-          <button className="utilityDrop" onClick={() => { input.current.value = ""; input.current.click(); }}>
+          <button
+            className="utilityDrop"
+            onClick={() => {
+              input.current.value = "";
+              input.current.click();
+            }}
+          >
             <Upload />
             <span>{image ? `${name} · ${size(originalBytes)}` : L.pick}</span>
           </button>
@@ -194,6 +196,7 @@ export default function UtilityTools({ lang, onSuccess }) {
             <Download />
             {L.save}
           </button>
+          <ToolPulse tool={L.compress} lang={lang} />
         </article>
         <article>
           <div className="utilityTitle">
@@ -234,7 +237,7 @@ export default function UtilityTools({ lang, onSuccess }) {
             <FileImage />
             <span>{L.pixels}</span>
             <strong>
-              {px.w} × {px.h} px
+              {px.width} × {px.height} px
             </strong>
             <small>
               {mmW} × {mmH} mm @ {dpi} DPI
@@ -251,6 +254,7 @@ export default function UtilityTools({ lang, onSuccess }) {
             <RefreshCw />
             {L.reset}
           </button>
+          <ToolPulse tool={L.calc} lang={lang} />
         </article>
       </div>
     </section>

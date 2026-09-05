@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="SunData Tools">
+  <rect width="512" height="512" rx="112" fill="#1d4d43"/>
+  <circle cx="256" cy="256" r="146" fill="none" stroke="#f7f5ee" stroke-width="36"/>
+  <circle cx="256" cy="256" r="48" fill="#f4a261"/>
+  <path d="M256 38v58M256 416v58M38 256h58M416 256h58" stroke="#f4a261" stroke-width="28" stroke-linecap="round"/>
+</svg>

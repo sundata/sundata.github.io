@@ -1,5 +1,16 @@
 import React, { useRef, useState } from "react";
-import { Download, FileArchive, FileImage, Files, Merge, Scissors, Upload, X } from "lucide-react";
+import {
+  Download,
+  FileArchive,
+  FileImage,
+  Files,
+  Merge,
+  Scissors,
+  Upload,
+  X,
+} from "lucide-react";
+import { parsePageOrder, parsePageSelection } from "./toolLogic";
+import ToolPulse from "./ToolPulse";
 
 const words = {
   ja: {
@@ -27,7 +38,8 @@ const words = {
     error: "処理できませんでした。別のファイルでお試しください。",
     invalidPdf: "100MB以下のPDFファイルを選択してください。",
     invalidImages: "画像を30枚まで選択してください。",
-    alreadySmall: "このPDFはすでに最適化されています。より強い圧縮レベルをお試しください。",
+    alreadySmall:
+      "このPDFはすでに最適化されています。より強い圧縮レベルをお試しください。",
     page: "ページ",
     drop: "またはここにドロップ",
     created: "作成後",
@@ -74,7 +86,8 @@ const words = {
     error: "We couldn't process that file. Please try another one.",
     invalidPdf: "Choose a PDF file up to 100 MB.",
     invalidImages: "Choose up to 30 image files.",
-    alreadySmall: "This PDF is already optimized. Try a stronger compression level.",
+    alreadySmall:
+      "This PDF is already optimized. Try a stronger compression level.",
     page: "Page",
     drop: "or drop it here",
     created: "Created",
@@ -91,7 +104,8 @@ const words = {
     invalidPages: "Enter page numbers that exist in the PDF.",
     pageCount: "pages",
     organize: "Organize PDF pages",
-    organizeSub: "Reorder pages or remove unwanted ones by entering the desired order.",
+    organizeSub:
+      "Reorder pages or remove unwanted ones by entering the desired order.",
     order: "New page order",
     orderHint: "Example: 3, 1, 2, 5-8",
     organizeRun: "Save organized PDF",
@@ -126,41 +140,6 @@ const loadPdfLib = () => {
     });
   }
   return pdfLibPromise;
-};
-
-const parsePageSelection = (value, pageCount) => {
-  const pages = new Set();
-  for (const part of value.split(",").map((item) => item.trim()).filter(Boolean)) {
-    if (/^\d+$/.test(part)) pages.add(Number(part));
-    else {
-      const match = part.match(/^(\d+)\s*-\s*(\d+)$/);
-      if (!match) return [];
-      const start = Number(match[1]);
-      const end = Number(match[2]);
-      if (start > end) return [];
-      for (let page = start; page <= end; page += 1) pages.add(page);
-    }
-  }
-  const selected = [...pages];
-  if (selected.some((page) => page < 1 || page > pageCount)) return [];
-  return selected.sort((a, b) => a - b);
-};
-
-const parsePageOrder = (value, pageCount) => {
-  const pages = [];
-  for (const part of value.split(",").map((item) => item.trim()).filter(Boolean)) {
-    if (/^\d+$/.test(part)) pages.push(Number(part));
-    else {
-      const match = part.match(/^(\d+)\s*-\s*(\d+)$/);
-      if (!match) return [];
-      const start = Number(match[1]);
-      const end = Number(match[2]);
-      const direction = start <= end ? 1 : -1;
-      for (let page = start; page !== end + direction; page += direction) pages.push(page);
-    }
-  }
-  if (!pages.length || pages.some((page) => page < 1 || page > pageCount) || new Set(pages).size !== pages.length) return [];
-  return pages;
 };
 
 const readableSize = (bytes) => {
@@ -232,7 +211,9 @@ export default function PdfTools({ lang, onSuccess }) {
   };
 
   const chooseImages = (files) => {
-    const selected = Array.from(files || []).filter((file) => file.type.startsWith("image/"));
+    const selected = Array.from(files || []).filter((file) =>
+      file.type.startsWith("image/"),
+    );
     setImageOutputSize(0);
     if (!selected.length || selected.length > 30) {
       setImages([]);
@@ -244,11 +225,21 @@ export default function PdfTools({ lang, onSuccess }) {
   };
 
   const chooseMergeFiles = (files) => {
-    const selected = Array.from(files || []).filter((file) => file.type === "application/pdf");
+    const selected = Array.from(files || []).filter(
+      (file) => file.type === "application/pdf",
+    );
     setMergeResult("");
-    if (selected.length < 2 || selected.length > 20 || selected.some((file) => file.size > 100 * 1048576)) {
+    if (
+      selected.length < 2 ||
+      selected.length > 20 ||
+      selected.some((file) => file.size > 100 * 1048576)
+    ) {
       setMergeFiles([]);
-      setError(lang === "ja" ? "100MB以下のPDFを2〜20個選択してください。" : "Choose 2–20 PDF files up to 100 MB each.");
+      setError(
+        lang === "ja"
+          ? "100MB以下のPDFを2〜20個選択してください。"
+          : "Choose 2–20 PDF files up to 100 MB each.",
+      );
       return;
     }
     setError("");
@@ -265,7 +256,9 @@ export default function PdfTools({ lang, onSuccess }) {
     }
     try {
       const { PDFDocument } = await loadPdfLib();
-      const source = await PDFDocument.load(await file.arrayBuffer(), { ignoreEncryption: false });
+      const source = await PDFDocument.load(await file.arrayBuffer(), {
+        ignoreEncryption: false,
+      });
       setSplitFile(file);
       setSplitPageCount(source.getPageCount());
       setSplitPages(`1-${source.getPageCount()}`);
@@ -287,7 +280,9 @@ export default function PdfTools({ lang, onSuccess }) {
     }
     try {
       const { PDFDocument } = await loadPdfLib();
-      const source = await PDFDocument.load(await file.arrayBuffer(), { ignoreEncryption: false });
+      const source = await PDFDocument.load(await file.arrayBuffer(), {
+        ignoreEncryption: false,
+      });
       const count = source.getPageCount();
       setOrganizeFile(file);
       setOrganizePageCount(count);
@@ -306,12 +301,16 @@ export default function PdfTools({ lang, onSuccess }) {
     setError("");
     setOutputSize(0);
     try {
-      const pdfModuleUrl = new URL("./vendor/pdf.mjs", window.location.href).href;
+      const pdfModuleUrl = new URL("./vendor/pdf.mjs", window.location.href)
+        .href;
       const [{ getDocument, GlobalWorkerOptions }, JsPDF] = await Promise.all([
         import(/* @vite-ignore */ pdfModuleUrl),
         loadJsPdf(),
       ]);
-      GlobalWorkerOptions.workerSrc = new URL("./vendor/pdf.worker.mjs", window.location.href).href;
+      GlobalWorkerOptions.workerSrc = new URL(
+        "./vendor/pdf.worker.mjs",
+        window.location.href,
+      ).href;
       const source = await pdf.arrayBuffer();
       const pdfDocument = await getDocument({ data: source }).promise;
       const settings = {
@@ -327,14 +326,30 @@ export default function PdfTools({ lang, onSuccess }) {
         const canvas = document.createElement("canvas");
         canvas.width = Math.ceil(viewport.width);
         canvas.height = Math.ceil(viewport.height);
-        await page.render({ canvasContext: canvas.getContext("2d"), viewport }).promise;
-        const orientation = viewport.width > viewport.height ? "landscape" : "portrait";
+        await page.render({ canvasContext: canvas.getContext("2d"), viewport })
+          .promise;
+        const orientation =
+          viewport.width > viewport.height ? "landscape" : "portrait";
         if (!result) {
-          result = new JsPDF({ orientation, unit: "pt", format: [viewport.width, viewport.height], compress: true });
+          result = new JsPDF({
+            orientation,
+            unit: "pt",
+            format: [viewport.width, viewport.height],
+            compress: true,
+          });
         } else {
           result.addPage([viewport.width, viewport.height], orientation);
         }
-        result.addImage(canvas.toDataURL("image/jpeg", settings.quality), "JPEG", 0, 0, viewport.width, viewport.height, undefined, "FAST");
+        result.addImage(
+          canvas.toDataURL("image/jpeg", settings.quality),
+          "JPEG",
+          0,
+          0,
+          viewport.width,
+          viewport.height,
+          undefined,
+          "FAST",
+        );
         canvas.width = 1;
         canvas.height = 1;
       }
@@ -365,7 +380,10 @@ export default function PdfTools({ lang, onSuccess }) {
       for (const file of images) {
         const image = await readImage(file);
         const maxSide = 1800;
-        const ratio = Math.min(1, maxSide / Math.max(image.naturalWidth, image.naturalHeight));
+        const ratio = Math.min(
+          1,
+          maxSide / Math.max(image.naturalWidth, image.naturalHeight),
+        );
         const width = Math.round(image.naturalWidth * ratio);
         const height = Math.round(image.naturalHeight * ratio);
         const canvas = document.createElement("canvas");
@@ -376,9 +394,24 @@ export default function PdfTools({ lang, onSuccess }) {
         context.fillRect(0, 0, width, height);
         context.drawImage(image, 0, 0, width, height);
         const orientation = width > height ? "landscape" : "portrait";
-        if (!result) result = new JsPDF({ orientation, unit: "px", format: [width, height], compress: true });
+        if (!result)
+          result = new JsPDF({
+            orientation,
+            unit: "px",
+            format: [width, height],
+            compress: true,
+          });
         else result.addPage([width, height], orientation);
-        result.addImage(canvas.toDataURL("image/jpeg", 0.86), "JPEG", 0, 0, width, height, undefined, "FAST");
+        result.addImage(
+          canvas.toDataURL("image/jpeg", 0.86),
+          "JPEG",
+          0,
+          0,
+          width,
+          height,
+          undefined,
+          "FAST",
+        );
       }
       downloadBlob(result.output("blob"), "images.pdf");
       setImageOutputSize(result.output("arraybuffer").byteLength);
@@ -402,14 +435,22 @@ export default function PdfTools({ lang, onSuccess }) {
       let totalPages = 0;
       for (let index = 0; index < mergeFiles.length; index += 1) {
         setProgress(`${index + 1} / ${mergeFiles.length}`);
-        const source = await PDFDocument.load(await mergeFiles[index].arrayBuffer(), { ignoreEncryption: false });
+        const source = await PDFDocument.load(
+          await mergeFiles[index].arrayBuffer(),
+          { ignoreEncryption: false },
+        );
         const copied = await output.copyPages(source, source.getPageIndices());
         copied.forEach((page) => output.addPage(page));
         totalPages += copied.length;
       }
       const bytes = await output.save({ useObjectStreams: true });
-      downloadBlob(new Blob([bytes], { type: "application/pdf" }), "merged.pdf");
-      setMergeResult(`${totalPages} ${L.pageCount} · ${readableSize(bytes.length)}`);
+      downloadBlob(
+        new Blob([bytes], { type: "application/pdf" }),
+        "merged.pdf",
+      );
+      setMergeResult(
+        `${totalPages} ${L.pageCount} · ${readableSize(bytes.length)}`,
+      );
       onSuccess?.();
     } catch (cause) {
       console.error(cause);
@@ -427,18 +468,28 @@ export default function PdfTools({ lang, onSuccess }) {
     setSplitResult("");
     try {
       const { PDFDocument } = await loadPdfLib();
-      const source = await PDFDocument.load(await splitFile.arrayBuffer(), { ignoreEncryption: false });
+      const source = await PDFDocument.load(await splitFile.arrayBuffer(), {
+        ignoreEncryption: false,
+      });
       const selected = parsePageSelection(splitPages, source.getPageCount());
       if (!selected.length) {
         setError(L.invalidPages);
         return;
       }
       const output = await PDFDocument.create();
-      const copied = await output.copyPages(source, selected.map((page) => page - 1));
+      const copied = await output.copyPages(
+        source,
+        selected.map((page) => page - 1),
+      );
       copied.forEach((page) => output.addPage(page));
       const bytes = await output.save({ useObjectStreams: true });
-      downloadBlob(new Blob([bytes], { type: "application/pdf" }), `${splitFile.name.replace(/\.pdf$/i, "")}-pages.pdf`);
-      setSplitResult(`${copied.length} ${L.pageCount} · ${readableSize(bytes.length)}`);
+      downloadBlob(
+        new Blob([bytes], { type: "application/pdf" }),
+        `${splitFile.name.replace(/\.pdf$/i, "")}-pages.pdf`,
+      );
+      setSplitResult(
+        `${copied.length} ${L.pageCount} · ${readableSize(bytes.length)}`,
+      );
       onSuccess?.();
     } catch (cause) {
       console.error(cause);
@@ -455,18 +506,28 @@ export default function PdfTools({ lang, onSuccess }) {
     setOrganizeResult("");
     try {
       const { PDFDocument } = await loadPdfLib();
-      const source = await PDFDocument.load(await organizeFile.arrayBuffer(), { ignoreEncryption: false });
+      const source = await PDFDocument.load(await organizeFile.arrayBuffer(), {
+        ignoreEncryption: false,
+      });
       const order = parsePageOrder(organizeOrder, source.getPageCount());
       if (!order.length) {
         setError(L.invalidPages);
         return;
       }
       const output = await PDFDocument.create();
-      const copied = await output.copyPages(source, order.map((page) => page - 1));
+      const copied = await output.copyPages(
+        source,
+        order.map((page) => page - 1),
+      );
       copied.forEach((page) => output.addPage(page));
       const bytes = await output.save({ useObjectStreams: true });
-      downloadBlob(new Blob([bytes], { type: "application/pdf" }), `${organizeFile.name.replace(/\.pdf$/i, "")}-organized.pdf`);
-      setOrganizeResult(`${copied.length} ${L.pageCount} · ${readableSize(bytes.length)}`);
+      downloadBlob(
+        new Blob([bytes], { type: "application/pdf" }),
+        `${organizeFile.name.replace(/\.pdf$/i, "")}-organized.pdf`,
+      );
+      setOrganizeResult(
+        `${copied.length} ${L.pageCount} · ${readableSize(bytes.length)}`,
+      );
       onSuccess?.();
     } catch (cause) {
       console.error(cause);
@@ -479,53 +540,327 @@ export default function PdfTools({ lang, onSuccess }) {
   return (
     <section className="pdfTools" id="pdf-tools">
       <div className="sectionHead">
-        <span>{L.eyebrow}</span><h2>{L.title}</h2><p>{L.sub}</p>
+        <span>{L.eyebrow}</span>
+        <h2>{L.title}</h2>
+        <p>{L.sub}</p>
       </div>
       <div className="pdfToolGrid">
         <article className="pdfToolCard">
-          <div className="utilityTitle"><FileArchive /><div><b>{L.compress}</b><span>{L.compressSub}</span></div></div>
-          <button className="utilityDrop" onClick={() => { pdfInput.current.value = ""; pdfInput.current.click(); }} onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); choosePdfFile(event.dataTransfer.files[0]); }}><Upload /><span>{pdf ? `${pdf.name} · ${readableSize(pdf.size)}` : `${L.choosePdf} · ${L.drop}`}</span></button>
-          <input ref={pdfInput} hidden type="file" accept="application/pdf" onChange={(event) => choosePdfFile(event.target.files[0])} />
-          <label className="pdfLevel">{L.quality}<select value={level} onChange={(event) => setLevel(event.target.value)}><option value="balanced">{L.balanced}</option><option value="smaller">{L.smaller}</option><option value="smallest">{L.smallest}</option></select></label>
-          <div className="sizeCompare"><span>{L.original}: <b>{readableSize(pdf?.size)}</b></span><span>{L.result}: <b>{readableSize(outputSize)}</b></span></div>
+          <div className="utilityTitle">
+            <FileArchive />
+            <div>
+              <b>{L.compress}</b>
+              <span>{L.compressSub}</span>
+            </div>
+          </div>
+          <button
+            className="utilityDrop"
+            onClick={() => {
+              pdfInput.current.value = "";
+              pdfInput.current.click();
+            }}
+            onDragOver={(event) => event.preventDefault()}
+            onDrop={(event) => {
+              event.preventDefault();
+              choosePdfFile(event.dataTransfer.files[0]);
+            }}
+          >
+            <Upload />
+            <span>
+              {pdf
+                ? `${pdf.name} · ${readableSize(pdf.size)}`
+                : `${L.choosePdf} · ${L.drop}`}
+            </span>
+          </button>
+          <input
+            ref={pdfInput}
+            hidden
+            type="file"
+            accept="application/pdf"
+            onChange={(event) => choosePdfFile(event.target.files[0])}
+          />
+          <label className="pdfLevel">
+            {L.quality}
+            <select
+              value={level}
+              onChange={(event) => setLevel(event.target.value)}
+            >
+              <option value="balanced">{L.balanced}</option>
+              <option value="smaller">{L.smaller}</option>
+              <option value="smallest">{L.smallest}</option>
+            </select>
+          </label>
+          <div className="sizeCompare">
+            <span>
+              {L.original}: <b>{readableSize(pdf?.size)}</b>
+            </span>
+            <span>
+              {L.result}: <b>{readableSize(outputSize)}</b>
+            </span>
+          </div>
           <p className="pdfNote">{L.note}</p>
-          {progress && <div className="toolProgress" aria-live="polite"><span style={{ width: `${(Number(progress.match(/\d+/)?.[0]) / Number(progress.match(/\/ (\d+)/)?.[1])) * 100}%` }} />{progress}</div>}
-          <button className="utilityAction" disabled={!pdf || busy} onClick={compressPdf}><Download />{busy === "compress" ? L.processing : L.run}</button>
+          {progress && (
+            <div className="toolProgress" aria-live="polite">
+              <span
+                style={{
+                  width: `${(Number(progress.match(/\d+/)?.[0]) / Number(progress.match(/\/ (\d+)/)?.[1])) * 100}%`,
+                }}
+              />
+              {progress}
+            </div>
+          )}
+          <button
+            className="utilityAction"
+            disabled={!pdf || busy}
+            onClick={compressPdf}
+          >
+            <Download />
+            {busy === "compress" ? L.processing : L.run}
+          </button>
+          <ToolPulse tool={L.compress} lang={lang} />
         </article>
         <article className="pdfToolCard">
-          <div className="utilityTitle"><Files /><div><b>{L.images}</b><span>{L.imagesSub}</span></div></div>
-          <button className="utilityDrop" onClick={() => { imageInput.current.value = ""; imageInput.current.click(); }} onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); chooseImages(event.dataTransfer.files); }}><FileImage /><span>{images.length ? `${images.length} ${L.selected}` : `${L.chooseImages} · ${L.drop}`}</span></button>
-          <input ref={imageInput} hidden type="file" accept="image/*" multiple onChange={(event) => chooseImages(event.target.files)} />
-          {images.length > 0 && <div className="imageFileList">{images.slice(0, 5).map((file) => <span key={`${file.name}-${file.lastModified}`}>{file.name}</span>)}{images.length > 5 && <span>+{images.length - 5}</span>}<button onClick={() => { setImages([]); imageInput.current.value = ""; }}><X />{L.clear}</button></div>}
-          {imageOutputSize > 0 && <div className="sizeCompare"><span>{L.created}: <b>{readableSize(imageOutputSize)}</b></span></div>}
-          <button className="utilityAction imagePdfAction" disabled={!images.length || busy} onClick={imagesToPdf}><Download />{busy === "images" ? L.processing : L.makePdf}</button>
+          <div className="utilityTitle">
+            <Files />
+            <div>
+              <b>{L.images}</b>
+              <span>{L.imagesSub}</span>
+            </div>
+          </div>
+          <button
+            className="utilityDrop"
+            onClick={() => {
+              imageInput.current.value = "";
+              imageInput.current.click();
+            }}
+            onDragOver={(event) => event.preventDefault()}
+            onDrop={(event) => {
+              event.preventDefault();
+              chooseImages(event.dataTransfer.files);
+            }}
+          >
+            <FileImage />
+            <span>
+              {images.length
+                ? `${images.length} ${L.selected}`
+                : `${L.chooseImages} · ${L.drop}`}
+            </span>
+          </button>
+          <input
+            ref={imageInput}
+            hidden
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={(event) => chooseImages(event.target.files)}
+          />
+          {images.length > 0 && (
+            <div className="imageFileList">
+              {images.slice(0, 5).map((file) => (
+                <span key={`${file.name}-${file.lastModified}`}>
+                  {file.name}
+                </span>
+              ))}
+              {images.length > 5 && <span>+{images.length - 5}</span>}
+              <button
+                onClick={() => {
+                  setImages([]);
+                  imageInput.current.value = "";
+                }}
+              >
+                <X />
+                {L.clear}
+              </button>
+            </div>
+          )}
+          {imageOutputSize > 0 && (
+            <div className="sizeCompare">
+              <span>
+                {L.created}: <b>{readableSize(imageOutputSize)}</b>
+              </span>
+            </div>
+          )}
+          <button
+            className="utilityAction imagePdfAction"
+            disabled={!images.length || busy}
+            onClick={imagesToPdf}
+          >
+            <Download />
+            {busy === "images" ? L.processing : L.makePdf}
+          </button>
+          <ToolPulse tool={L.images} lang={lang} />
         </article>
         <article className="pdfToolCard">
-          <div className="utilityTitle"><Merge /><div><b>{L.merge}</b><span>{L.mergeSub}</span></div></div>
-          <button className="utilityDrop" onClick={() => { mergeInput.current.value = ""; mergeInput.current.click(); }} onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); chooseMergeFiles(event.dataTransfer.files); }}><Files /><span>{mergeFiles.length ? `${mergeFiles.length} ${L.pdfSelected}` : `${L.choosePdfs} · ${L.drop}`}</span></button>
-          <input ref={mergeInput} hidden type="file" accept="application/pdf" multiple onChange={(event) => chooseMergeFiles(event.target.files)} />
-          {mergeFiles.length > 0 && <div className="imageFileList numberedFiles">{mergeFiles.map((file, index) => <span key={`${file.name}-${file.lastModified}`}>{index + 1}. {file.name}</span>)}</div>}
+          <div className="utilityTitle">
+            <Merge />
+            <div>
+              <b>{L.merge}</b>
+              <span>{L.mergeSub}</span>
+            </div>
+          </div>
+          <button
+            className="utilityDrop"
+            onClick={() => {
+              mergeInput.current.value = "";
+              mergeInput.current.click();
+            }}
+            onDragOver={(event) => event.preventDefault()}
+            onDrop={(event) => {
+              event.preventDefault();
+              chooseMergeFiles(event.dataTransfer.files);
+            }}
+          >
+            <Files />
+            <span>
+              {mergeFiles.length
+                ? `${mergeFiles.length} ${L.pdfSelected}`
+                : `${L.choosePdfs} · ${L.drop}`}
+            </span>
+          </button>
+          <input
+            ref={mergeInput}
+            hidden
+            type="file"
+            accept="application/pdf"
+            multiple
+            onChange={(event) => chooseMergeFiles(event.target.files)}
+          />
+          {mergeFiles.length > 0 && (
+            <div className="imageFileList numberedFiles">
+              {mergeFiles.map((file, index) => (
+                <span key={`${file.name}-${file.lastModified}`}>
+                  {index + 1}. {file.name}
+                </span>
+              ))}
+            </div>
+          )}
           {mergeResult && <div className="toolResult">{mergeResult}</div>}
-          <button className="utilityAction imagePdfAction" disabled={mergeFiles.length < 2 || busy} onClick={mergePdfs}><Download />{busy === "merge" ? L.processing : L.mergeRun}</button>
+          <button
+            className="utilityAction imagePdfAction"
+            disabled={mergeFiles.length < 2 || busy}
+            onClick={mergePdfs}
+          >
+            <Download />
+            {busy === "merge" ? L.processing : L.mergeRun}
+          </button>
+          <ToolPulse tool={L.merge} lang={lang} />
         </article>
         <article className="pdfToolCard">
-          <div className="utilityTitle"><Scissors /><div><b>{L.split}</b><span>{L.splitSub}</span></div></div>
-          <button className="utilityDrop" onClick={() => { splitInput.current.value = ""; splitInput.current.click(); }} onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); chooseSplitFile(event.dataTransfer.files[0]); }}><Upload /><span>{splitFile ? `${splitFile.name} · ${splitPageCount} ${L.pageCount}` : `${L.choosePdf} · ${L.drop}`}</span></button>
-          <input ref={splitInput} hidden type="file" accept="application/pdf" onChange={(event) => chooseSplitFile(event.target.files[0])} />
-          <label className="pdfLevel">{L.pages}<input type="text" value={splitPages} placeholder={L.pagesHint} disabled={!splitFile} onChange={(event) => setSplitPages(event.target.value)} /></label>
+          <div className="utilityTitle">
+            <Scissors />
+            <div>
+              <b>{L.split}</b>
+              <span>{L.splitSub}</span>
+            </div>
+          </div>
+          <button
+            className="utilityDrop"
+            onClick={() => {
+              splitInput.current.value = "";
+              splitInput.current.click();
+            }}
+            onDragOver={(event) => event.preventDefault()}
+            onDrop={(event) => {
+              event.preventDefault();
+              chooseSplitFile(event.dataTransfer.files[0]);
+            }}
+          >
+            <Upload />
+            <span>
+              {splitFile
+                ? `${splitFile.name} · ${splitPageCount} ${L.pageCount}`
+                : `${L.choosePdf} · ${L.drop}`}
+            </span>
+          </button>
+          <input
+            ref={splitInput}
+            hidden
+            type="file"
+            accept="application/pdf"
+            onChange={(event) => chooseSplitFile(event.target.files[0])}
+          />
+          <label className="pdfLevel">
+            {L.pages}
+            <input
+              type="text"
+              value={splitPages}
+              placeholder={L.pagesHint}
+              disabled={!splitFile}
+              onChange={(event) => setSplitPages(event.target.value)}
+            />
+          </label>
           {splitResult && <div className="toolResult">{splitResult}</div>}
-          <button className="utilityAction imagePdfAction" disabled={!splitFile || busy} onClick={extractPages}><Download />{busy === "split" ? L.processing : L.splitRun}</button>
+          <button
+            className="utilityAction imagePdfAction"
+            disabled={!splitFile || busy}
+            onClick={extractPages}
+          >
+            <Download />
+            {busy === "split" ? L.processing : L.splitRun}
+          </button>
+          <ToolPulse tool={L.split} lang={lang} />
         </article>
         <article className="pdfToolCard organizeCard">
-          <div className="utilityTitle"><Files /><div><b>{L.organize}</b><span>{L.organizeSub}</span></div></div>
-          <button className="utilityDrop" onClick={() => { organizeInput.current.value = ""; organizeInput.current.click(); }} onDragOver={(event) => event.preventDefault()} onDrop={(event) => { event.preventDefault(); chooseOrganizeFile(event.dataTransfer.files[0]); }}><Upload /><span>{organizeFile ? `${organizeFile.name} · ${organizePageCount} ${L.pageCount}` : `${L.choosePdf} · ${L.drop}`}</span></button>
-          <input ref={organizeInput} hidden type="file" accept="application/pdf" onChange={(event) => chooseOrganizeFile(event.target.files[0])} />
-          <label className="pdfLevel">{L.order}<input type="text" value={organizeOrder} placeholder={L.orderHint} disabled={!organizeFile} onChange={(event) => setOrganizeOrder(event.target.value)} /></label>
+          <div className="utilityTitle">
+            <Files />
+            <div>
+              <b>{L.organize}</b>
+              <span>{L.organizeSub}</span>
+            </div>
+          </div>
+          <button
+            className="utilityDrop"
+            onClick={() => {
+              organizeInput.current.value = "";
+              organizeInput.current.click();
+            }}
+            onDragOver={(event) => event.preventDefault()}
+            onDrop={(event) => {
+              event.preventDefault();
+              chooseOrganizeFile(event.dataTransfer.files[0]);
+            }}
+          >
+            <Upload />
+            <span>
+              {organizeFile
+                ? `${organizeFile.name} · ${organizePageCount} ${L.pageCount}`
+                : `${L.choosePdf} · ${L.drop}`}
+            </span>
+          </button>
+          <input
+            ref={organizeInput}
+            hidden
+            type="file"
+            accept="application/pdf"
+            onChange={(event) => chooseOrganizeFile(event.target.files[0])}
+          />
+          <label className="pdfLevel">
+            {L.order}
+            <input
+              type="text"
+              value={organizeOrder}
+              placeholder={L.orderHint}
+              disabled={!organizeFile}
+              onChange={(event) => setOrganizeOrder(event.target.value)}
+            />
+          </label>
           {organizeResult && <div className="toolResult">{organizeResult}</div>}
-          <button className="utilityAction imagePdfAction" disabled={!organizeFile || busy} onClick={organizePages}><Download />{busy === "organize" ? L.processing : L.organizeRun}</button>
+          <button
+            className="utilityAction imagePdfAction"
+            disabled={!organizeFile || busy}
+            onClick={organizePages}
+          >
+            <Download />
+            {busy === "organize" ? L.processing : L.organizeRun}
+          </button>
+          <ToolPulse tool={L.organize} lang={lang} />
         </article>
       </div>
-      {error && <p className="toolError" role="alert">{error}</p>}
+      {error && (
+        <p className="toolError" role="alert">
+          {error}
+        </p>
+      )}
     </section>
   );
 }

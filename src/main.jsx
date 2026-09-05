@@ -28,11 +28,19 @@ import {
   Scissors,
   QrCode,
   ListOrdered,
+  Code2,
+  Landmark,
+  ShieldAlert,
+  MessageSquareText,
 } from "lucide-react";
 import "./style.css";
 import UtilityTools from "./UtilityTools";
 import PdfTools from "./PdfTools";
 import QrTool from "./QrTool";
+import DailyTools from "./DailyTools";
+import Feedback from "./Feedback";
+import SourceSupport from "./SourceSupport";
+import ToolPulse from "./ToolPulse";
 
 const preset = (group, ja, en, w, h, face = "正面・無帽・均一な背景") => ({
   group,
@@ -462,6 +470,13 @@ function App() {
     stream = useRef();
   const L = t[lang],
     S = specs[spec];
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    document.title =
+      lang === "ja"
+        ? "SunData Tools — 無料の画像・PDF・証明写真ツール"
+        : "SunData Tools — Free image, PDF and ID photo tools";
+  }, [lang]);
   const load = (f) => {
     if (!f || !f.type.startsWith("image/")) return;
     const im = new Image();
@@ -750,6 +765,9 @@ function App() {
           <a href="#tool-hub">{lang === "ja" ? "ツール" : "Tools"}</a>
           <a href="#maker">{lang === "ja" ? "証明写真" : "ID photo"}</a>
           <a href="#pdf-tools">PDF</a>
+          <a href="#daily-tools">{lang === "ja" ? "IT・仕事" : "IT & Work"}</a>
+          <a href="#feedback">{lang === "ja" ? "提案" : "Feedback"}</a>
+          <a href="#source-support">{lang === "ja" ? "開発支援" : "Source"}</a>
           <a href="./apps.html">{L.apps}</a>
           <a href="#privacy">{L.privacy}</a>
         </nav>
@@ -777,19 +795,136 @@ function App() {
       <main>
         <section className="toolHub" id="tool-hub">
           <div className="toolHubIntro">
-            <div className="pill"><ShieldCheck size={15} />{lang === "ja" ? "無料・登録不要・ファイルは端末内で処理" : "Free · No account · Files stay on your device"}</div>
-            <h1>{lang === "ja" ? "毎日のファイル作業を、ひとつの場所で。" : "Everyday file tools, all in one place."}</h1>
-            <p>{lang === "ja" ? "画像、PDF、証明写真をブラウザだけで安全に編集。ファイルをサーバーへアップロードせず、すぐに使えます。" : "Edit images, PDFs and ID photos securely in your browser. Nothing is uploaded to a server."}</p>
+            <div className="pill">
+              <ShieldCheck size={15} />
+              {lang === "ja"
+                ? "無料・登録不要・ファイルは端末内で処理"
+                : "Free · No account · Files stay on your device"}
+            </div>
+            <h1>
+              {lang === "ja"
+                ? <>
+                    毎日の<wbr />ファイル作業を、<wbr />ひとつの場所で。
+                  </>
+                : "Everyday file tools, all in one place."}
+            </h1>
+            <p>
+              {lang === "ja"
+                ? "画像、PDF、証明写真をブラウザだけで安全に編集。ファイルをサーバーへアップロードせず、すぐに使えます。"
+                : "Edit images, PDFs and ID photos securely in your browser. Nothing is uploaded to a server."}
+            </p>
           </div>
           <div className="toolHubGrid">
-            <a className="hubCard featured" href="#maker"><Camera /><span>01</span><h2>{lang === "ja" ? "証明写真を作る" : "Create ID photo"}</h2><p>{lang === "ja" ? "パスポート、履歴書、ビザなど主要規格に対応" : "Passport, résumé and visa sizes"}</p><ArrowRight /></a>
-            <a className="hubCard" href="#tools"><ImageIcon /><span>02</span><h2>{lang === "ja" ? "画像を圧縮・変換" : "Compress & convert images"}</h2><p>JPG · PNG · WebP</p><ArrowRight /></a>
-            <a className="hubCard" href="#pdf-tools"><FileArchive /><span>03</span><h2>{lang === "ja" ? "PDFを圧縮" : "Compress PDF"}</h2><p>{lang === "ja" ? "容量を小さくして共有しやすく" : "Make PDFs easier to share"}</p><ArrowRight /></a>
-            <a className="hubCard" href="#pdf-tools"><Wrench /><span>04</span><h2>{lang === "ja" ? "画像をPDFに変換" : "Images to PDF"}</h2><p>{lang === "ja" ? "複数画像を1つのPDFに" : "Combine images into one PDF"}</p><ArrowRight /></a>
-            <a className="hubCard" href="#pdf-tools"><Merge /><span>05</span><h2>{lang === "ja" ? "PDFを結合" : "Merge PDFs"}</h2><p>{lang === "ja" ? "複数ファイルを選択順にまとめる" : "Combine files in your chosen order"}</p><ArrowRight /></a>
-            <a className="hubCard" href="#pdf-tools"><Scissors /><span>06</span><h2>{lang === "ja" ? "PDFページを抽出" : "Extract PDF pages"}</h2><p>{lang === "ja" ? "必要なページだけ新しいPDFに" : "Save only the pages you need"}</p><ArrowRight /></a>
-            <a className="hubCard" href="#pdf-tools"><ListOrdered /><span>07</span><h2>{lang === "ja" ? "PDFページを整理" : "Organize PDF pages"}</h2><p>{lang === "ja" ? "並べ替えと不要ページの削除" : "Reorder and remove unwanted pages"}</p><ArrowRight /></a>
-            <a className="hubCard" href="#qr-tool"><QrCode /><span>08</span><h2>{lang === "ja" ? "QRコードを作成" : "Create QR code"}</h2><p>{lang === "ja" ? "URLやテキストからPNGを作成" : "Create a PNG from a URL or text"}</p><ArrowRight /></a>
+            <a className="hubCard featured" href="#maker">
+              <Camera />
+              <span>01</span>
+              <h2>{lang === "ja" ? "証明写真を作る" : "Create ID photo"}</h2>
+              <p>
+                {lang === "ja"
+                  ? "パスポート、履歴書、ビザなど主要規格に対応"
+                  : "Passport, résumé and visa sizes"}
+              </p>
+              <ArrowRight />
+            </a>
+            <a className="hubCard" href="#tools">
+              <ImageIcon />
+              <span>02</span>
+              <h2>
+                {lang === "ja"
+                  ? "画像を圧縮・変換"
+                  : "Compress & convert images"}
+              </h2>
+              <p>JPG · PNG · WebP</p>
+              <ArrowRight />
+            </a>
+            <a className="hubCard" href="#pdf-tools">
+              <FileArchive />
+              <span>03</span>
+              <h2>{lang === "ja" ? "PDFを圧縮" : "Compress PDF"}</h2>
+              <p>
+                {lang === "ja"
+                  ? "容量を小さくして共有しやすく"
+                  : "Make PDFs easier to share"}
+              </p>
+              <ArrowRight />
+            </a>
+            <a className="hubCard" href="#pdf-tools">
+              <Wrench />
+              <span>04</span>
+              <h2>{lang === "ja" ? "画像をPDFに変換" : "Images to PDF"}</h2>
+              <p>
+                {lang === "ja"
+                  ? "複数画像を1つのPDFに"
+                  : "Combine images into one PDF"}
+              </p>
+              <ArrowRight />
+            </a>
+            <a className="hubCard" href="#pdf-tools">
+              <Merge />
+              <span>05</span>
+              <h2>{lang === "ja" ? "PDFを結合" : "Merge PDFs"}</h2>
+              <p>
+                {lang === "ja"
+                  ? "複数ファイルを選択順にまとめる"
+                  : "Combine files in your chosen order"}
+              </p>
+              <ArrowRight />
+            </a>
+            <a className="hubCard" href="#pdf-tools">
+              <Scissors />
+              <span>06</span>
+              <h2>{lang === "ja" ? "PDFページを抽出" : "Extract PDF pages"}</h2>
+              <p>
+                {lang === "ja"
+                  ? "必要なページだけ新しいPDFに"
+                  : "Save only the pages you need"}
+              </p>
+              <ArrowRight />
+            </a>
+            <a className="hubCard" href="#pdf-tools">
+              <ListOrdered />
+              <span>07</span>
+              <h2>
+                {lang === "ja" ? "PDFページを整理" : "Organize PDF pages"}
+              </h2>
+              <p>
+                {lang === "ja"
+                  ? "並べ替えと不要ページの削除"
+                  : "Reorder and remove unwanted pages"}
+              </p>
+              <ArrowRight />
+            </a>
+            <a className="hubCard" href="#qr-tool">
+              <QrCode />
+              <span>08</span>
+              <h2>{lang === "ja" ? "QRコードを作成" : "Create QR code"}</h2>
+              <p>
+                {lang === "ja"
+                  ? "URLやテキストからPNGを作成"
+                  : "Create a PNG from a URL or text"}
+              </p>
+              <ArrowRight />
+            </a>
+            <a className="hubCard hubCardNew" href="#daily-tools">
+              <Code2 /><span>09</span>
+              <h2>{lang === "ja" ? "ITデータツール" : "Developer tools"}</h2>
+              <p>{lang === "ja" ? "JSON・Base64・UUID・時刻変換" : "JSON, Base64, UUID and timestamps"}</p><ArrowRight />
+            </a>
+            <a className="hubCard hubCardBusiness" href="#number-check">
+              <Landmark /><span>10</span>
+              <h2>{lang === "ja" ? "事業者番号を確認" : "Check business numbers"}</h2>
+              <p>{lang === "ja" ? "法人番号・インボイス番号の形式確認" : "Corporate and invoice number formats"}</p><ArrowRight />
+            </a>
+            <a className="hubCard hubCardRisk" href="#tax-check">
+              <ShieldAlert /><span>11</span>
+              <h2>{lang === "ja" ? "税務リスク簡易チェック" : "Tax-risk self-check"}</h2>
+              <p>{lang === "ja" ? "帳簿・証憑・期限の注意点を整理" : "Review books, evidence and deadlines"}</p><ArrowRight />
+            </a>
+            <a className="hubCard hubCardFeedback" href="#feedback">
+              <MessageSquareText /><span>12</span>
+              <h2>{lang === "ja" ? "ツールを提案" : "Suggest a tool"}</h2>
+              <p>{lang === "ja" ? "欲しい機能や使いにくい点を送る" : "Request features or report friction"}</p><ArrowRight />
+            </a>
           </div>
         </section>
         <section className="hero">
@@ -1155,10 +1290,14 @@ function App() {
             <Info />
             {L.note}
           </p>
+          <ToolPulse tool={lang === "ja" ? "証明写真メーカー" : "ID photo maker"} lang={lang} />
         </section>
         <UtilityTools lang={lang} onSuccess={() => setDonate(true)} />
         <PdfTools lang={lang} onSuccess={() => setDonate(true)} />
         <QrTool lang={lang} />
+        <DailyTools lang={lang} />
+        <Feedback lang={lang} />
+        <SourceSupport lang={lang} />
         <section className="why" id="how">
           <div className="sectionHead">
             <span>OUR PROMISE</span>
@@ -1377,7 +1516,11 @@ function App() {
                   : "Your support helps cover hosting, improve features, and keep high-quality downloads free for everyone."}
               </p>
             </div>
-            <a href="https://ko-fi.com/sundata" target="_blank" rel="noreferrer">
+            <a
+              href="https://ko-fi.com/sundata"
+              target="_blank"
+              rel="noreferrer"
+            >
               Ko-fi ·{" "}
               {lang === "ja" ? "無料ツールを応援" : "Support this free tool"}{" "}
               <ArrowRight />

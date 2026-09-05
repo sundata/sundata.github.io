@@ -1,1 +1,21 @@
-{"type":"module","scripts":{"dev":"vite --host 0.0.0.0","build":"vite build"},"dependencies":{"@imgly/background-removal":"^1.7.0","@vitejs/plugin-react":"latest","lucide-react":"latest","react":"latest","react-dom":"latest","vite":"latest"},"devDependencies":{"prettier":"^3.9.5"}}
+{
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "test": "vitest run",
+    "check": "pnpm test && pnpm build"
+  },
+  "dependencies": {
+    "@imgly/background-removal": "^1.7.0",
+    "@vitejs/plugin-react": "latest",
+    "lucide-react": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.5",
+    "vitest": "^5.0.0"
+  }
+}

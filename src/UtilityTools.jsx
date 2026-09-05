@@ -73,14 +73,17 @@ export default function UtilityTools({ lang, onSuccess }) {
   const choose = (file) => {
     if (!file?.type.startsWith("image/")) return;
     const img = new Image();
+    const objectUrl = URL.createObjectURL(file);
     img.onload = () => {
       setImage(img);
       setWidth(img.width);
       setHeight(img.height);
       setOriginalBytes(file.size);
       setName(file.name.replace(/\.[^.]+$/, ""));
+      URL.revokeObjectURL(objectUrl);
     };
-    img.src = URL.createObjectURL(file);
+    img.onerror = () => URL.revokeObjectURL(objectUrl);
+    img.src = objectUrl;
   };
   const convert = () => {
     if (!image) return;
@@ -129,7 +132,7 @@ export default function UtilityTools({ lang, onSuccess }) {
               <span>JPG · PNG · WebP</span>
             </div>
           </div>
-          <button className="utilityDrop" onClick={() => input.current.click()}>
+          <button className="utilityDrop" onClick={() => { input.current.value = ""; input.current.click(); }}>
             <Upload />
             <span>{image ? `${name} · ${size(originalBytes)}` : L.pick}</span>
           </button>

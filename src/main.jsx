@@ -22,9 +22,17 @@ import {
   X,
   Menu,
   Share2,
+  Wrench,
+  FileArchive,
+  Merge,
+  Scissors,
+  QrCode,
+  ListOrdered,
 } from "lucide-react";
 import "./style.css";
 import UtilityTools from "./UtilityTools";
+import PdfTools from "./PdfTools";
+import QrTool from "./QrTool";
 
 const preset = (group, ja, en, w, h, face = "正面・無帽・均一な背景") => ({
   group,
@@ -360,14 +368,14 @@ const t = {
     freeSub:
       "もし役に立ったら、コーヒー一杯分の応援でこのサイトを支えてください。",
     support: "開発を応援する",
-    why: "なぜ、このツール？",
-    whySub: "証明写真づくりで、本当に必要なものだけ。",
+    why: "なぜ、SunData Tools？",
+    whySub: "日常のファイル作業に、本当に必要なものだけ。",
     c1: "端末内で完結",
-    c1s: "写真はブラウザ内だけで処理。サーバーに保存も送信もしません。",
+    c1s: "画像やPDFはブラウザ内だけで処理。サーバーに保存も送信もしません。",
     c2: "隠れた料金なし",
-    c2s: "編集も高画質ダウンロードも印刷用シートも、すべて無料です。",
-    c3: "日英・主要規格",
-    c3s: "日本の各種証明写真と海外パスポート・ビザの代表規格に対応。",
+    c2s: "ファイル編集も変換もダウンロードも、すべて無料です。",
+    c3: "迷わない操作",
+    c3s: "スマホでも使いやすく、必要な設定だけをわかりやすく表示します。",
     note: "最終的な受理を保証するものではありません。申請先の最新要件も確認してください。",
     close: "閉じる",
   },
@@ -409,14 +417,14 @@ const t = {
     freeSub:
       "If this saved you time, a small tip helps keep the site online and independent.",
     support: "Support development",
-    why: "Why this tool?",
-    whySub: "Only what you actually need to make an ID photo.",
+    why: "Why SunData Tools?",
+    whySub: "Only what you need for everyday file tasks.",
     c1: "Private by design",
-    c1s: "Your photo is processed in your browser—never uploaded or stored.",
+    c1s: "Images and PDFs are processed in your browser—never uploaded or stored.",
     c2: "No hidden fees",
-    c2s: "Editing, high-resolution downloads and printable sheets are all free.",
-    c3: "Japanese & global sizes",
-    c3s: "Popular Japanese IDs plus major international passport and visa formats.",
+    c2s: "File editing, conversion and downloads are all free.",
+    c3: "Simple by design",
+    c3s: "Clear controls with only the settings you need, on desktop or mobile.",
     note: "This tool cannot guarantee acceptance. Always confirm the latest rules with the issuing authority.",
     close: "Close",
   },
@@ -736,12 +744,12 @@ function App() {
     <>
       <header>
         <a className="logo" href="#">
-          <span>◉</span> SHOMEI <small>証明写真</small>
+          <span>◉</span> SUNDATA <small>TOOLS</small>
         </a>
         <nav className={menu ? "open" : ""} onClick={() => setMenu(false)}>
-          <a href="#maker">{L.nav1}</a>
-          <a href="#sizes">{L.nav2}</a>
-          <a href="#how">{L.nav3}</a>
+          <a href="#tool-hub">{lang === "ja" ? "ツール" : "Tools"}</a>
+          <a href="#maker">{lang === "ja" ? "証明写真" : "ID photo"}</a>
+          <a href="#pdf-tools">PDF</a>
           <a href="./apps.html">{L.apps}</a>
           <a href="#privacy">{L.privacy}</a>
         </nav>
@@ -767,6 +775,23 @@ function App() {
         </div>
       </header>
       <main>
+        <section className="toolHub" id="tool-hub">
+          <div className="toolHubIntro">
+            <div className="pill"><ShieldCheck size={15} />{lang === "ja" ? "無料・登録不要・ファイルは端末内で処理" : "Free · No account · Files stay on your device"}</div>
+            <h1>{lang === "ja" ? "毎日のファイル作業を、ひとつの場所で。" : "Everyday file tools, all in one place."}</h1>
+            <p>{lang === "ja" ? "画像、PDF、証明写真をブラウザだけで安全に編集。ファイルをサーバーへアップロードせず、すぐに使えます。" : "Edit images, PDFs and ID photos securely in your browser. Nothing is uploaded to a server."}</p>
+          </div>
+          <div className="toolHubGrid">
+            <a className="hubCard featured" href="#maker"><Camera /><span>01</span><h2>{lang === "ja" ? "証明写真を作る" : "Create ID photo"}</h2><p>{lang === "ja" ? "パスポート、履歴書、ビザなど主要規格に対応" : "Passport, résumé and visa sizes"}</p><ArrowRight /></a>
+            <a className="hubCard" href="#tools"><ImageIcon /><span>02</span><h2>{lang === "ja" ? "画像を圧縮・変換" : "Compress & convert images"}</h2><p>JPG · PNG · WebP</p><ArrowRight /></a>
+            <a className="hubCard" href="#pdf-tools"><FileArchive /><span>03</span><h2>{lang === "ja" ? "PDFを圧縮" : "Compress PDF"}</h2><p>{lang === "ja" ? "容量を小さくして共有しやすく" : "Make PDFs easier to share"}</p><ArrowRight /></a>
+            <a className="hubCard" href="#pdf-tools"><Wrench /><span>04</span><h2>{lang === "ja" ? "画像をPDFに変換" : "Images to PDF"}</h2><p>{lang === "ja" ? "複数画像を1つのPDFに" : "Combine images into one PDF"}</p><ArrowRight /></a>
+            <a className="hubCard" href="#pdf-tools"><Merge /><span>05</span><h2>{lang === "ja" ? "PDFを結合" : "Merge PDFs"}</h2><p>{lang === "ja" ? "複数ファイルを選択順にまとめる" : "Combine files in your chosen order"}</p><ArrowRight /></a>
+            <a className="hubCard" href="#pdf-tools"><Scissors /><span>06</span><h2>{lang === "ja" ? "PDFページを抽出" : "Extract PDF pages"}</h2><p>{lang === "ja" ? "必要なページだけ新しいPDFに" : "Save only the pages you need"}</p><ArrowRight /></a>
+            <a className="hubCard" href="#pdf-tools"><ListOrdered /><span>07</span><h2>{lang === "ja" ? "PDFページを整理" : "Organize PDF pages"}</h2><p>{lang === "ja" ? "並べ替えと不要ページの削除" : "Reorder and remove unwanted pages"}</p><ArrowRight /></a>
+            <a className="hubCard" href="#qr-tool"><QrCode /><span>08</span><h2>{lang === "ja" ? "QRコードを作成" : "Create QR code"}</h2><p>{lang === "ja" ? "URLやテキストからPNGを作成" : "Create a PNG from a URL or text"}</p><ArrowRight /></a>
+          </div>
+        </section>
         <section className="hero">
           <div className="heroCopy">
             <div className="pill">
@@ -1132,6 +1157,8 @@ function App() {
           </p>
         </section>
         <UtilityTools lang={lang} onSuccess={() => setDonate(true)} />
+        <PdfTools lang={lang} onSuccess={() => setDonate(true)} />
+        <QrTool lang={lang} />
         <section className="why" id="how">
           <div className="sectionHead">
             <span>OUR PROMISE</span>
@@ -1175,7 +1202,7 @@ function App() {
               <span>
                 {lang === "ja"
                   ? "必要としている人に届けてください"
-                  : "Help someone who needs an ID photo"}
+                  : "Help someone who needs a simple file tool"}
               </span>
             </div>
           </div>
@@ -1183,7 +1210,7 @@ function App() {
             <a
               target="_blank"
               rel="noreferrer"
-              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(lang === "ja" ? "無料・登録不要・写真をアップロードしない証明写真ツール SHOMEI" : "Free, private ID photo tools—no upload, account, watermark or paid download.")}&url=${encodeURIComponent("https://sundata.tech/")}`}
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(lang === "ja" ? "無料・登録不要・ファイルをアップロードしない画像・PDF・証明写真ツール SunData Tools" : "Free, private image, PDF and ID photo tools—no uploads or accounts.")}&url=${encodeURIComponent("https://sundata.tech/")}`}
             >
               X
             </a>
@@ -1204,7 +1231,7 @@ function App() {
             <a
               target="_blank"
               rel="noreferrer"
-              href={`https://www.reddit.com/submit?url=${encodeURIComponent("https://sundata.tech/")}&title=${encodeURIComponent("Free and private ID photo tools")}`}
+              href={`https://www.reddit.com/submit?url=${encodeURIComponent("https://sundata.tech/")}&title=${encodeURIComponent("Free and private image, PDF and ID photo tools")}`}
             >
               Reddit
             </a>
@@ -1256,13 +1283,13 @@ function App() {
           <span>PRIVACY FIRST</span>
           <h2>
             {lang === "ja"
-              ? "写真は、あなたの端末から出ません。"
-              : "Your photo never leaves your device."}
+              ? "ファイルは、あなたの端末から出ません。"
+              : "Your files never leave your device."}
           </h2>
           <p>
             {lang === "ja"
-              ? "画像処理はブラウザ内で完結します。アップロード、アカウント、写真の保存、追跡用画像解析は行いません。ページを閉じると編集内容は消去されます。"
-              : "All processing happens inside your browser. We do not upload, store, analyze, or attach your photo to an account. Your edit disappears when you close the page."}
+              ? "画像とPDFの処理はブラウザ内で完結します。アップロード、アカウント、ファイルの保存、追跡用解析は行いません。ページを閉じると編集内容は消去されます。"
+              : "Image and PDF processing happens inside your browser. We do not upload, store, analyze, or attach your files to an account. Your edits disappear when you close the page."}
           </p>
         </div>
       </section>
@@ -1274,8 +1301,8 @@ function App() {
           </h2>
           <p>
             {lang === "ja"
-              ? "SHOMEIは、証明写真や日常の画像作業を、登録・透かし・有料ダウンロードなしで完了できるツール群です。写真はブラウザ内で処理され、サーバーには送信されません。"
-              : "SHOMEI is a collection of tools for ID photos and everyday image tasks—without accounts, watermarks or paid downloads. Photos are processed in your browser and never sent to our server."}
+              ? "SunData Toolsは、証明写真、画像、PDFの日常作業を、登録・透かし・有料ダウンロードなしで完了できるツール群です。ファイルはブラウザ内で処理され、サーバーには送信されません。"
+              : "SunData Tools is a collection of tools for ID photos, images and PDFs—without accounts, watermarks or paid downloads. Files are processed in your browser and never sent to our server."}
           </p>
           <a href="mailto:work.sundata@gmail.com">
             work.sundata@gmail.com <ArrowRight />
@@ -1284,6 +1311,12 @@ function App() {
         <div className="changeLog">
           <b>{lang === "ja" ? "更新履歴" : "What’s new"}</b>
           <ul>
+            <li>
+              <time>2026.09</time>
+              {lang === "ja"
+                ? "PDF圧縮・結合・ページ整理、QRコード作成、ツールホーム"
+                : "PDF compression, merge, page organization, QR creation and tool home"}
+            </li>
             <li>
               <time>2026.07</time>
               {lang === "ja"
@@ -1307,9 +1340,9 @@ function App() {
       </section>
       <footer>
         <a className="logo" href="#">
-          <span>◉</span> SHOMEI
+          <span>◉</span> SUNDATA TOOLS
         </a>
-        <p>© 2026 Shomei. Made with care in Japan.</p>
+        <p>© 2026 SunData Tools. Made with care in Japan.</p>
         <div>
           <a href="./apps.html">{L.apps}</a>
           <a href="./privacy-policy.html">{L.privacy}</a>
@@ -1417,7 +1450,10 @@ function App() {
     </>
   );
 }
-createRoot(document.getElementById("root")).render(<App />);
+const rootElement = document.getElementById("root");
+const appRoot = window.__SUN_DATA_TOOLS_ROOT__ ?? createRoot(rootElement);
+window.__SUN_DATA_TOOLS_ROOT__ = appRoot;
+appRoot.render(<App />);
 if ("serviceWorker" in navigator && import.meta.env.PROD) {
   window.addEventListener("load", () =>
     navigator.serviceWorker.register("./sw.js"),

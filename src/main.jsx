@@ -803,9 +803,7 @@ function App() {
             </div>
             <h1>
               {lang === "ja"
-                ? <>
-                    毎日の<wbr />ファイル作業を、<wbr />ひとつの場所で。
-                  </>
+                ? "毎日のファイル作業を、ひとつの場所で。"
                 : "Everyday file tools, all in one place."}
             </h1>
             <p>

@@ -592,7 +592,7 @@ footer a {
   width: max-content;
   max-width: 100%;
   margin: 20px 0 18px;
-  font-size: clamp(44px, 5.25vw, 72px);
+  font-size: clamp(42px, 4.4vw, 72px);
   line-height: 1.08;
   letter-spacing: -0.045em;
   white-space: nowrap;
@@ -600,12 +600,13 @@ footer a {
   line-break: strict;
 }
 .toolHubIntro > p {
-  max-width: 920px;
+  width: max-content;
+  max-width: 100%;
   margin: 0;
   color: #c8dcd6;
   font-size: 17px;
   line-height: 1.85;
-  text-wrap: pretty;
+  white-space: nowrap;
   line-break: strict;
 }
 .toolHubGrid {
@@ -2043,6 +2044,11 @@ footer div {
     white-space: normal;
     text-wrap: balance;
     word-break: keep-all;
+  }
+  .toolHubIntro > p {
+    width: auto;
+    white-space: normal;
+    text-wrap: pretty;
   }
   .pdfToolGrid {
     grid-template-columns: 1fr;

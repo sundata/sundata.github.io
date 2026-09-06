@@ -636,6 +636,33 @@ footer a {
   max-width: 1320px;
   margin: 0 auto 40px;
 }
+.toolFilters {
+  max-width: 1320px;
+  margin: 0 auto 20px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.toolFilters::-webkit-scrollbar { display: none; }
+.toolFilters button {
+  min-height: 38px;
+  padding: 0 15px;
+  border: 1px solid #ffffff30;
+  border-radius: 999px;
+  color: #c8dcd6;
+  background: #ffffff09;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.toolFilters button:hover,
+.toolFilters button.active {
+  color: #173e36;
+  background: #d9eee5;
+  border-color: #d9eee5;
+}
+.hubCard.filteredOut { display: none; }
 .toolHub .pill {
   width: fit-content;
   color: #d9eee5;
@@ -729,6 +756,33 @@ footer a {
   width: 18px;
   margin-top: auto;
 }
+.nearbySizes {
+  max-width: 1240px;
+  margin: 18px auto 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #f8faf8;
+  overflow: hidden;
+}
+.nearbySizes summary {
+  min-height: 72px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  cursor: pointer;
+  list-style: none;
+}
+.nearbySizes summary::-webkit-details-marker { display: none; }
+.nearbySizes summary span { display: grid; gap: 4px; }
+.nearbySizes summary b { font-size: 15px; }
+.nearbySizes summary small { color: #71807b; font-size: 12px; }
+.nearbySizes summary > svg { width: 20px; transition: transform .18s ease; }
+.nearbySizes[open] summary > svg { transform: rotate(180deg); }
+.nearbySizes > p { margin: 0; padding: 0 20px 16px; color: #63736d; font-size: 13px; }
+.nearbySizes .sizeGrid { padding: 0 20px 20px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.nearbySizes .sizeGrid button { padding: 13px 14px; background: #fff; }
 .sectionHead {
   text-align: center;
   margin-bottom: 38px;
@@ -2124,6 +2178,7 @@ footer div {
   .toolHubGrid {
     grid-template-columns: 1fr 1fr;
   }
+  .nearbySizes .sizeGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .toolHubIntro h1 {
     width: auto;
     white-space: normal;
@@ -2168,6 +2223,8 @@ footer div {
   .toolHub {
     padding: 60px 15px;
   }
+  .nearbySizes .sizeGrid { grid-template-columns: 1fr; padding: 0 12px 14px; }
+  .nearbySizes summary { padding: 12px 15px; }
   .toolHubIntro h1 {
     font-size: clamp(36px, 10.8vw, 44px);
   }

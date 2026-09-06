@@ -489,6 +489,11 @@ const t = {
 
 function App() {
   const [lang, setLang] = useState(() => {
+      const requested = new URLSearchParams(window.location.search).get("lang");
+      if (["ja", "zh", "en"].includes(requested)) {
+        localStorage.setItem("sundata-language", requested);
+        return requested;
+      }
       const saved = localStorage.getItem("sundata-language");
       if (["ja", "zh", "en"].includes(saved)) return saved;
       const browserLanguages = navigator.languages?.length
@@ -521,7 +526,8 @@ function App() {
     [modelReady, setModelReady] = useState(false),
     [eraseMode, setEraseMode] = useState(false),
     [brushSize, setBrushSize] = useState(36),
-    [cutoutVersion, setCutoutVersion] = useState(0);
+    [cutoutVersion, setCutoutVersion] = useState(0),
+    [toolCategory, setToolCategory] = useState("all");
   const canvas = useRef(),
     file = useRef(),
     pointer = useRef(),
@@ -883,8 +889,19 @@ function App() {
                 : "Edit images, PDFs and ID photos securely in your browser. Nothing is uploaded to a server."}
             </p>
           </div>
+          <div className="toolFilters" role="group" aria-label={lang === "ja" ? "ツールカテゴリー" : lang === "zh" ? "工具分类" : "Tool categories"}>
+            {[
+              ["all", lang === "ja" ? "すべて" : lang === "zh" ? "全部" : "All"],
+              ["image", lang === "ja" ? "画像・写真" : lang === "zh" ? "图片与照片" : "Images"],
+              ["pdf", "PDF"],
+              ["digital", lang === "ja" ? "IT・便利" : lang === "zh" ? "IT 与实用" : "Digital"],
+              ["business", lang === "ja" ? "ビジネス" : lang === "zh" ? "商务" : "Business"],
+            ].map(([value, label]) => (
+              <button key={value} className={toolCategory === value ? "active" : ""} aria-pressed={toolCategory === value} onClick={() => setToolCategory(value)}>{label}</button>
+            ))}
+          </div>
           <div className="toolHubGrid">
-            <a className="hubCard" href="#maker">
+            <a className={`hubCard ${toolCategory !== "all" && toolCategory !== "image" ? "filteredOut" : ""}`} href="#maker">
               <Camera />
               <span>01</span>
               <h2>{lang === "ja" ? "証明写真を作る" : "Create ID photo"}</h2>
@@ -895,7 +912,7 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className="hubCard" href="#tools">
+            <a className={`hubCard ${toolCategory !== "all" && toolCategory !== "image" ? "filteredOut" : ""}`} href="#tools">
               <ImageIcon />
               <span>02</span>
               <h2>
@@ -906,7 +923,7 @@ function App() {
               <p>JPG · PNG · WebP</p>
               <ArrowRight />
             </a>
-            <a className="hubCard" href="#pdf-tools">
+            <a className={`hubCard ${toolCategory !== "all" && toolCategory !== "pdf" ? "filteredOut" : ""}`} href="#pdf-tools">
               <FileArchive />
               <span>03</span>
               <h2>{lang === "ja" ? "PDFを圧縮" : "Compress PDF"}</h2>
@@ -917,7 +934,7 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className="hubCard" href="#pdf-tools">
+            <a className={`hubCard ${toolCategory !== "all" && toolCategory !== "pdf" ? "filteredOut" : ""}`} href="#pdf-tools">
               <Wrench />
               <span>04</span>
               <h2>{lang === "ja" ? "画像をPDFに変換" : "Images to PDF"}</h2>
@@ -928,7 +945,7 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className="hubCard" href="#pdf-tools">
+            <a className={`hubCard ${toolCategory !== "all" && toolCategory !== "pdf" ? "filteredOut" : ""}`} href="#pdf-tools">
               <Merge />
               <span>05</span>
               <h2>{lang === "ja" ? "PDFを結合" : "Merge PDFs"}</h2>
@@ -939,7 +956,7 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className="hubCard" href="#pdf-tools">
+            <a className={`hubCard ${toolCategory !== "all" && toolCategory !== "pdf" ? "filteredOut" : ""}`} href="#pdf-tools">
               <Scissors />
               <span>06</span>
               <h2>{lang === "ja" ? "PDFページを抽出" : "Extract PDF pages"}</h2>
@@ -950,7 +967,7 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className="hubCard" href="#pdf-tools">
+            <a className={`hubCard ${toolCategory !== "all" && toolCategory !== "pdf" ? "filteredOut" : ""}`} href="#pdf-tools">
               <ListOrdered />
               <span>07</span>
               <h2>
@@ -963,7 +980,7 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className="hubCard" href="#qr-tool">
+            <a className={`hubCard ${toolCategory !== "all" && toolCategory !== "digital" ? "filteredOut" : ""}`} href="#qr-tool">
               <QrCode />
               <span>08</span>
               <h2>{lang === "ja" ? "QRコードを作成" : "Create QR code"}</h2>
@@ -974,7 +991,7 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className="hubCard hubCardNew" href="#daily-tools">
+            <a className={`hubCard hubCardNew ${toolCategory !== "all" && toolCategory !== "digital" ? "filteredOut" : ""}`} href="#daily-tools">
               <Code2 />
               <span>09</span>
               <h2>{lang === "ja" ? "ITデータツール" : "Developer tools"}</h2>
@@ -985,7 +1002,7 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className="hubCard hubCardBusiness" href="#number-check">
+            <a className={`hubCard hubCardBusiness ${toolCategory !== "all" && toolCategory !== "business" ? "filteredOut" : ""}`} href="#number-check">
               <Landmark />
               <span>10</span>
               <h2>
@@ -998,7 +1015,7 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className="hubCard hubCardRisk" href="#tax-check">
+            <a className={`hubCard hubCardRisk ${toolCategory !== "all" && toolCategory !== "business" ? "filteredOut" : ""}`} href="#tax-check">
               <ShieldAlert />
               <span>11</span>
               <h2>
@@ -1013,7 +1030,7 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className="hubCard hubCardFeedback" href="#feedback">
+            <a className={`hubCard hubCardFeedback ${toolCategory !== "all" && toolCategory !== "digital" ? "filteredOut" : ""}`} href="#feedback">
               <MessageSquareText />
               <span>12</span>
               <h2>{lang === "ja" ? "ツールを提案" : "Suggest a tool"}</h2>
@@ -1394,6 +1411,23 @@ function App() {
             tool={lang === "ja" ? "証明写真メーカー" : "ID photo maker"}
             lang={lang}
           />
+          <details className="nearbySizes" id="sizes">
+            <summary>
+              <span>
+                <b>{lang === "ja" ? "対応している写真サイズ" : lang === "zh" ? "支持的证件照尺寸" : "Supported photo sizes"}</b>
+                <small>{lang === "ja" ? "パスポート・履歴書・ビザなど42種類" : lang === "zh" ? "护照、简历、签证等共 42 种" : "42 passport, résumé, visa and ID formats"}</small>
+              </span>
+              <ChevronDown />
+            </summary>
+            <p>{lang === "ja" ? "サイズを選ぶと、上の証明写真ツールにすぐ反映されます。" : lang === "zh" ? "选择尺寸后，会立即应用到上方的证件照工具。" : "Choose a size to apply it immediately to the photo maker above."}</p>
+            <div className="sizeGrid compact">
+              {Object.entries(specs).filter(([k]) => k !== "custom").map(([k, v]) => (
+                <button key={k} onClick={() => { setSpec(k); go(); }}>
+                  <span>{v[lang] || v.en}</span><b>{v.w} × {v.h} mm</b><ArrowRight />
+                </button>
+              ))}
+            </div>
+          </details>
         </section>
         <UtilityTools lang={lang} onSuccess={() => setDonate(true)} />
         <PdfTools lang={lang} onSuccess={() => setDonate(true)} />
@@ -1487,38 +1521,6 @@ function App() {
           </div>
         </section>
       </main>
-      <section className="sizes" id="sizes">
-        <div className="sectionHead">
-          <span>PHOTO SIZES</span>
-          <h2>
-            {lang === "ja" ? "対応している写真サイズ" : "Supported photo sizes"}
-          </h2>
-          <p>
-            {lang === "ja"
-              ? "用途を選ぶだけで、正しい縦横比に設定します。"
-              : "Choose a use and the correct aspect ratio is applied."}
-          </p>
-        </div>
-        <div className="sizeGrid">
-          {Object.entries(specs)
-            .filter(([k]) => k !== "custom")
-            .map(([k, v]) => (
-              <button
-                key={k}
-                onClick={() => {
-                  setSpec(k);
-                  go();
-                }}
-              >
-                <span>{v[lang] || v.en}</span>
-                <b>
-                  {v.w} × {v.h} mm
-                </b>
-                <ArrowRight />
-              </button>
-            ))}
-        </div>
-      </section>
       <section className="privacyBlock" id="privacy">
         <ShieldCheck />
         <div>

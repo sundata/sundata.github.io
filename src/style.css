@@ -644,7 +644,9 @@ footer a {
   overflow-x: auto;
   scrollbar-width: none;
 }
-.toolFilters::-webkit-scrollbar { display: none; }
+.toolFilters::-webkit-scrollbar {
+  display: none;
+}
 .toolFilters button {
   min-height: 38px;
   padding: 0 15px;
@@ -662,7 +664,9 @@ footer a {
   background: #d9eee5;
   border-color: #d9eee5;
 }
-.hubCard.filteredOut { display: none; }
+.hubCard.filteredOut {
+  display: none;
+}
 .toolHub .pill {
   width: fit-content;
   color: #d9eee5;
@@ -774,15 +778,41 @@ footer a {
   cursor: pointer;
   list-style: none;
 }
-.nearbySizes summary::-webkit-details-marker { display: none; }
-.nearbySizes summary span { display: grid; gap: 4px; }
-.nearbySizes summary b { font-size: 15px; }
-.nearbySizes summary small { color: #71807b; font-size: 12px; }
-.nearbySizes summary > svg { width: 20px; transition: transform .18s ease; }
-.nearbySizes[open] summary > svg { transform: rotate(180deg); }
-.nearbySizes > p { margin: 0; padding: 0 20px 16px; color: #63736d; font-size: 13px; }
-.nearbySizes .sizeGrid { padding: 0 20px 20px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.nearbySizes .sizeGrid button { padding: 13px 14px; background: #fff; }
+.nearbySizes summary::-webkit-details-marker {
+  display: none;
+}
+.nearbySizes summary span {
+  display: grid;
+  gap: 4px;
+}
+.nearbySizes summary b {
+  font-size: 15px;
+}
+.nearbySizes summary small {
+  color: #71807b;
+  font-size: 12px;
+}
+.nearbySizes summary > svg {
+  width: 20px;
+  transition: transform 0.18s ease;
+}
+.nearbySizes[open] summary > svg {
+  transform: rotate(180deg);
+}
+.nearbySizes > p {
+  margin: 0;
+  padding: 0 20px 16px;
+  color: #63736d;
+  font-size: 13px;
+}
+.nearbySizes .sizeGrid {
+  padding: 0 20px 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.nearbySizes .sizeGrid button {
+  padding: 13px 14px;
+  background: #fff;
+}
 .sectionHead {
   text-align: center;
   margin-bottom: 38px;
@@ -2178,7 +2208,9 @@ footer div {
   .toolHubGrid {
     grid-template-columns: 1fr 1fr;
   }
-  .nearbySizes .sizeGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nearbySizes .sizeGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .toolHubIntro h1 {
     width: auto;
     white-space: normal;
@@ -2223,8 +2255,13 @@ footer div {
   .toolHub {
     padding: 60px 15px;
   }
-  .nearbySizes .sizeGrid { grid-template-columns: 1fr; padding: 0 12px 14px; }
-  .nearbySizes summary { padding: 12px 15px; }
+  .nearbySizes .sizeGrid {
+    grid-template-columns: 1fr;
+    padding: 0 12px 14px;
+  }
+  .nearbySizes summary {
+    padding: 12px 15px;
+  }
   .toolHubIntro h1 {
     font-size: clamp(36px, 10.8vw, 44px);
   }
@@ -2532,6 +2569,72 @@ footer div {
 .numberStatus.neutral {
   background: #fff4d9;
   color: #7a5a18;
+}
+.businessLookupTabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  margin-bottom: 20px;
+  padding: 5px;
+  border-radius: 12px;
+  background: #eef2ef;
+}
+.businessLookupTabs button {
+  min-height: 44px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #60716b;
+  font: inherit;
+  font-weight: 700;
+}
+.businessLookupTabs button.active {
+  background: #fff;
+  color: var(--green);
+  box-shadow: 0 3px 12px #183b3016;
+}
+.businessLookupForm {
+  padding: 20px;
+  border: 1px solid #dce4df;
+  border-radius: 13px;
+  background: #fbfcfb;
+}
+.businessSearchButton,
+.businessResultActions a {
+  min-height: 44px;
+  margin-top: 13px;
+  padding: 9px 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid var(--green);
+  border-radius: 9px;
+  background: var(--green);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+}
+.businessSearchButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.businessSearchButton svg,
+.businessResultActions svg {
+  width: 16px;
+}
+.businessResultActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.businessResultActions a + a {
+  background: #fff;
+  color: var(--green);
+}
+.businessCard .officialLinks {
+  margin-top: 15px;
 }
 .toolNote {
   color: #667770;

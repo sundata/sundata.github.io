@@ -472,7 +472,8 @@ const t = {
     ready: "添加照片后，预览将显示在这里",
     tip: "请选择正面、表情自然、光线均匀且脸部没有阴影的照片。",
     free: "所有工具均可免费使用。",
-    freeSub: "如果这些工具为你节省了时间，欢迎请我们喝杯咖啡，帮助网站持续运营。",
+    freeSub:
+      "如果这些工具为你节省了时间，欢迎请我们喝杯咖啡，帮助网站持续运营。",
     support: "支持开发",
     why: "为什么选择 SunData Tools？",
     whySub: "专注于日常文件处理中真正需要的功能。",
@@ -843,7 +844,9 @@ function App() {
           <label className="lang languagePicker">
             <Languages size={17} />
             <select
-              aria-label={lang === "ja" ? "言語" : lang === "zh" ? "语言" : "Language"}
+              aria-label={
+                lang === "ja" ? "言語" : lang === "zh" ? "语言" : "Language"
+              }
               value={lang}
               onChange={(event) => {
                 const next = event.target.value;
@@ -889,19 +892,63 @@ function App() {
                 : "Edit images, PDFs and ID photos securely in your browser. Nothing is uploaded to a server."}
             </p>
           </div>
-          <div className="toolFilters" role="group" aria-label={lang === "ja" ? "ツールカテゴリー" : lang === "zh" ? "工具分类" : "Tool categories"}>
+          <div
+            className="toolFilters"
+            role="group"
+            aria-label={
+              lang === "ja"
+                ? "ツールカテゴリー"
+                : lang === "zh"
+                  ? "工具分类"
+                  : "Tool categories"
+            }
+          >
             {[
-              ["all", lang === "ja" ? "すべて" : lang === "zh" ? "全部" : "All"],
-              ["image", lang === "ja" ? "画像・写真" : lang === "zh" ? "图片与照片" : "Images"],
+              [
+                "all",
+                lang === "ja" ? "すべて" : lang === "zh" ? "全部" : "All",
+              ],
+              [
+                "image",
+                lang === "ja"
+                  ? "画像・写真"
+                  : lang === "zh"
+                    ? "图片与照片"
+                    : "Images",
+              ],
               ["pdf", "PDF"],
-              ["digital", lang === "ja" ? "IT・便利" : lang === "zh" ? "IT 与实用" : "Digital"],
-              ["business", lang === "ja" ? "ビジネス" : lang === "zh" ? "商务" : "Business"],
+              [
+                "digital",
+                lang === "ja"
+                  ? "IT・便利"
+                  : lang === "zh"
+                    ? "IT 与实用"
+                    : "Digital",
+              ],
+              [
+                "business",
+                lang === "ja"
+                  ? "ビジネス"
+                  : lang === "zh"
+                    ? "商务"
+                    : "Business",
+              ],
             ].map(([value, label]) => (
-              <button key={value} className={toolCategory === value ? "active" : ""} aria-pressed={toolCategory === value} onClick={() => setToolCategory(value)}>{label}</button>
+              <button
+                key={value}
+                className={toolCategory === value ? "active" : ""}
+                aria-pressed={toolCategory === value}
+                onClick={() => setToolCategory(value)}
+              >
+                {label}
+              </button>
             ))}
           </div>
           <div className="toolHubGrid">
-            <a className={`hubCard ${toolCategory !== "all" && toolCategory !== "image" ? "filteredOut" : ""}`} href="#maker">
+            <a
+              className={`hubCard ${toolCategory !== "all" && toolCategory !== "image" ? "filteredOut" : ""}`}
+              href="#maker"
+            >
               <Camera />
               <span>01</span>
               <h2>{lang === "ja" ? "証明写真を作る" : "Create ID photo"}</h2>
@@ -912,7 +959,10 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className={`hubCard ${toolCategory !== "all" && toolCategory !== "image" ? "filteredOut" : ""}`} href="#tools">
+            <a
+              className={`hubCard ${toolCategory !== "all" && toolCategory !== "image" ? "filteredOut" : ""}`}
+              href="#tools"
+            >
               <ImageIcon />
               <span>02</span>
               <h2>
@@ -923,7 +973,10 @@ function App() {
               <p>JPG · PNG · WebP</p>
               <ArrowRight />
             </a>
-            <a className={`hubCard ${toolCategory !== "all" && toolCategory !== "pdf" ? "filteredOut" : ""}`} href="#pdf-tools">
+            <a
+              className={`hubCard ${toolCategory !== "all" && toolCategory !== "pdf" ? "filteredOut" : ""}`}
+              href="#pdf-tools"
+            >
               <FileArchive />
               <span>03</span>
               <h2>{lang === "ja" ? "PDFを圧縮" : "Compress PDF"}</h2>
@@ -934,7 +987,10 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className={`hubCard ${toolCategory !== "all" && toolCategory !== "pdf" ? "filteredOut" : ""}`} href="#pdf-tools">
+            <a
+              className={`hubCard ${toolCategory !== "all" && toolCategory !== "pdf" ? "filteredOut" : ""}`}
+              href="#pdf-tools"
+            >
               <Wrench />
               <span>04</span>
               <h2>{lang === "ja" ? "画像をPDFに変換" : "Images to PDF"}</h2>
@@ -945,7 +1001,10 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className={`hubCard ${toolCategory !== "all" && toolCategory !== "pdf" ? "filteredOut" : ""}`} href="#pdf-tools">
+            <a
+              className={`hubCard ${toolCategory !== "all" && toolCategory !== "pdf" ? "filteredOut" : ""}`}
+              href="#pdf-tools"
+            >
               <Merge />
               <span>05</span>
               <h2>{lang === "ja" ? "PDFを結合" : "Merge PDFs"}</h2>
@@ -956,7 +1015,10 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className={`hubCard ${toolCategory !== "all" && toolCategory !== "pdf" ? "filteredOut" : ""}`} href="#pdf-tools">
+            <a
+              className={`hubCard ${toolCategory !== "all" && toolCategory !== "pdf" ? "filteredOut" : ""}`}
+              href="#pdf-tools"
+            >
               <Scissors />
               <span>06</span>
               <h2>{lang === "ja" ? "PDFページを抽出" : "Extract PDF pages"}</h2>
@@ -967,7 +1029,10 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className={`hubCard ${toolCategory !== "all" && toolCategory !== "pdf" ? "filteredOut" : ""}`} href="#pdf-tools">
+            <a
+              className={`hubCard ${toolCategory !== "all" && toolCategory !== "pdf" ? "filteredOut" : ""}`}
+              href="#pdf-tools"
+            >
               <ListOrdered />
               <span>07</span>
               <h2>
@@ -980,7 +1045,10 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className={`hubCard ${toolCategory !== "all" && toolCategory !== "digital" ? "filteredOut" : ""}`} href="#qr-tool">
+            <a
+              className={`hubCard ${toolCategory !== "all" && toolCategory !== "digital" ? "filteredOut" : ""}`}
+              href="#qr-tool"
+            >
               <QrCode />
               <span>08</span>
               <h2>{lang === "ja" ? "QRコードを作成" : "Create QR code"}</h2>
@@ -991,7 +1059,10 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className={`hubCard hubCardNew ${toolCategory !== "all" && toolCategory !== "digital" ? "filteredOut" : ""}`} href="#daily-tools">
+            <a
+              className={`hubCard hubCardNew ${toolCategory !== "all" && toolCategory !== "digital" ? "filteredOut" : ""}`}
+              href="#daily-tools"
+            >
               <Code2 />
               <span>09</span>
               <h2>{lang === "ja" ? "ITデータツール" : "Developer tools"}</h2>
@@ -1002,20 +1073,32 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className={`hubCard hubCardBusiness ${toolCategory !== "all" && toolCategory !== "business" ? "filteredOut" : ""}`} href="#number-check">
+            <a
+              className={`hubCard hubCardBusiness ${toolCategory !== "all" && toolCategory !== "business" ? "filteredOut" : ""}`}
+              href="#number-check"
+            >
               <Landmark />
               <span>10</span>
               <h2>
-                {lang === "ja" ? "事業者番号を確認" : "Check business numbers"}
+                {lang === "ja"
+                  ? "法人・インボイス検索"
+                  : lang === "zh"
+                    ? "日本企业与发票登记查询"
+                    : "Company & invoice lookup"}
               </h2>
               <p>
                 {lang === "ja"
-                  ? "法人番号・インボイス番号の形式確認"
-                  : "Corporate and invoice number formats"}
+                  ? "会社名の曖昧検索・法人番号・登録番号"
+                  : lang === "zh"
+                    ? "公司名模糊查询、法人编号与发票登记编号"
+                    : "Fuzzy name search, corporate and invoice numbers"}
               </p>
               <ArrowRight />
             </a>
-            <a className={`hubCard hubCardRisk ${toolCategory !== "all" && toolCategory !== "business" ? "filteredOut" : ""}`} href="#tax-check">
+            <a
+              className={`hubCard hubCardRisk ${toolCategory !== "all" && toolCategory !== "business" ? "filteredOut" : ""}`}
+              href="#tax-check"
+            >
               <ShieldAlert />
               <span>11</span>
               <h2>
@@ -1030,7 +1113,10 @@ function App() {
               </p>
               <ArrowRight />
             </a>
-            <a className={`hubCard hubCardFeedback ${toolCategory !== "all" && toolCategory !== "digital" ? "filteredOut" : ""}`} href="#feedback">
+            <a
+              className={`hubCard hubCardFeedback ${toolCategory !== "all" && toolCategory !== "digital" ? "filteredOut" : ""}`}
+              href="#feedback"
+            >
               <MessageSquareText />
               <span>12</span>
               <h2>{lang === "ja" ? "ツールを提案" : "Suggest a tool"}</h2>
@@ -1414,18 +1500,48 @@ function App() {
           <details className="nearbySizes" id="sizes">
             <summary>
               <span>
-                <b>{lang === "ja" ? "対応している写真サイズ" : lang === "zh" ? "支持的证件照尺寸" : "Supported photo sizes"}</b>
-                <small>{lang === "ja" ? "パスポート・履歴書・ビザなど42種類" : lang === "zh" ? "护照、简历、签证等共 42 种" : "42 passport, résumé, visa and ID formats"}</small>
+                <b>
+                  {lang === "ja"
+                    ? "対応している写真サイズ"
+                    : lang === "zh"
+                      ? "支持的证件照尺寸"
+                      : "Supported photo sizes"}
+                </b>
+                <small>
+                  {lang === "ja"
+                    ? "パスポート・履歴書・ビザなど42種類"
+                    : lang === "zh"
+                      ? "护照、简历、签证等共 42 种"
+                      : "42 passport, résumé, visa and ID formats"}
+                </small>
               </span>
               <ChevronDown />
             </summary>
-            <p>{lang === "ja" ? "サイズを選ぶと、上の証明写真ツールにすぐ反映されます。" : lang === "zh" ? "选择尺寸后，会立即应用到上方的证件照工具。" : "Choose a size to apply it immediately to the photo maker above."}</p>
+            <p>
+              {lang === "ja"
+                ? "サイズを選ぶと、上の証明写真ツールにすぐ反映されます。"
+                : lang === "zh"
+                  ? "选择尺寸后，会立即应用到上方的证件照工具。"
+                  : "Choose a size to apply it immediately to the photo maker above."}
+            </p>
             <div className="sizeGrid compact">
-              {Object.entries(specs).filter(([k]) => k !== "custom").map(([k, v]) => (
-                <button key={k} onClick={() => { setSpec(k); go(); }}>
-                  <span>{v[lang] || v.en}</span><b>{v.w} × {v.h} mm</b><ArrowRight />
-                </button>
-              ))}
+              {Object.entries(specs)
+                .filter(([k]) => k !== "custom")
+                .map(([k, v]) => (
+                  <button
+                    key={k}
+                    onClick={() => {
+                      setSpec(k);
+                      go();
+                    }}
+                  >
+                    <span>{v[lang] || v.en}</span>
+                    <b>
+                      {v.w} × {v.h} mm
+                    </b>
+                    <ArrowRight />
+                  </button>
+                ))}
             </div>
           </details>
         </section>

@@ -1,5 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { isValidCorporateNumber } from "./DailyTools.jsx";
+import {
+  buildBusinessLookupUrl,
+  isValidCorporateNumber,
+} from "./DailyTools.jsx";
 
 describe("Japanese corporate number validation", () => {
   it("accepts the official NTA check-digit example", () => {
@@ -10,5 +13,20 @@ describe("Japanese corporate number validation", () => {
   it("rejects incorrect length and check digits", () => {
     expect(isValidCorporateNumber("700110005901")).toBe(false);
     expect(isValidCorporateNumber("9700110005901")).toBe(false);
+  });
+});
+
+describe("business lookup URLs", () => {
+  it("builds direct official lookup URLs", () => {
+    expect(buildBusinessLookupUrl("8700110005901")).toBe(
+      "https://info.gbiz.go.jp/hojin/ichiran?hojinBango=8700110005901",
+    );
+    expect(buildBusinessLookupUrl("T8700110005901", "invoice")).toBe(
+      "https://www.invoice-kohyo.nta.go.jp/regno-search/detail?selRegNo=8700110005901",
+    );
+  });
+
+  it("does not build links for incomplete numbers", () => {
+    expect(buildBusinessLookupUrl("1234")).toBe("");
   });
 });

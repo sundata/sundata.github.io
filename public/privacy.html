@@ -16,14 +16,15 @@
     <link rel="canonical" href="https://sundata.tech/privacy.html" />
     <link rel="stylesheet" href="./app-pages.css" />
   </head>
-  <body>
+  <body data-privacy-page="shared">
     <header class="site-header">
       <a class="logo" href="./apps.html"
         ><span class="logo-mark">◉</span> SHOMEI <small>by SunData</small></a
       >
-      <nav class="nav">
-        <a href="./">ツールホーム</a
-        ><a class="button ghost" href="./apps.html">アプリ一覧へ戻る</a>
+      <nav class="nav" aria-label="主要ナビゲーション">
+        <label class="page-language"><span aria-hidden="true">文</span><select class="privacy-language" aria-label="言語"><option value="ja">日本語</option><option value="zh">中文</option><option value="en">English</option></select></label>
+        <a class="top-link" href="./">Top</a
+        ><a class="button ghost apps-link" href="./apps.html">アプリ一覧</a>
       </nav>
     </header>
     <main class="privacy-main">
@@ -192,7 +193,8 @@
     </main>
     <footer class="site-footer">
       <p>© 2026 SunDataサービス株式会社</p>
-      <div><a href="./apps.html">アプリ一覧</a><a href="./">SHOMEI</a></div>
+      <div><a href="./apps.html">アプリ一覧</a><a href="./">Top</a></div>
     </footer>
+    <script src="./privacy-pages-i18n.js"></script>
   </body>
 </html>

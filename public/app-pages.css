@@ -354,6 +354,13 @@ a {
   .nav a:not(.button) {
     display: none;
   }
+  .nav .top-link {
+    min-height: 38px;
+    padding: 0 10px;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+  }
   .hero {
     padding: 72px 5% 55px;
   }

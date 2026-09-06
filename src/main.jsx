@@ -439,7 +439,15 @@ const t = {
 };
 
 function App() {
-  const [lang, setLang] = useState("ja"),
+  const [lang, setLang] = useState(() => {
+      const saved = localStorage.getItem("sundata-language");
+      if (saved === "ja" || saved === "en") return saved;
+      return navigator.languages?.some((value) =>
+        value.toLowerCase().startsWith("ja"),
+      )
+        ? "ja"
+        : "en";
+    }),
     [spec, setSpec] = useState("jpPassport"),
     [img, setImg] = useState(null),
     [zoom, setZoom] = useState(1),
@@ -774,7 +782,11 @@ function App() {
         <div className="actions">
           <button
             className="lang"
-            onClick={() => setLang(lang === "ja" ? "en" : "ja")}
+            onClick={() => {
+              const next = lang === "ja" ? "en" : "ja";
+              localStorage.setItem("sundata-language", next);
+              setLang(next);
+            }}
           >
             <Languages size={17} />
             {lang === "ja" ? "EN" : "日本語"}
@@ -813,7 +825,7 @@ function App() {
             </p>
           </div>
           <div className="toolHubGrid">
-            <a className="hubCard featured" href="#maker">
+            <a className="hubCard" href="#maker">
               <Camera />
               <span>01</span>
               <h2>{lang === "ja" ? "証明写真を作る" : "Create ID photo"}</h2>
@@ -904,24 +916,54 @@ function App() {
               <ArrowRight />
             </a>
             <a className="hubCard hubCardNew" href="#daily-tools">
-              <Code2 /><span>09</span>
+              <Code2 />
+              <span>09</span>
               <h2>{lang === "ja" ? "ITデータツール" : "Developer tools"}</h2>
-              <p>{lang === "ja" ? "JSON・Base64・UUID・時刻変換" : "JSON, Base64, UUID and timestamps"}</p><ArrowRight />
+              <p>
+                {lang === "ja"
+                  ? "JSON・Base64・UUID・時刻変換"
+                  : "JSON, Base64, UUID and timestamps"}
+              </p>
+              <ArrowRight />
             </a>
             <a className="hubCard hubCardBusiness" href="#number-check">
-              <Landmark /><span>10</span>
-              <h2>{lang === "ja" ? "事業者番号を確認" : "Check business numbers"}</h2>
-              <p>{lang === "ja" ? "法人番号・インボイス番号の形式確認" : "Corporate and invoice number formats"}</p><ArrowRight />
+              <Landmark />
+              <span>10</span>
+              <h2>
+                {lang === "ja" ? "事業者番号を確認" : "Check business numbers"}
+              </h2>
+              <p>
+                {lang === "ja"
+                  ? "法人番号・インボイス番号の形式確認"
+                  : "Corporate and invoice number formats"}
+              </p>
+              <ArrowRight />
             </a>
             <a className="hubCard hubCardRisk" href="#tax-check">
-              <ShieldAlert /><span>11</span>
-              <h2>{lang === "ja" ? "税務リスク簡易チェック" : "Tax-risk self-check"}</h2>
-              <p>{lang === "ja" ? "帳簿・証憑・期限の注意点を整理" : "Review books, evidence and deadlines"}</p><ArrowRight />
+              <ShieldAlert />
+              <span>11</span>
+              <h2>
+                {lang === "ja"
+                  ? "税務リスク簡易チェック"
+                  : "Tax-risk self-check"}
+              </h2>
+              <p>
+                {lang === "ja"
+                  ? "帳簿・証憑・期限の注意点を整理"
+                  : "Review books, evidence and deadlines"}
+              </p>
+              <ArrowRight />
             </a>
             <a className="hubCard hubCardFeedback" href="#feedback">
-              <MessageSquareText /><span>12</span>
+              <MessageSquareText />
+              <span>12</span>
               <h2>{lang === "ja" ? "ツールを提案" : "Suggest a tool"}</h2>
-              <p>{lang === "ja" ? "欲しい機能や使いにくい点を送る" : "Request features or report friction"}</p><ArrowRight />
+              <p>
+                {lang === "ja"
+                  ? "欲しい機能や使いにくい点を送る"
+                  : "Request features or report friction"}
+              </p>
+              <ArrowRight />
             </a>
           </div>
         </section>
@@ -1288,7 +1330,11 @@ function App() {
             <Info />
             {L.note}
           </p>
-          <ToolPulse tool={lang === "ja" ? "証明写真メーカー" : "ID photo maker"} lang={lang} />
+          <ToolPulse
+            toolId="id-photo-maker"
+            tool={lang === "ja" ? "証明写真メーカー" : "ID photo maker"}
+            lang={lang}
+          />
         </section>
         <UtilityTools lang={lang} onSuccess={() => setDonate(true)} />
         <PdfTools lang={lang} onSuccess={() => setDonate(true)} />
@@ -1425,8 +1471,8 @@ function App() {
           </h2>
           <p>
             {lang === "ja"
-              ? "画像とPDFの処理はブラウザ内で完結します。アップロード、アカウント、ファイルの保存、追跡用解析は行いません。ページを閉じると編集内容は消去されます。"
-              : "Image and PDF processing happens inside your browser. We do not upload, store, analyze, or attach your files to an account. Your edits disappear when you close the page."}
+              ? "画像とPDFの処理はブラウザ内で完結し、アップロードや保存は行いません。評価ボタンだけは匿名の集計として保存され、ファイルや入力内容とは結び付きません。"
+              : "Image and PDF processing stays in your browser and is never uploaded or stored. Only anonymous reaction totals are saved; they are never linked to your files or inputs."}
           </p>
         </div>
       </section>
@@ -1438,8 +1484,8 @@ function App() {
           </h2>
           <p>
             {lang === "ja"
-              ? "SunData Toolsは、証明写真、画像、PDFの日常作業を、登録・透かし・有料ダウンロードなしで完了できるツール群です。ファイルはブラウザ内で処理され、サーバーには送信されません。"
-              : "SunData Tools is a collection of tools for ID photos, images and PDFs—without accounts, watermarks or paid downloads. Files are processed in your browser and never sent to our server."}
+              ? "SunData Toolsは、証明写真、画像、PDFの日常作業を、ユーザー登録・透かし・有料ダウンロードなしで完了できるツール群です。ファイルはブラウザ内で処理され、サーバーには送信されません。"
+              : "SunData Tools is a collection of tools for ID photos, images and PDFs—without user registration, watermarks or paid downloads. Files are processed in your browser and never sent to our server."}
           </p>
           <a href="mailto:work.sundata@gmail.com">
             work.sundata@gmail.com <ArrowRight />
@@ -1482,7 +1528,7 @@ function App() {
         <p>© 2026 SunData Tools. Made with care in Japan.</p>
         <div>
           <a href="./apps.html">{L.apps}</a>
-          <a href="./privacy-policy.html">{L.privacy}</a>
+          <a href="./privacy.html">{L.privacy}</a>
           <a href="./terms.html">Terms</a>
         </div>
       </footer>

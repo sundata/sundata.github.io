@@ -9,6 +9,7 @@
   "dependencies": {
     "@imgly/background-removal": "^1.7.0",
     "@vitejs/plugin-react": "latest",
+    "firebase": "^12.18.0",
     "lucide-react": "latest",
     "react": "latest",
     "react-dom": "latest",

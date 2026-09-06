@@ -1,0 +1,62 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function voterPath(tool) {
+      return /databases/$(database)/documents/toolVotes/$(tool)/voters/$(request.auth.uid);
+    }
+
+    function validKind(kind) {
+      return kind in ['ok', 'normal', 'ng'];
+    }
+
+    function validCounts(data) {
+      return data.keys().hasOnly(['ok', 'normal', 'ng'])
+        && data.get('ok', 0) is int && data.get('ok', 0) >= 0
+        && data.get('normal', 0) is int && data.get('normal', 0) >= 0
+        && data.get('ng', 0) is int && data.get('ng', 0) >= 0;
+    }
+
+    function isFirstVote(tool) {
+      return signedIn()
+        && !exists(voterPath(tool))
+        && existsAfter(voterPath(tool));
+    }
+
+    function correctIncrement(tool) {
+      let kind = getAfter(voterPath(tool)).data.kind;
+      let oldOk = resource.data.get('ok', 0);
+      let oldNormal = resource.data.get('normal', 0);
+      let oldNg = resource.data.get('ng', 0);
+      return request.resource.data.get('ok', 0) == oldOk + (kind == 'ok' ? 1 : 0)
+        && request.resource.data.get('normal', 0) == oldNormal + (kind == 'normal' ? 1 : 0)
+        && request.resource.data.get('ng', 0) == oldNg + (kind == 'ng' ? 1 : 0);
+    }
+
+    match /toolVotes/{tool} {
+      allow read: if true;
+      allow create: if isFirstVote(tool)
+        && validCounts(request.resource.data)
+        && request.resource.data.get('ok', 0)
+          + request.resource.data.get('normal', 0)
+          + request.resource.data.get('ng', 0) == 1;
+      allow update: if isFirstVote(tool)
+        && validCounts(request.resource.data)
+        && correctIncrement(tool);
+      allow delete: if false;
+
+      match /voters/{uid} {
+        allow read: if signedIn() && request.auth.uid == uid;
+        allow create: if signedIn()
+          && request.auth.uid == uid
+          && request.resource.data.keys().hasOnly(['kind'])
+          && validKind(request.resource.data.kind);
+        allow update, delete: if false;
+      }
+    }
+  }
+}

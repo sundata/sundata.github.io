@@ -617,7 +617,7 @@ export default function PdfTools({ lang, onSuccess }) {
             <Download />
             {busy === "compress" ? L.processing : L.run}
           </button>
-          <ToolPulse tool={L.compress} lang={lang} />
+          <ToolPulse toolId="pdf-compress" tool={L.compress} lang={lang} />
         </article>
         <article className="pdfToolCard">
           <div className="utilityTitle">
@@ -688,7 +688,7 @@ export default function PdfTools({ lang, onSuccess }) {
             <Download />
             {busy === "images" ? L.processing : L.makePdf}
           </button>
-          <ToolPulse tool={L.images} lang={lang} />
+          <ToolPulse toolId="images-to-pdf" tool={L.images} lang={lang} />
         </article>
         <article className="pdfToolCard">
           <div className="utilityTitle">
@@ -743,7 +743,7 @@ export default function PdfTools({ lang, onSuccess }) {
             <Download />
             {busy === "merge" ? L.processing : L.mergeRun}
           </button>
-          <ToolPulse tool={L.merge} lang={lang} />
+          <ToolPulse toolId="pdf-merge" tool={L.merge} lang={lang} />
         </article>
         <article className="pdfToolCard">
           <div className="utilityTitle">
@@ -798,7 +798,7 @@ export default function PdfTools({ lang, onSuccess }) {
             <Download />
             {busy === "split" ? L.processing : L.splitRun}
           </button>
-          <ToolPulse tool={L.split} lang={lang} />
+          <ToolPulse toolId="pdf-extract" tool={L.split} lang={lang} />
         </article>
         <article className="pdfToolCard organizeCard">
           <div className="utilityTitle">
@@ -853,7 +853,7 @@ export default function PdfTools({ lang, onSuccess }) {
             <Download />
             {busy === "organize" ? L.processing : L.organizeRun}
           </button>
-          <ToolPulse tool={L.organize} lang={lang} />
+          <ToolPulse toolId="pdf-organize" tool={L.organize} lang={lang} />
         </article>
       </div>
       {error && (

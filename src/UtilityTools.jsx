@@ -196,7 +196,7 @@ export default function UtilityTools({ lang, onSuccess }) {
             <Download />
             {L.save}
           </button>
-          <ToolPulse tool={L.compress} lang={lang} />
+          <ToolPulse toolId="image-compress-convert" tool={L.compress} lang={lang} />
         </article>
         <article>
           <div className="utilityTitle">
@@ -254,7 +254,7 @@ export default function UtilityTools({ lang, onSuccess }) {
             <RefreshCw />
             {L.reset}
           </button>
-          <ToolPulse tool={L.calc} lang={lang} />
+          <ToolPulse toolId="dpi-calculator" tool={L.calc} lang={lang} />
         </article>
       </div>
     </section>

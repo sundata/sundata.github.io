@@ -116,7 +116,7 @@ export default function QrTool({ lang }) {
           <button className="qrDownload" disabled={!image} onClick={download}><Download />{L.download}</button>
         </div>
       </div>
-      <ToolPulse tool={L.title} lang={lang} />
+      <ToolPulse toolId="qr-generator" tool={L.title} lang={lang} />
     </section>
   );
 }

@@ -41,6 +41,7 @@ import DailyTools from "./DailyTools";
 import Feedback from "./Feedback";
 import SourceSupport from "./SourceSupport";
 import ToolPulse from "./ToolPulse";
+import { useChinesePageTranslation } from "./zhTranslations";
 
 const preset = (group, ja, en, w, h, face = "正面・無帽・均一な背景") => ({
   group,
@@ -436,17 +437,67 @@ const t = {
     note: "This tool cannot guarantee acceptance. Always confirm the latest rules with the issuing authority.",
     close: "Close",
   },
+  zh: {
+    nav1: "开始制作",
+    nav2: "支持尺寸",
+    nav3: "使用方法",
+    privacy: "隐私政策",
+    apps: "App",
+    donate: "支持我们",
+    eyebrow: "完全免费 · 无需注册 · 照片仅在设备内处理",
+    title: "证件照，\n自己也能正确制作。",
+    sub: "适用于护照、简历、签证等用途。选择照片后，即可按照规定尺寸调整并打印。",
+    start: "选择照片开始",
+    how: "查看使用方法",
+    trust1: "无需上传",
+    trust2: "没有水印",
+    trust3: "高清下载",
+    maker: "制作证件照",
+    makerSub: "选择用途和照片，然后按照辅助框调整位置。",
+    step1: "1  用途",
+    step2: "2  照片",
+    step3: "3  调整",
+    choose: "选择照片",
+    drop: "或将照片拖放到这里",
+    local: "照片不会发送到服务器",
+    zoom: "缩放",
+    rotate: "旋转",
+    bright: "亮度",
+    contrast: "对比度",
+    reset: "重置",
+    guide: "辅助框",
+    bg: "背景颜色",
+    download: "下载单张照片",
+    print: "打印排版",
+    ready: "添加照片后，预览将显示在这里",
+    tip: "请选择正面、表情自然、光线均匀且脸部没有阴影的照片。",
+    free: "所有工具均可免费使用。",
+    freeSub: "如果这些工具为你节省了时间，欢迎请我们喝杯咖啡，帮助网站持续运营。",
+    support: "支持开发",
+    why: "为什么选择 SunData Tools？",
+    whySub: "专注于日常文件处理中真正需要的功能。",
+    c1: "在设备内完成",
+    c1s: "图片和 PDF 只在浏览器内处理，不会上传或保存到服务器。",
+    c2: "没有隐藏费用",
+    c2s: "文件编辑、转换和下载全部免费。",
+    c3: "简单易用",
+    c3s: "手机和电脑都能轻松使用，只显示真正需要的设置。",
+    note: "本工具无法保证申请一定被受理，请同时确认受理机构的最新要求。",
+    close: "关闭",
+  },
 };
 
 function App() {
   const [lang, setLang] = useState(() => {
       const saved = localStorage.getItem("sundata-language");
-      if (saved === "ja" || saved === "en") return saved;
-      return navigator.languages?.some((value) =>
-        value.toLowerCase().startsWith("ja"),
-      )
-        ? "ja"
-        : "en";
+      if (["ja", "zh", "en"].includes(saved)) return saved;
+      const browserLanguages = navigator.languages?.length
+        ? navigator.languages
+        : [navigator.language];
+      const primary = browserLanguages[0]?.toLowerCase() || "en";
+      if (primary.startsWith("zh")) return "zh";
+      if (primary.startsWith("ja")) return "ja";
+      return "en";
     }),
     [spec, setSpec] = useState("jpPassport"),
     [img, setImg] = useState(null),
@@ -478,12 +529,15 @@ function App() {
     stream = useRef();
   const L = t[lang],
     S = specs[spec];
+  useChinesePageTranslation(lang);
   useEffect(() => {
     document.documentElement.lang = lang;
     document.title =
       lang === "ja"
         ? "SunData Tools — 無料の画像・PDF・証明写真ツール"
-        : "SunData Tools — Free image, PDF and ID photo tools";
+        : lang === "zh"
+          ? "SunData Tools — 免费图片、PDF 与证件照工具"
+          : "SunData Tools — Free image, PDF and ID photo tools";
   }, [lang]);
   const load = (f) => {
     if (!f || !f.type.startsWith("image/")) return;
@@ -764,7 +818,7 @@ function App() {
   const go = () =>
     document.querySelector("#maker").scrollIntoView({ behavior: "smooth" });
   return (
-    <>
+    <React.Fragment key={lang}>
       <header>
         <a className="logo" href="#">
           <span>◉</span> SUNDATA <small>TOOLS</small>
@@ -780,17 +834,22 @@ function App() {
           <a href="#privacy">{L.privacy}</a>
         </nav>
         <div className="actions">
-          <button
-            className="lang"
-            onClick={() => {
-              const next = lang === "ja" ? "en" : "ja";
-              localStorage.setItem("sundata-language", next);
-              setLang(next);
-            }}
-          >
+          <label className="lang languagePicker">
             <Languages size={17} />
-            {lang === "ja" ? "EN" : "日本語"}
-          </button>
+            <select
+              aria-label={lang === "ja" ? "言語" : lang === "zh" ? "语言" : "Language"}
+              value={lang}
+              onChange={(event) => {
+                const next = event.target.value;
+                localStorage.setItem("sundata-language", next);
+                setLang(next);
+              }}
+            >
+              <option value="ja">日本語</option>
+              <option value="zh">中文</option>
+              <option value="en">English</option>
+            </select>
+          </label>
           <button className="tipbtn" onClick={() => setDonate(true)}>
             <Heart size={16} />
             {L.donate}
@@ -1056,7 +1115,7 @@ function App() {
                         .filter(([, v]) => v.group === group)
                         .map(([k, v]) => (
                           <option value={k} key={k}>
-                            {v[lang]} — {v.w}×{v.h} mm
+                            {v[lang] || v.en} — {v.w}×{v.h} mm
                           </option>
                         ))}
                     </optgroup>
@@ -1219,7 +1278,7 @@ function App() {
                     }
                     onClick={() => applyBackground(item.color)}
                     disabled={!img || removing}
-                    title={`${item[lang]} · ${item.use}`}
+                    title={`${item[lang] || item.en} · ${item.use}`}
                   >
                     <i
                       className={
@@ -1231,7 +1290,7 @@ function App() {
                           : { background: item.color }
                       }
                     />
-                    <span>{item[lang]}</span>
+                    <span>{item[lang] || item.en}</span>
                   </button>
                 ))}
               </div>
@@ -1451,7 +1510,7 @@ function App() {
                   go();
                 }}
               >
-                <span>{v[lang]}</span>
+                <span>{v[lang] || v.en}</span>
                 <b>
                   {v.w} × {v.h} mm
                 </b>
@@ -1634,7 +1693,7 @@ function App() {
           </div>
         </div>
       )}
-    </>
+    </React.Fragment>
   );
 }
 const rootElement = document.getElementById("root");

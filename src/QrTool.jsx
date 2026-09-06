@@ -49,7 +49,7 @@ const loadQrCode = () => {
 };
 
 export default function QrTool({ lang }) {
-  const L = copy[lang];
+  const L = copy[lang] || copy.en;
   const renderTarget = useRef();
   const [value, setValue] = useState("");
   const [size, setSize] = useState(512);

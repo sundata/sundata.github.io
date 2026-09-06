@@ -22,7 +22,8 @@
         ><span class="logo-mark">◉</span> SHOMEI <small>by SunData</small></a
       >
       <nav class="nav" aria-label="主要ナビゲーション">
-        <a href="./">証明写真ツール</a><a href="./privacy.html">プライバシー</a
+        <label class="page-language"><span aria-hidden="true">文</span><select id="page-language" aria-label="言語"><option value="ja">日本語</option><option value="zh">中文</option><option value="en">English</option></select></label>
+        <a href="./" data-i18n="navTools">証明写真ツール</a><a href="./privacy.html" data-i18n="navPrivacy">プライバシー</a
         ><a
           class="button"
           href="https://apps.apple.com/jp/developer/jianwei-chen/id1885517805"
@@ -36,23 +37,23 @@
       <section class="hero">
         <div class="hero-inner">
           <p class="eyebrow">SunData App Business</p>
-          <h1>日常を、<wbr />少し便利にする<wbr />アプリ。</h1>
-          <p class="lead">
+          <h1 data-i18n="title">日常を、少し便利にするアプリ。</h1>
+          <p class="lead" data-i18n="lead">
             SunDataサービス株式会社では、生活支援、ニュース、証明写真作成など、日々の暮らしで役立つiPhone
             / iPad向けアプリを企画・開発しています。
           </p>
           <dl class="summary">
             <div>
-              <dt>公開中</dt>
-              <dd>5アプリ</dd>
+              <dt data-i18n="published">公開中</dt>
+              <dd data-i18n="fiveApps">5アプリ</dd>
             </div>
             <div>
-              <dt>対応</dt>
+              <dt data-i18n="support">対応</dt>
               <dd>iPhone / iPad</dd>
             </div>
             <div>
-              <dt>領域</dt>
-              <dd>生活支援・スポーツ・ニュース・証明写真</dd>
+              <dt data-i18n="areas">領域</dt>
+              <dd data-i18n="areaList">生活支援・スポーツ・ニュース・証明写真</dd>
             </div>
           </dl>
         </div>
@@ -63,12 +64,12 @@
             <article class="app-card">
               <img
                 src="./assets/apps/swimscope.webp"
-                alt="SwimScopeのアプリアイコン"
+                alt="SwimScopeのアプリアイコン" data-i18n-alt="swimAlt"
               />
               <div>
-                <span class="status">スポーツ / 無料・アプリ内課金</span>
+                <span class="status" data-i18n="swimStatus">スポーツ / 無料・アプリ内課金</span>
                 <h2>SwimScope</h2>
-                <p>
+                <p data-i18n="swimDesc">
                   競泳選手・保護者・コーチのための記録検索・成長確認アプリ。選手や大会、公開済みの競技結果を検索し、自己ベストとの差や種目別の推移を確認できます。
                 </p>
                 <div class="app-links">
@@ -77,10 +78,10 @@
                     href="https://apps.apple.com/us/app/swimscope/id6808279364"
                     target="_blank"
                     rel="noopener"
-                    >App Storeで見る</a
+                    ><span data-i18n="viewStore">App Storeで見る</span></a
                   >
                   <a class="privacy-link" href="./swimscope-privacy.html"
-                    >プライバシー</a
+                    ><span data-i18n="privacy">プライバシー</span></a
                   >
                 </div>
               </div>
@@ -88,12 +89,12 @@
             <article class="app-card">
               <img
                 src="./assets/apps/mimamori-plus.jpg"
-                alt="みまもり＋のアプリアイコン"
+                alt="みまもり＋のアプリアイコン" data-i18n-alt="watchAlt"
               />
               <div>
-                <span class="status">ライフスタイル / 無料</span>
+                <span class="status" data-i18n="watchStatus">ライフスタイル / 無料</span>
                 <h2>みまもり＋</h2>
-                <p>
+                <p data-i18n="watchDesc">
                   毎日のチェックインで、大切な人へ安否を届ける見守りアプリ。期限内にチェックインがない場合、登録した緊急連絡先へメールで通知します。
                 </p>
                 <a
@@ -101,19 +102,19 @@
                   href="https://apps.apple.com/jp/app/%E3%81%BF%E3%81%BE%E3%82%82%E3%82%8A/id6760651931"
                   target="_blank"
                   rel="noopener"
-                  >App Storeで見る</a
+                  ><span data-i18n="viewStore">App Storeで見る</span></a
                 >
               </div>
             </article>
             <article class="app-card">
               <img
                 src="./assets/apps/pashatto-id-photo.jpg"
-                alt="パシャっと証明写真のアプリアイコン"
+                alt="パシャっと証明写真のアプリアイコン" data-i18n-alt="photoAlt"
               />
               <div>
-                <span class="status">ユーティリティ / 無料</span>
+                <span class="status" data-i18n="utilityFree">ユーティリティ / 無料</span>
                 <h2>パシャっと証明写真</h2>
-                <p>
+                <p data-i18n="photoDesc">
                   スマホで証明写真を作成できる無料アプリ。AI背景切り抜き、背景色変更、美肌補正、印刷用レイアウト生成に対応しています。
                 </p>
                 <a
@@ -121,19 +122,19 @@
                   href="https://apps.apple.com/jp/app/%E3%83%91%E3%82%B7%E3%83%A3%E3%81%A3%E3%81%A8%E8%A8%BC%E6%98%8E%E5%86%99%E7%9C%9F/id6761061360"
                   target="_blank"
                   rel="noopener"
-                  >App Storeで見る</a
+                  ><span data-i18n="viewStore">App Storeで見る</span></a
                 >
               </div>
             </article>
             <article class="app-card">
               <img
                 src="./assets/apps/id-photo-maker.jpg"
-                alt="証明写真 - ID Photo Makerのアプリアイコン"
+                alt="証明写真 - ID Photo Makerのアプリアイコン" data-i18n-alt="idAlt"
               />
               <div>
-                <span class="status">ユーティリティ / ¥100</span>
+                <span class="status" data-i18n="utilityPaid">ユーティリティ / ¥100</span>
                 <h2>証明写真 - ID Photo Maker</h2>
-                <p>
+                <p data-i18n="idDesc">
                   AI背景除去、各種証明写真サイズ、補正、トリミング、高解像度書き出しに対応した証明写真作成アプリです。
                 </p>
                 <a
@@ -141,19 +142,19 @@
                   href="https://apps.apple.com/jp/app/%E8%A8%BC%E6%98%8E%E5%86%99%E7%9C%9F-id-photo-maker/id6760736426"
                   target="_blank"
                   rel="noopener"
-                  >App Storeで見る</a
+                  ><span data-i18n="viewStore">App Storeで見る</span></a
                 >
               </div>
             </article>
             <article class="app-card">
               <img
                 src="./assets/apps/news-now.jpg"
-                alt="ニュースNowのアプリアイコン"
+                alt="ニュースNowのアプリアイコン" data-i18n-alt="newsAlt"
               />
               <div>
-                <span class="status">ニュース / 無料</span>
+                <span class="status" data-i18n="newsStatus">ニュース / 無料</span>
                 <h2>ニュースNow</h2>
-                <p>
+                <p data-i18n="newsDesc">
                   複数のニュースソースから記事を収集し、カテゴリー別に読めるニュースアプリ。オフライン対応と広告削除購入に対応しています。
                 </p>
                 <a
@@ -161,7 +162,7 @@
                   href="https://apps.apple.com/jp/app/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9now/id6765857533"
                   target="_blank"
                   rel="noopener"
-                  >App Storeで見る</a
+                  ><span data-i18n="viewStore">App Storeで見る</span></a
                 >
               </div>
             </article>
@@ -169,13 +170,13 @@
           <aside class="privacy-callout">
             <div>
               <p class="eyebrow">App Privacy</p>
-              <h2>安心して使えるために</h2>
-              <p>
+              <h2 data-i18n="privacyTitle">安心して使えるために</h2>
+              <p data-i18n="privacyDesc">
                 各アプリで取り扱うデータと、端末機能・外部サービスの利用方針を公開しています。
               </p>
             </div>
             <a class="button" href="./privacy.html"
-              >プライバシーポリシーを読む</a
+              ><span data-i18n="readPrivacy">プライバシーポリシーを読む</span></a
             >
           </aside>
         </div>
@@ -183,11 +184,12 @@
     </main>
     <footer class="site-footer">
       <a class="logo" href="./"><span class="logo-mark">◉</span> SHOMEI</a>
-      <p>© 2026 SunDataサービス株式会社</p>
+      <p data-i18n="copyright">© 2026 SunDataサービス株式会社</p>
       <div>
-        <a href="./privacy.html">プライバシー</a
-        ><a href="mailto:info@sundata.co.jp">お問い合わせ</a>
+        <a href="./privacy.html" data-i18n="privacy">プライバシー</a
+        ><a href="mailto:info@sundata.co.jp" data-i18n="contact">お問い合わせ</a>
       </div>
     </footer>
+    <script src="./app-pages-i18n.js"></script>
   </body>
 </html>

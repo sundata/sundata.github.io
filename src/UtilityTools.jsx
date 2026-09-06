@@ -52,7 +52,7 @@ const copy = {
 };
 
 export default function UtilityTools({ lang, onSuccess }) {
-  const L = copy[lang];
+  const L = copy[lang] || copy.en;
   const input = useRef();
   const [image, setImage] = useState(null);
   const [name, setName] = useState("image");

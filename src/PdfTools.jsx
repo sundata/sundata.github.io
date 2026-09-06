@@ -173,7 +173,7 @@ const readImage = (file) =>
   });
 
 export default function PdfTools({ lang, onSuccess }) {
-  const L = words[lang];
+  const L = words[lang] || words.en;
   const pdfInput = useRef();
   const imageInput = useRef();
   const mergeInput = useRef();

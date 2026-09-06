@@ -1872,6 +1872,10 @@ footer div {
   font-size: 13px;
   color: #64726d;
   line-height: 1.7;
+  max-width: 100%;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: anywhere;
 }
 .modal a {
   display: flex;
@@ -1912,6 +1916,22 @@ footer div {
 .sundataIntro p {
   margin: 8px 0;
   font-size: 11px;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+.languagePicker {
+  cursor: default;
+}
+.languagePicker select {
+  max-width: 82px;
+  border: 0;
+  outline: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
 }
 .modal a svg {
   width: 17px;

@@ -1103,13 +1103,17 @@ function App() {
               <span>11</span>
               <h2>
                 {lang === "ja"
-                  ? "税務リスク簡易チェック"
-                  : "Tax-risk self-check"}
+                  ? "仕訳データ・税務チェック"
+                  : lang === "zh"
+                    ? "会计分录与税务检查"
+                    : "Journal & tax review"}
               </h2>
               <p>
                 {lang === "ja"
-                  ? "帳簿・証憑・期限の注意点を整理"
-                  : "Review books, evidence and deadlines"}
+                  ? "CSVから貸借不一致・重複・税区分を分析"
+                  : lang === "zh"
+                    ? "从 CSV 分析借贷不平衡、重复与税务分类"
+                    : "Analyze balance, duplicates and tax categories from CSV"}
               </p>
               <ArrowRight />
             </a>

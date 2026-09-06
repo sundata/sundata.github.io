@@ -2719,6 +2719,246 @@ footer div {
   font-size: 13px;
   line-height: 1.6;
 }
+.journalDrop {
+  width: 100%;
+  min-height: 156px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1.5px dashed #9eb9ae;
+  border-radius: 14px;
+  background: #f6faf8;
+  color: var(--green);
+  font: inherit;
+}
+.journalDrop:hover {
+  border-color: var(--green);
+  background: #eff8f4;
+}
+.journalDrop svg {
+  width: 27px;
+  margin-bottom: 4px;
+}
+.journalDrop strong {
+  font-size: 16px;
+}
+.journalDrop span,
+.journalColumns span {
+  color: #687a73;
+  font-size: 13px;
+}
+.journalColumns {
+  margin-top: 13px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  border-radius: 9px;
+  background: #f2f4f3;
+}
+.journalColumns strong {
+  flex: none;
+  font-size: 13px;
+}
+.journalReportHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+}
+.journalReportHead > div:first-child {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+.journalReportHead span,
+.journalReportHead small {
+  color: #71817b;
+  font-size: 12px;
+}
+.journalReportHead strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.journalReportActions {
+  display: flex;
+  gap: 8px;
+}
+.journalReportActions button {
+  min-height: 39px;
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  background: var(--green);
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+}
+.journalReportActions button.ghostAction {
+  background: #fff;
+  color: var(--green);
+}
+.journalReportActions svg {
+  width: 15px;
+}
+.journalMetrics {
+  margin: 18px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.journalMetrics > div {
+  min-width: 0;
+  padding: 14px;
+  display: grid;
+  gap: 7px;
+  border: 1px solid #dde4e0;
+  border-radius: 11px;
+}
+.journalMetrics span {
+  color: #6c7c76;
+  font-size: 12px;
+}
+.journalMetrics strong {
+  overflow: hidden;
+  font-size: clamp(16px, 2vw, 22px);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.journalMetrics .watch {
+  background: #fff8e8;
+}
+.journalMetrics .high {
+  background: #fff0ef;
+}
+.journalVerdict {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  border-radius: 11px;
+  background: #eaf6f0;
+  color: #24664f;
+}
+.journalVerdict.watch {
+  background: #fff5df;
+  color: #775719;
+}
+.journalVerdict.high {
+  background: #fae9e7;
+  color: #8c423d;
+}
+.journalVerdict > svg {
+  width: 23px;
+  flex: none;
+}
+.journalVerdict div {
+  display: grid;
+  gap: 3px;
+}
+.journalVerdict span {
+  font-size: 12px;
+  line-height: 1.5;
+}
+.journalReportGrid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.journalReportGrid > section {
+  min-width: 0;
+  padding: 17px;
+  border: 1px solid #e0e5e2;
+  border-radius: 12px;
+}
+.journalReportGrid h4 {
+  margin: 0 0 13px;
+  font-size: 14px;
+}
+.journalIssueList {
+  max-height: 294px;
+  overflow: auto;
+}
+.journalIssueList > div {
+  padding: 9px 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #edf0ee;
+  font-size: 12px;
+}
+.journalIssueList > div > span {
+  padding: 3px 6px;
+  border-radius: 5px;
+  background: #fff1d8;
+  color: #775719;
+  font-size: 10px;
+  font-weight: 800;
+}
+.journalIssueList > div > span.high {
+  background: #fae4e2;
+  color: #94443e;
+}
+.journalIssueList small {
+  color: #77857f;
+}
+.accountBars {
+  display: grid;
+  gap: 10px;
+}
+.accountBars > div {
+  display: grid;
+  grid-template-columns: 86px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+}
+.accountBars > div > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.accountBars > div > div {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e8eeeb;
+}
+.accountBars i {
+  height: 100%;
+  display: block;
+  border-radius: inherit;
+  background: #4e8b78;
+}
+.accountBars strong {
+  font-size: 11px;
+  white-space: nowrap;
+}
+.journalEmpty {
+  color: #71817b;
+  font-size: 13px;
+}
+.journalGuidance {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.journalGuidance a {
+  color: #286956;
+  font-size: 12px;
+  font-weight: 700;
+}
 
 /* Feedback center */
 .feedback {
@@ -2909,6 +3149,25 @@ footer div {
   .feedbackActions a,
   .feedbackActions button {
     width: 100%;
+  }
+  .journalReportHead {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .journalMetrics {
+    grid-template-columns: 1fr 1fr;
+  }
+  .journalReportGrid {
+    grid-template-columns: 1fr;
+  }
+  .journalReportActions button {
+    flex: 1;
+  }
+  .accountBars > div {
+    grid-template-columns: 72px 1fr;
+  }
+  .accountBars strong {
+    grid-column: 2;
   }
 }
 

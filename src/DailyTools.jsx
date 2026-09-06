@@ -12,6 +12,7 @@ import {
   ShieldAlert,
 } from "lucide-react";
 import ToolPulse from "./ToolPulse";
+import JournalAudit from "./JournalAudit";
 
 const cleanNumber = (value) => value.toUpperCase().replace(/[^0-9T]/g, "");
 
@@ -507,118 +508,6 @@ function NumberCheck({ lang }) {
   );
 }
 
-const risks = [
-  [
-    3,
-    "売上・入金と帳簿に差異がある",
-    "Sales, deposits and books do not reconcile",
-  ],
-  [
-    3,
-    "個人支出と事業経費が混在している",
-    "Personal and business expenses are mixed",
-  ],
-  [
-    2,
-    "領収書・請求書の不足や記載漏れがある",
-    "Receipts or invoices are missing/incomplete",
-  ],
-  [3, "税金の期限管理に不安がある", "Tax deadlines may be missed"],
-  [
-    2,
-    "現金取引や役員貸付金が多い",
-    "Cash transactions or director loans are frequent",
-  ],
-  [
-    2,
-    "外注費と給与の区分が曖昧である",
-    "Contractor fees and payroll may be misclassified",
-  ],
-  [
-    2,
-    "取引先のインボイス登録を確認していない",
-    "Supplier invoice status is not checked",
-  ],
-  [
-    1,
-    "電子取引データの保存ルールがない",
-    "Electronic records lack a retention rule",
-  ],
-];
-function TaxCheck({ lang }) {
-  const [checked, setChecked] = useState([]);
-  const score = checked.reduce((s, i) => s + risks[i][0], 0);
-  const level = score === 0 ? "low" : score <= 4 ? "watch" : "high";
-  const result = {
-    low: ["注意項目は選択されていません。", "No warning items selected."],
-    watch: [
-      "確認推奨：証憑と帳簿を月次で照合しましょう。",
-      "Review recommended: reconcile records monthly.",
-    ],
-    high: [
-      "早めの整理推奨：税理士または税務署へ確認してください。",
-      "Act soon: review the details with a tax professional or tax office.",
-    ],
-  }[level];
-  return (
-    <article className="dailyCard dailyCardWide taxCard" id="tax-check">
-      <div className="dailyCardHead">
-        <span className="dailyIcon rose">
-          <ShieldAlert />
-        </span>
-        <div>
-          <b>SELF CHECK</b>
-          <h3>
-            {lang === "ja" ? "税務リスク簡易チェック" : "Tax-risk self-check"}
-          </h3>
-        </div>
-      </div>
-      <p className="toolNote emphasized">
-        {lang === "ja"
-          ? "整理用チェックです。税務判断、申告可否、調査可能性を判定するものではありません。"
-          : "An organization checklist—not tax advice or an audit prediction."}
-      </p>
-      <div className="riskChecklist">
-        {risks.map((r, i) => (
-          <label key={r[1]}>
-            <input
-              type="checkbox"
-              checked={checked.includes(i)}
-              onChange={() =>
-                setChecked((c) =>
-                  c.includes(i) ? c.filter((x) => x !== i) : [...c, i],
-                )
-              }
-            />
-            <span>{lang === "ja" ? r[1] : r[2]}</span>
-          </label>
-        ))}
-      </div>
-      <div className={`riskResult ${level}`}>
-        <strong>
-          {checked.length}
-          <span> / {risks.length}</span>
-        </strong>
-        <p>{lang === "ja" ? result[0] : result[1]}</p>
-      </div>
-      <a
-        className="ntaLink"
-        href="https://www.nta.go.jp/taxes/shiraberu/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        {lang === "ja" ? "国税庁「税について調べる」" : "NTA tax information"}
-        <ExternalLink />
-      </a>
-      <ToolPulse
-        toolId="tax-risk"
-        tool={lang === "ja" ? "税務リスク簡易チェック" : "Tax-risk self-check"}
-        lang={lang}
-      />
-    </article>
-  );
-}
-
 export default function DailyTools({ lang }) {
   return (
     <section className="dailyTools" id="daily-tools">
@@ -648,7 +537,7 @@ export default function DailyTools({ lang }) {
       </div>
       <div className="dailyGrid businessGrid">
         <NumberCheck lang={lang} />
-        <TaxCheck lang={lang} />
+        <JournalAudit lang={lang} />
       </div>
     </section>
   );

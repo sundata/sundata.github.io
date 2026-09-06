@@ -2,7 +2,7 @@
   const copy = {
     ja: {
       pageTitle: "公開中のアプリ | SunData", description: "SunDataサービス株式会社が企画・開発するiPhone・iPad向けアプリをご紹介します。",
-      navTools: "証明写真ツール", navPrivacy: "プライバシー", title: "日常を、少し便利にするアプリ。", lead: "SunDataサービス株式会社では、生活支援、ニュース、証明写真作成など、日々の暮らしで役立つiPhone / iPad向けアプリを企画・開発しています。",
+      navTools: "ツールホーム", navPrivacy: "プライバシー", title: "日常を、少し便利にするアプリ。", lead: "SunDataサービス株式会社では、生活支援、ニュース、証明写真作成など、日々の暮らしで役立つiPhone / iPad向けアプリを企画・開発しています。",
       published: "公開中", fiveApps: "5アプリ", support: "対応", areas: "領域", areaList: "生活支援・スポーツ・ニュース・証明写真",
       swimStatus: "スポーツ / 無料・アプリ内課金", swimDesc: "競泳選手・保護者・コーチのための記録検索・成長確認アプリ。選手や大会、公開済みの競技結果を検索し、自己ベストとの差や種目別の推移を確認できます。",
       watchStatus: "ライフスタイル / 無料", watchDesc: "毎日のチェックインで、大切な人へ安否を届ける見守りアプリ。期限内にチェックインがない場合、登録した緊急連絡先へメールで通知します。",
@@ -14,7 +14,7 @@
     },
     zh: {
       pageTitle: "已发布的 App | SunData", description: "介绍由 SunData 服务株式会社策划和开发的 iPhone 与 iPad App。",
-      navTools: "证件照工具", navPrivacy: "隐私政策", title: "让日常生活，更方便一点的 App。", lead: "SunData 服务株式会社策划并开发面向 iPhone / iPad 的实用 App，涵盖生活支持、体育、新闻和证件照制作等日常场景。",
+      navTools: "工具首页", navPrivacy: "隐私政策", title: "让日常生活，更方便一点的 App。", lead: "SunData 服务株式会社策划并开发面向 iPhone / iPad 的实用 App，涵盖生活支持、体育、新闻和证件照制作等日常场景。",
       published: "已发布", fiveApps: "5 款 App", support: "支持设备", areas: "应用领域", areaList: "生活支持 · 体育 · 新闻 · 证件照",
       swimStatus: "体育 / 免费 · 提供 App 内购买", swimDesc: "面向游泳运动员、家长和教练的成绩查询与成长记录 App。可以搜索运动员、赛事及已公开的比赛成绩，并查看与个人最佳成绩的差距和各项目的变化趋势。",
       watchStatus: "生活方式 / 免费", watchDesc: "通过每日签到向重要的人报告平安。若未在规定时间内签到，App 会向预先登记的紧急联系人发送邮件通知。",
@@ -26,7 +26,7 @@
     },
     en: {
       pageTitle: "Our Apps | SunData", description: "Explore iPhone and iPad apps planned and developed by SunData Service Co., Ltd.",
-      navTools: "ID photo tools", navPrivacy: "Privacy", title: "Apps that make everyday life a little easier.", lead: "SunData Service Co., Ltd. creates practical iPhone and iPad apps for everyday life, including personal safety, sports, news and ID photos.",
+      navTools: "Tools home", navPrivacy: "Privacy", title: "Apps that make everyday life a little easier.", lead: "SunData Service Co., Ltd. creates practical iPhone and iPad apps for everyday life, including personal safety, sports, news and ID photos.",
       published: "Available", fiveApps: "5 apps", support: "Devices", areas: "Categories", areaList: "Lifestyle · Sports · News · ID photos",
       swimStatus: "Sports / Free · In-App Purchases", swimDesc: "A results and progress app for competitive swimmers, parents and coaches. Search athletes, meets and public results, then compare personal bests and review progress by event.",
       watchStatus: "Lifestyle / Free", watchDesc: "A daily check-in app that lets someone important know you are safe. If you miss the deadline, it emails your registered emergency contact.",

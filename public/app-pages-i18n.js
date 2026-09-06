@@ -38,9 +38,11 @@
     }
   };
   const supported = ["ja", "zh", "en"];
+  const requested = new URLSearchParams(window.location.search).get("lang");
   const saved = localStorage.getItem("sundata-language");
   const browser = (navigator.languages?.[0] || navigator.language || "en").toLowerCase();
-  let lang = supported.includes(saved) ? saved : browser.startsWith("zh") ? "zh" : browser.startsWith("ja") ? "ja" : "en";
+  let lang = supported.includes(requested) ? requested : supported.includes(saved) ? saved : browser.startsWith("zh") ? "zh" : browser.startsWith("ja") ? "ja" : "en";
+  if (supported.includes(requested)) localStorage.setItem("sundata-language", requested);
   const apply = (next) => {
     lang = next; const text = copy[lang]; document.documentElement.lang = lang === "zh" ? "zh-CN" : lang;
     document.title = text.pageTitle; document.querySelector('meta[name="description"]').content = text.description;

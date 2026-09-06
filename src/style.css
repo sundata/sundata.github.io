@@ -437,9 +437,11 @@ footer a {
 }
 .actions {
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 .actions button {
+  min-height: 44px;
   border: 0;
   border-radius: 8px;
   padding: 10px 14px;
@@ -1921,6 +1923,14 @@ footer div {
   overflow-wrap: anywhere;
 }
 .languagePicker {
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  line-height: 1;
   cursor: default;
 }
 .languagePicker select {
@@ -1931,6 +1941,7 @@ footer div {
   background: transparent;
   font: inherit;
   font-weight: 700;
+  line-height: 1;
   cursor: pointer;
 }
 .modal a svg {

@@ -17,6 +17,8 @@ const zh = new Map(Object.entries({
   "Compress & convert images": "压缩与转换图片",
   "Compress PDF": "压缩 PDF",
   "Make PDFs easier to share": "缩小文件，分享更方便",
+  "PDF tools": "PDF 工具",
+  "Compress, merge & convert to Office": "压缩、合并及转换为 Office 文件",
   "Images to PDF": "图片转 PDF",
   "Combine images into one PDF": "将多张图片合并为一个 PDF",
   "Merge PDFs": "合并 PDF",

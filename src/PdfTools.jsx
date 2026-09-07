@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { parsePageOrder, parsePageSelection } from "./toolLogic";
 import ToolPulse from "./ToolPulse";
+import OfficeConverter from "./OfficeConverter";
 
 const words = {
   ja: {
@@ -855,6 +856,7 @@ export default function PdfTools({ lang, onSuccess }) {
           </button>
           <ToolPulse toolId="pdf-organize" tool={L.organize} lang={lang} />
         </article>
+        <OfficeConverter lang={lang} onSuccess={onSuccess} />
       </div>
       {error && (
         <p className="toolError" role="alert">

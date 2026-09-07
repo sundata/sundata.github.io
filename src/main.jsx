@@ -979,11 +979,11 @@ function App() {
             >
               <FileArchive />
               <span>03</span>
-              <h2>{lang === "ja" ? "PDFを圧縮" : "Compress PDF"}</h2>
+              <h2>{lang === "ja" ? "PDFツール" : "PDF tools"}</h2>
               <p>
                 {lang === "ja"
-                  ? "容量を小さくして共有しやすく"
-                  : "Make PDFs easier to share"}
+                  ? "圧縮・結合・Office変換"
+                  : "Compress, merge & convert to Office"}
               </p>
               <ArrowRight />
             </a>

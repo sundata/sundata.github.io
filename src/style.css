@@ -1405,6 +1405,68 @@ input[type="range"] {
   font-size: 13px;
   line-height: 1.65;
 }
+.officeConverter {
+  min-height: 0;
+  grid-column: 1 / -1;
+}
+.officeChoices {
+  margin: 18px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+}
+.officeChoices button {
+  min-width: 0;
+  min-height: 68px;
+  padding: 11px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #d5dfda;
+  border-radius: 10px;
+  background: #fafcfb;
+  color: #53655f;
+  font: inherit;
+  text-align: left;
+}
+.officeChoices button.active {
+  border-color: var(--green);
+  background: #eaf4f0;
+  color: var(--green);
+  box-shadow: 0 0 0 2px #1d594a12;
+}
+.officeChoices button > svg {
+  width: 23px;
+  flex: none;
+}
+.officeChoices button > span {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+.officeChoices strong {
+  font-size: 14px;
+}
+.officeChoices small {
+  overflow: hidden;
+  color: #72817b;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.officeNote {
+  min-height: 42px;
+  margin: 8px 0 14px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #f3f5f4;
+  color: #64746e;
+  font-size: 12px;
+  line-height: 1.65;
+}
+.officeConverter .utilityAction {
+  margin-top: 0;
+}
 .toolProgress {
   position: relative;
   overflow: hidden;
@@ -2224,6 +2286,12 @@ footer div {
   }
   .pdfToolGrid {
     grid-template-columns: 1fr;
+  }
+  .officeChoices {
+    grid-template-columns: 1fr;
+  }
+  .officeChoices button {
+    min-height: 58px;
   }
   .qrWorkspace {
     grid-template-columns: 1fr;

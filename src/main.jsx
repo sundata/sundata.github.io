@@ -490,20 +490,13 @@ const t = {
 
 function App() {
   const [lang, setLang] = useState(() => {
+      if (window.location.pathname.startsWith("/en")) return "en";
       const requested = new URLSearchParams(window.location.search).get("lang");
       if (["ja", "zh", "en"].includes(requested)) {
         localStorage.setItem("sundata-language", requested);
         return requested;
       }
-      const saved = localStorage.getItem("sundata-language");
-      if (["ja", "zh", "en"].includes(saved)) return saved;
-      const browserLanguages = navigator.languages?.length
-        ? navigator.languages
-        : [navigator.language];
-      const primary = browserLanguages[0]?.toLowerCase() || "en";
-      if (primary.startsWith("zh")) return "zh";
-      if (primary.startsWith("ja")) return "ja";
-      return "en";
+      return "ja";
     }),
     [spec, setSpec] = useState("jpPassport"),
     [img, setImg] = useState(null),
@@ -541,10 +534,10 @@ function App() {
     document.documentElement.lang = lang;
     document.title =
       lang === "ja"
-        ? "SunData Tools — 無料の画像・PDF・証明写真ツール"
+        ? "無料の画像・PDF・証明写真ツール | SunData Tools"
         : lang === "zh"
           ? "SunData Tools — 免费图片、PDF 与证件照工具"
-          : "SunData Tools — Free image, PDF and ID photo tools";
+          : "Free Image, PDF & ID Photo Tools | SunData Tools";
   }, [lang]);
   const load = (f) => {
     if (!f || !f.type.startsWith("image/")) return;
@@ -837,7 +830,7 @@ function App() {
           <a href="#daily-tools">{lang === "ja" ? "IT・仕事" : "IT & Work"}</a>
           <a href="#feedback">{lang === "ja" ? "提案" : "Feedback"}</a>
           <a href="#source-support">{lang === "ja" ? "開発支援" : "Source"}</a>
-          <a href="./apps.html">{L.apps}</a>
+          <a href="/apps.html">{L.apps}</a>
           <a href="#privacy">{L.privacy}</a>
         </nav>
         <div className="actions">
@@ -851,7 +844,13 @@ function App() {
               onChange={(event) => {
                 const next = event.target.value;
                 localStorage.setItem("sundata-language", next);
-                setLang(next);
+                if (next === "en") {
+                  window.location.href = "/en/";
+                } else if (next === "ja") {
+                  window.location.href = "/";
+                } else {
+                  window.location.href = "/?lang=zh";
+                }
               }}
             >
               <option value="ja">日本語</option>
@@ -1708,9 +1707,9 @@ function App() {
         </a>
         <p>© 2026 SunData Tools. Made with care in Japan.</p>
         <div>
-          <a href="./apps.html">{L.apps}</a>
-          <a href="./privacy.html">{L.privacy}</a>
-          <a href="./terms.html">Terms</a>
+          <a href="/apps.html">{L.apps}</a>
+          <a href="/privacy.html">{L.privacy}</a>
+          <a href="/terms.html">Terms</a>
         </div>
       </footer>
       {donate && (
@@ -1824,6 +1823,6 @@ window.__SUN_DATA_TOOLS_ROOT__ = appRoot;
 appRoot.render(<App />);
 if ("serviceWorker" in navigator && import.meta.env.PROD) {
   window.addEventListener("load", () =>
-    navigator.serviceWorker.register("./sw.js"),
+    navigator.serviceWorker.register("/sw.js"),
   );
 }

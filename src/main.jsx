@@ -908,7 +908,7 @@ function App() {
           </div>
           <button className="tipbtn" onClick={() => setDonate(true)}>
             <Heart size={16} />
-            {L.donate}
+            <span className="tipbtnLabel">{L.donate}</span>
           </button>
           <button
             className="menubtn"

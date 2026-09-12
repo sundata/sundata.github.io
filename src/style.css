@@ -181,8 +181,8 @@
   }
 }
 @media (max-width: 560px) {
-  .tipbtn {
-    display: none !important;
+  .tipbtnLabel {
+    display: none;
   }
   .actions {
     gap: 0;
@@ -3448,6 +3448,7 @@ footer div {
   .hero {
     min-height: 590px;
   }
+
   .hero h1 {
     font-size: 42px;
   }

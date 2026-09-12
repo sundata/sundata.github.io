@@ -2070,25 +2070,31 @@ footer div {
 }
 .languagePicker {
   min-height: 44px;
-  padding: 0 12px;
+  padding: 0 8px;
   border-radius: 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 7px;
   line-height: 1;
-  cursor: default;
 }
-.languagePicker select {
-  max-width: 82px;
-  border: 0;
-  outline: 0;
+.languagePicker a {
+  padding: 7px 4px;
   color: inherit;
-  background: transparent;
   font: inherit;
+  font-size: 12px;
   font-weight: 700;
-  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
   cursor: pointer;
+}
+.languagePicker a:hover,
+.languagePicker a.active {
+  color: var(--green);
+}
+.languagePicker a.active {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .modal a svg {
   width: 17px;

@@ -834,30 +834,24 @@ function App() {
           <a href="#privacy">{L.privacy}</a>
         </nav>
         <div className="actions">
-          <label className="lang languagePicker">
+          <div
+            className="lang languagePicker"
+            role="group"
+            aria-label={
+              lang === "ja" ? "言語" : lang === "zh" ? "语言" : "Language"
+            }
+          >
             <Languages size={17} />
-            <select
-              aria-label={
-                lang === "ja" ? "言語" : lang === "zh" ? "语言" : "Language"
-              }
-              value={lang}
-              onChange={(event) => {
-                const next = event.target.value;
-                localStorage.setItem("sundata-language", next);
-                if (next === "en") {
-                  window.location.href = "/en/";
-                } else if (next === "ja") {
-                  window.location.href = "/";
-                } else {
-                  window.location.href = "/?lang=zh";
-                }
-              }}
-            >
-              <option value="ja">日本語</option>
-              <option value="zh">中文</option>
-              <option value="en">English</option>
-            </select>
-          </label>
+            <a className={lang === "ja" ? "active" : ""} aria-current={lang === "ja" ? "page" : undefined} href="/">
+              日本語
+            </a>
+            <a className={lang === "zh" ? "active" : ""} aria-current={lang === "zh" ? "page" : undefined} href="/?lang=zh">
+              中文
+            </a>
+            <a className={lang === "en" ? "active" : ""} aria-current={lang === "en" ? "page" : undefined} href="/en/">
+              English
+            </a>
+          </div>
           <button className="tipbtn" onClick={() => setDonate(true)}>
             <Heart size={16} />
             {L.donate}

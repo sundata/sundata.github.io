@@ -62,15 +62,24 @@ a {
   color: #50615d;
   background: #fff;
 }
-.page-language select {
-  max-width: 86px;
+.page-language button {
+  padding: 6px 3px;
   border: 0;
-  outline: 0;
   color: inherit;
   background: transparent;
   font: inherit;
   font-size: 14px;
   font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.page-language button:hover,
+.page-language button.active {
+  color: #297362;
+}
+.page-language button.active {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .nav a {
   text-decoration: none;

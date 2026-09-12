@@ -48,8 +48,13 @@
     document.title = text.pageTitle; document.querySelector('meta[name="description"]').content = text.description;
     document.querySelectorAll("[data-i18n]").forEach((el) => { const value = text[el.dataset.i18n]; if (value) el.textContent = value; });
     document.querySelectorAll("[data-i18n-alt]").forEach((el) => { const value = text[el.dataset.i18nAlt]; if (value) el.alt = value; });
-    const picker = document.getElementById("page-language"); if (picker) picker.value = lang;
+    document.querySelectorAll("#page-language [data-language]").forEach((button) => {
+      const active = button.dataset.language === lang;
+      button.classList.toggle("active", active);
+      if (active) button.setAttribute("aria-current", "true");
+      else button.removeAttribute("aria-current");
+    });
   };
-  document.getElementById("page-language")?.addEventListener("change", (event) => { localStorage.setItem("sundata-language", event.target.value); apply(event.target.value); });
+  document.querySelectorAll("#page-language [data-language]").forEach((button) => button.addEventListener("click", () => { localStorage.setItem("sundata-language", button.dataset.language); apply(button.dataset.language); }));
   apply(lang);
 })();

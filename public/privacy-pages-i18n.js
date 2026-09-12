@@ -63,11 +63,19 @@
     textNodes.forEach(node => { const original = originals.get(node); node.nodeValue = dict[original] || original; });
     document.title = dict.title || (page === "swim" ? "SwimScope プライバシーポリシー | SunData" : "アプリ プライバシーポリシー | SunDataサービス株式会社");
     document.querySelector('meta[name="description"]').content = dict.description || (page === "swim" ? "SwimScopeにおける利用者データの取り扱いとプライバシー方針です。" : "SunDataサービス株式会社が提供するアプリ共通のプライバシーポリシーです。");
-    document.querySelectorAll('.privacy-language').forEach(select => { select.value = lang; select.setAttribute('aria-label', lang === 'ja' ? '言語' : lang === 'zh' ? '语言' : 'Language'); });
+    document.querySelectorAll('.privacy-language').forEach(picker => {
+      picker.setAttribute('aria-label', lang === 'ja' ? '言語' : lang === 'zh' ? '语言' : 'Language');
+      picker.querySelectorAll('[data-language]').forEach(button => {
+        const active = button.dataset.language === lang;
+        button.classList.toggle('active', active);
+        if (active) button.setAttribute('aria-current', 'true');
+        else button.removeAttribute('aria-current');
+      });
+    });
     localStorage.setItem('sundata-language', lang);
   };
   const saved = localStorage.getItem('sundata-language'); const browser = (navigator.languages?.[0] || navigator.language || 'en').toLowerCase();
   const initial = ['ja','zh','en'].includes(saved) ? saved : browser.startsWith('zh') ? 'zh' : browser.startsWith('ja') ? 'ja' : 'en';
-  document.querySelectorAll('.privacy-language').forEach(select => select.addEventListener('change', event => apply(event.target.value)));
+  document.querySelectorAll('.privacy-language [data-language]').forEach(button => button.addEventListener('click', () => apply(button.dataset.language)));
   apply(initial);
 })();

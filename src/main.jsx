@@ -488,6 +488,60 @@ const t = {
   },
 };
 
+const PAYPAY_SUPPORT_URL = "https://qr.paypay.ne.jp/p2p01_PpW90RKTPyWDI00N";
+
+function SupportQr({ type, lang }) {
+  const target = useRef(null);
+  const isPayPay = type === "paypay";
+  const label = isPayPay
+    ? "PayPay"
+    : lang === "ja"
+      ? "WeChat Pay"
+      : lang === "zh"
+        ? "微信支付"
+        : "WeChat Pay";
+
+  useEffect(() => {
+    if (!isPayPay || !target.current) return undefined;
+    const render = () => {
+      if (!target.current || !window.QRCode) return;
+      target.current.replaceChildren();
+      new window.QRCode(target.current, {
+        text: PAYPAY_SUPPORT_URL,
+        width: 190,
+        height: 190,
+        colorDark: "#102e27",
+        colorLight: "#ffffff",
+        correctLevel: window.QRCode.CorrectLevel.H,
+      });
+    };
+    if (window.QRCode) {
+      render();
+      return undefined;
+    }
+    const script = document.createElement("script");
+    script.src = "/vendor/qrcode.min.js";
+    script.onload = render;
+    document.head.appendChild(script);
+    return () => script.remove();
+  }, [isPayPay]);
+
+  return (
+    <article className="supportQr">
+      <b>{label}</b>
+      {isPayPay ? (
+        <div ref={target} className="supportQrCode" aria-label="PayPay QR code" />
+      ) : (
+        <img
+          className="supportQrImage"
+          src="/assets/apps/微信图片_20260912140526_9_33.jpg"
+          alt="WeChat Pay QR code"
+        />
+      )}
+    </article>
+  );
+}
+
 function App() {
   const [lang, setLang] = useState(() => {
       if (window.location.pathname.startsWith("/en")) return "en";
@@ -1733,6 +1787,10 @@ function App() {
                   ? "ご支援はサーバー運営、機能改善、そして高画質ダウンロードを誰でも無料で使える環境の維持に役立てられます。"
                   : "Your support helps cover hosting, improve features, and keep high-quality downloads free for everyone."}
               </p>
+            </div>
+            <div className="supportQrGrid">
+              <SupportQr type="paypay" lang={lang} />
+              <SupportQr type="wechat" lang={lang} />
             </div>
             <a
               href="https://ko-fi.com/sundata"

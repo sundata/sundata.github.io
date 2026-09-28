@@ -40,6 +40,7 @@ import QrTool from "./QrTool";
 import DailyTools from "./DailyTools";
 import Feedback from "./Feedback";
 import SourceSupport from "./SourceSupport";
+import KnowledgeHub from "./KnowledgeHub";
 import ToolPulse from "./ToolPulse";
 import { useChinesePageTranslation } from "./zhTranslations";
 
@@ -884,6 +885,9 @@ function App() {
           <a href="#daily-tools">{lang === "ja" ? "IT・仕事" : "IT & Work"}</a>
           <a href="#feedback">{lang === "ja" ? "提案" : "Feedback"}</a>
           <a href="#source-support">{lang === "ja" ? "開発支援" : "Source"}</a>
+          <a href={lang === "en" ? "/en/guides/" : "/guides/"}>
+            {lang === "ja" ? "ガイド" : lang === "zh" ? "指南" : "Guides"}
+          </a>
           <a href="/apps.html">{L.apps}</a>
           <a href="#privacy">{L.privacy}</a>
         </nav>
@@ -1600,6 +1604,7 @@ function App() {
         <PdfTools lang={lang} onSuccess={() => setDonate(true)} />
         <QrTool lang={lang} />
         <DailyTools lang={lang} />
+        <KnowledgeHub lang={lang} />
         <Feedback lang={lang} />
         <SourceSupport lang={lang} />
         <section className="why" id="how">
@@ -1718,6 +1723,9 @@ function App() {
           <a href="mailto:work.sundata@gmail.com">
             work.sundata@gmail.com <ArrowRight />
           </a>
+          <a href={lang === "en" ? "/en/about.html" : "/about.html"}>
+            {lang === "ja" ? "運営者・編集方針" : lang === "zh" ? "运营与编辑方针" : "About and editorial policy"} <ArrowRight />
+          </a>
         </div>
         <div className="changeLog">
           <b>{lang === "ja" ? "更新履歴" : "What’s new"}</b>
@@ -1755,6 +1763,12 @@ function App() {
         </a>
         <p>© 2026 SunData Tools. Made with care in Japan.</p>
         <div>
+          <a href={lang === "en" ? "/en/guides/" : "/guides/"}>
+            {lang === "ja" ? "ガイド" : lang === "zh" ? "指南" : "Guides"}
+          </a>
+          <a href={lang === "en" ? "/en/about.html" : "/about.html"}>
+            {lang === "ja" ? "運営者" : lang === "zh" ? "运营者" : "About"}
+          </a>
           <a href="/apps.html">{L.apps}</a>
           <a href="/privacy.html">{L.privacy}</a>
           <a href="/terms.html">Terms</a>
@@ -1772,15 +1786,15 @@ function App() {
             <h2>{L.free}</h2>
             <p>
               {lang === "ja"
-                ? "このサイトは広告や有料ダウンロードなしで運営しています。お好きな方法で応援してください。"
-                : "This site runs without ads or paid downloads. Choose any way you’d like to help."}
+                ? "このサイトは広告と任意のご支援で運営し、有料ダウンロードなしで提供しています。お好きな方法で応援してください。"
+                : "This site is supported by ads and optional contributions, with no paid downloads. Choose any way you’d like to help."}
             </p>
             <div className="sundataIntro">
               <b>{lang === "ja" ? "無料ツールを応援" : "Support free tools"}</b>
               <span>
                 {lang === "ja"
-                  ? "無料・広告なし・プライバシー重視"
-                  : "Free, ad-free and privacy-first."}
+                  ? "無料・有料ダウンロードなし・プライバシー重視"
+                  : "Free, no paid downloads and privacy-first."}
               </span>
               <p>
                 {lang === "ja"

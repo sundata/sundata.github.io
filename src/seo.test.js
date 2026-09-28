@@ -34,4 +34,41 @@ describe("multilingual SEO", () => {
     expect(sitemap).toContain("https://sundata.tech/en/");
     expect(sitemap).toContain("xmlns:xhtml=");
   });
+
+  it("publishes substantial localized guide and about pages", () => {
+    const sitemap = read("public/sitemap.xml");
+    for (const path of [
+      "public/guides/index.html",
+      "public/en/guides/index.html",
+      "public/guides/image-compression.html",
+      "public/en/guides/image-compression.html",
+      "public/guides/pdf-compression.html",
+      "public/en/guides/pdf-compression.html",
+      "public/guides/pdf-office-conversion.html",
+      "public/en/guides/pdf-office-conversion.html",
+      "public/about.html",
+      "public/en/about.html",
+    ]) {
+      const html = read(path);
+      expect(html.length).toBeGreaterThan(1_000);
+      expect(html).toContain('rel="canonical"');
+      const url = html.match(/rel="canonical" href="([^"]+)/)?.[1];
+      expect(sitemap).toContain(url);
+    }
+  });
+
+  it("does not load ads on legal and app-information pages", () => {
+    for (const path of [
+      "public/privacy.html",
+      "public/swimscope-privacy.html",
+      "public/privacy-policy.html",
+      "public/terms.html",
+      "public/apps.html",
+      "public/guides/35x45-photo.html",
+      "public/guides/japan-passport-photo.html",
+      "public/guides/us-passport-photo.html",
+    ]) {
+      expect(read(path)).not.toContain("adsbygoogle.js");
+    }
+  });
 });

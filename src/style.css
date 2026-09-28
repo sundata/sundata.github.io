@@ -3485,3 +3485,110 @@ footer div {
     font-size: 31px;
   }
 }
+/* Original editorial content supporting the browser tools. */
+.knowledgeHub {
+  padding: 96px 8%;
+  background: #fbfbf8;
+  border-top: 1px solid #e2e6e2;
+}
+.knowledgeGrid {
+  max-width: 1180px;
+  margin: 42px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.knowledgeGrid article {
+  padding: 30px;
+  border: 1px solid #dce3df;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 12px 28px #17312b0a;
+}
+.knowledgeGrid article > svg {
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+  border-radius: 8px;
+  background: #e2f0e9;
+  color: var(--green);
+}
+.knowledgeGrid h3 {
+  margin: 18px 0 10px;
+  font-size: 22px;
+}
+.knowledgeGrid p {
+  color: #5c6e68;
+  line-height: 1.85;
+  font-size: 14px;
+}
+.knowledgeGrid ul {
+  margin: 18px 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.knowledgeGrid li {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: #f0f5f2;
+  color: #456158;
+  font-size: 11px;
+}
+.knowledgeGrid li svg {
+  width: 13px;
+  height: 13px;
+}
+.knowledgeGrid a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.knowledgeGrid a svg {
+  width: 15px;
+}
+.knowledgeFaq {
+  max-width: 900px;
+  margin: 58px auto 0;
+}
+.knowledgeFaq h3 {
+  margin-bottom: 18px;
+  font-size: 26px;
+}
+.knowledgeFaq details {
+  border-top: 1px solid #dce3df;
+  padding: 18px 0;
+}
+.knowledgeFaq details:last-child {
+  border-bottom: 1px solid #dce3df;
+}
+.knowledgeFaq summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+.knowledgeFaq p {
+  margin: 12px 0 0;
+  color: #5c6e68;
+  line-height: 1.8;
+}
+.editorialNote {
+  max-width: 900px;
+  margin: 24px auto 0;
+  color: #7a8883;
+  font-size: 11px;
+  line-height: 1.7;
+}
+@media (max-width: 760px) {
+  .knowledgeHub { padding: 72px 6%; }
+  .knowledgeGrid { grid-template-columns: 1fr; }
+  .knowledgeGrid article { padding: 24px; }
+}

@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://sundata.tech/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://sundata.tech/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sundata.tech/en/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sundata.tech/" />
-    <lastmod>2026-09-09</lastmod><changefreq>weekly</changefreq><priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://sundata.tech/en/</loc>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://sundata.tech/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sundata.tech/en/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sundata.tech/" />
-    <lastmod>2026-09-09</lastmod><changefreq>weekly</changefreq><priority>1.0</priority>
-  </url>
-  <url><loc>https://sundata.tech/guides/japan-passport-photo.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sundata.tech/guides/us-passport-photo.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sundata.tech/guides/35x45-photo.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sundata.tech/privacy-policy.html</loc><priority>0.3</priority></url>
-  <url><loc>https://sundata.tech/apps.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sundata.tech/privacy.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://sundata.tech/swimscope-privacy.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://sundata.tech/terms.html</loc><priority>0.3</priority></url>
+  <url><loc>https://sundata.tech/</loc><xhtml:link rel="alternate" hreflang="ja" href="https://sundata.tech/"/><xhtml:link rel="alternate" hreflang="en" href="https://sundata.tech/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://sundata.tech/"/><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://sundata.tech/en/</loc><xhtml:link rel="alternate" hreflang="ja" href="https://sundata.tech/"/><xhtml:link rel="alternate" hreflang="en" href="https://sundata.tech/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://sundata.tech/"/><lastmod>2026-09-28</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://sundata.tech/guides/</loc><xhtml:link rel="alternate" hreflang="ja" href="https://sundata.tech/guides/"/><xhtml:link rel="alternate" hreflang="en" href="https://sundata.tech/en/guides/"/><lastmod>2026-09-28</lastmod><priority>0.9</priority></url>
+  <url><loc>https://sundata.tech/en/guides/</loc><xhtml:link rel="alternate" hreflang="ja" href="https://sundata.tech/guides/"/><xhtml:link rel="alternate" hreflang="en" href="https://sundata.tech/en/guides/"/><lastmod>2026-09-28</lastmod><priority>0.9</priority></url>
+  <url><loc>https://sundata.tech/guides/image-compression.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://sundata.tech/guides/image-compression.html"/><xhtml:link rel="alternate" hreflang="en" href="https://sundata.tech/en/guides/image-compression.html"/><lastmod>2026-09-28</lastmod><priority>0.8</priority></url>
+  <url><loc>https://sundata.tech/en/guides/image-compression.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://sundata.tech/guides/image-compression.html"/><xhtml:link rel="alternate" hreflang="en" href="https://sundata.tech/en/guides/image-compression.html"/><lastmod>2026-09-28</lastmod><priority>0.8</priority></url>
+  <url><loc>https://sundata.tech/guides/pdf-compression.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://sundata.tech/guides/pdf-compression.html"/><xhtml:link rel="alternate" hreflang="en" href="https://sundata.tech/en/guides/pdf-compression.html"/><lastmod>2026-09-28</lastmod><priority>0.8</priority></url>
+  <url><loc>https://sundata.tech/en/guides/pdf-compression.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://sundata.tech/guides/pdf-compression.html"/><xhtml:link rel="alternate" hreflang="en" href="https://sundata.tech/en/guides/pdf-compression.html"/><lastmod>2026-09-28</lastmod><priority>0.8</priority></url>
+  <url><loc>https://sundata.tech/guides/pdf-office-conversion.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://sundata.tech/guides/pdf-office-conversion.html"/><xhtml:link rel="alternate" hreflang="en" href="https://sundata.tech/en/guides/pdf-office-conversion.html"/><lastmod>2026-09-28</lastmod><priority>0.8</priority></url>
+  <url><loc>https://sundata.tech/en/guides/pdf-office-conversion.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://sundata.tech/guides/pdf-office-conversion.html"/><xhtml:link rel="alternate" hreflang="en" href="https://sundata.tech/en/guides/pdf-office-conversion.html"/><lastmod>2026-09-28</lastmod><priority>0.8</priority></url>
+  <url><loc>https://sundata.tech/about.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://sundata.tech/about.html"/><xhtml:link rel="alternate" hreflang="en" href="https://sundata.tech/en/about.html"/><lastmod>2026-09-28</lastmod><priority>0.7</priority></url>
+  <url><loc>https://sundata.tech/en/about.html</loc><xhtml:link rel="alternate" hreflang="ja" href="https://sundata.tech/about.html"/><xhtml:link rel="alternate" hreflang="en" href="https://sundata.tech/en/about.html"/><lastmod>2026-09-28</lastmod><priority>0.7</priority></url>
+  <url><loc>https://sundata.tech/guides/japan-passport-photo.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sundata.tech/guides/us-passport-photo.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sundata.tech/guides/35x45-photo.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sundata.tech/apps.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

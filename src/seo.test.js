@@ -71,4 +71,18 @@ describe("multilingual SEO", () => {
       expect(read(path)).not.toContain("adsbygoogle.js");
     }
   });
+
+  it("lists Koyomi with localized copy and privacy disclosure", () => {
+    const apps = read("public/apps.html");
+    const appCopy = read("public/app-pages-i18n.js");
+    const privacy = read("public/privacy.html");
+
+    expect(apps).toContain("id6806793898");
+    expect(apps).toContain("assets/apps/koyomi.jpg");
+    expect(apps).toContain("7アプリ");
+    expect(appCopy).toContain('appCount: "7 款 App"');
+    expect(appCopy).toContain('appCount: "7 apps"');
+    expect(appCopy).toContain("koyomiDesc");
+    expect(privacy).toContain("Koyomi｜気分と習慣の記録");
+  });
 });

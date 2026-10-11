@@ -79,10 +79,21 @@ describe("multilingual SEO", () => {
 
     expect(apps).toContain("id6806793898");
     expect(apps).toContain("assets/apps/koyomi.jpg");
-    expect(apps).toContain("7アプリ");
-    expect(appCopy).toContain('appCount: "7 款 App"');
-    expect(appCopy).toContain('appCount: "7 apps"');
+    expect(apps).toContain("8アプリ");
+    expect(appCopy).toContain('appCount: "8 款 App"');
+    expect(appCopy).toContain('appCount: "8 apps"');
     expect(appCopy).toContain("koyomiDesc");
     expect(privacy).toContain("Koyomi｜気分と習慣の記録");
+  });
+
+  it("lists Tedori Biyori with localized copy and privacy disclosure", () => {
+    const apps = read("public/apps.html");
+    const appCopy = read("public/app-pages-i18n.js");
+    const privacy = read("public/privacy.html");
+
+    expect(apps).toContain("id6821520963");
+    expect(apps).toContain("assets/apps/tedori-biyori.jpg");
+    expect(appCopy).toContain("tedoriDesc");
+    expect(privacy).toContain("てどり日和");
   });
 });

@@ -3,7 +3,7 @@
     zh: {
       title: "隐私政策 | SunData 服务株式会社", description: "SunData 服务株式会社旗下 App 与网页工具通用隐私政策。",
       "アプリ一覧": "App 一览", "プライバシーポリシー": "隐私政策", "SunDataサービス株式会社が提供するアプリおよびウェブツールに共通して適用される、個人情報と利用データの取り扱い方針です。": "本政策说明 SunData 服务株式会社旗下 App 与网页工具如何处理个人信息及使用数据。",
-      "制定日：2026年8月30日": "制定日期：2026年8月30日", "最終更新日：2026年9月30日": "最后更新：2026年9月30日", "1. 適用対象": "1. 适用范围",
+      "制定日：2026年8月30日": "制定日期：2026年8月30日", "最終更新日：2026年10月11日": "最后更新：2026年10月11日", "1. 適用対象": "1. 适用范围",
       "本ポリシーは、SunDataサービス株式会社（以下「当社」）が提供する以下のアプリおよびウェブサービス（以下総称して「対象サービス」）に適用されます。": "本政策适用于 SunData 服务株式会社（以下简称“本公司”）提供的以下 App 与网页服务（统称“适用服务”）。",
       "SunData Tools（ウェブサービス）": "SunData Tools（网页服务）", "みまもり＋（App Store上の表示名「もしもの手紙」を含みます）": "みまもり＋（包括 App Store 中显示的名称“もしもの手紙”）",
       "2. アプリごとのデータ取り扱い": "2. 各 App 的数据处理", "アプリ": "App", "取り扱う可能性のあるデータ": "可能处理的数据", "主な目的": "主要目的",
@@ -13,6 +13,7 @@
       "気分、セルフケアのチェック、夜メモ、履歴、設定等は端末内に保存されます。当社のサーバーへ記録内容を送信しません。": "心情、自我关怀打卡、夜间笔记、历史记录和设置等均保存在设备内，记录内容不会发送至本公司服务器。", "日々の記録、30日間の振り返り、カレンダー表示、シェアカードの作成": "每日记录、30 天回顾、日历显示和分享卡片制作",
       "利用者が任意に入力する氏名、メールアドレス、電話番号、メッセージまたはメモ": "用户自愿输入的姓名、电子邮箱、电话号码、留言或备注", "安否確認、緊急連絡先への通知、利用者が選択した機能の提供": "平安确认、通知紧急联系人及提供用户选择的功能",
       "当社による個人データの収集は行いません。選択・撮影した写真や編集内容は、機能提供のため端末内で処理されます。": "本公司不收集个人数据。所选或拍摄的照片及编辑内容仅在设备内处理。", "証明写真の作成、編集、保存": "制作、编辑和保存证件照",
+      "生年月日、家族関係、給与・控除、勤務先の呼び名と勤務条件、健康保険の確認条件、年収目標、通知設定等は端末内に保存され、当社へは送信されません。広告、行動分析、ユーザートラッキング、クラウド同期はなく、マイナンバー・銀行口座・勤務先住所は収集しません。CSVやバックアップを書き出した場合、選択した保存先・共有先へ情報が渡ります。": "出生日期、家属关系、工资与扣除项、工作单位名称与工作条件、健康保险确认条件、年收入目标和通知设置等保存在设备内，不会发送给本公司。不含广告、行为分析、用户追踪或云同步，也不收集个人编号、银行账户和工作单位地址。导出 CSV 或备份时，信息会传递给您选择的保存位置或分享对象。", "手取り・年収・扶養・社会保険の見通しの確認、実績と予定の管理、通知": "确认实发工资、年收入、抚养与社会保险预估，管理实际与预定收入，通知",
       "当社による個人データの収集は行いません。お気に入りや閲覧設定等は端末内に保存される場合があります。": "本公司不收集个人数据。收藏和阅读设置等内容可能保存在设备内。", "ニュース表示、利用設定の保持": "显示新闻并保存使用设置",
       "端末内だけに保存され、当社のサーバーへ送信されない情報は、当社が収集する個人データには含まれません。": "仅保存在设备内且不发送至本公司服务器的信息，不属于本公司收集的个人数据。", "SwimScopeの詳細": "SwimScope 详细说明",
       "SwimScopeはアカウント登録を求めず、広告SDKや第三者の行動分析SDKを使用しません。利用者が入力したニックネーム、目標、大会当日プラン、お気に入りおよび検索履歴は端末内に保存され、当社のサーバーへ送信されません。": "SwimScope 无需注册账号，不使用广告 SDK 或第三方行为分析 SDK。昵称、目标、比赛日计划、收藏和搜索记录均保存在设备内，不会发送至本公司服务器。",
@@ -29,7 +30,7 @@
     en: {
       title: "Privacy Policy | SunData Service Co., Ltd.", description: "Privacy policy for apps and web tools provided by SunData Service Co., Ltd.",
       "アプリ一覧": "Apps", "プライバシーポリシー": "Privacy Policy", "SunDataサービス株式会社が提供するアプリおよびウェブツールに共通して適用される、個人情報と利用データの取り扱い方針です。": "This policy explains how apps and web tools provided by SunData Service Co., Ltd. handle personal information and usage data.",
-      "制定日：2026年8月30日": "Effective: August 30, 2026", "最終更新日：2026年9月30日": "Last updated: September 30, 2026", "1. 適用対象": "1. Scope",
+      "制定日：2026年8月30日": "Effective: August 30, 2026", "最終更新日：2026年10月11日": "Last updated: October 11, 2026", "1. 適用対象": "1. Scope",
       "本ポリシーは、SunDataサービス株式会社（以下「当社」）が提供する以下のアプリおよびウェブサービス（以下総称して「対象サービス」）に適用されます。": "This policy applies to the following apps and web services provided by SunData Service Co., Ltd. (collectively, the Services).",
       "SunData Tools（ウェブサービス）": "SunData Tools (web service)", "みまもり＋（App Store上の表示名「もしもの手紙」を含みます）": "Mimamori Plus (including the App Store name Moshimo no Tegami)", "2. アプリごとのデータ取り扱い": "2. Data handling by service", "アプリ": "Service", "取り扱う可能性のあるデータ": "Data that may be handled", "主な目的": "Main purpose",
       "画像、PDFおよび入力内容は収集しません。ツール評価の種類と匿名識別子のみをFirebaseに保存します。": "Images, PDFs and input content are not collected. Only the reaction type and an anonymous identifier are stored in Firebase.", "全訪問者の評価集計と、同一ブラウザからの重複投票防止": "Aggregate visitor reactions and prevent repeat voting from the same browser",
@@ -38,6 +39,7 @@
       "気分、セルフケアのチェック、夜メモ、履歴、設定等は端末内に保存されます。当社のサーバーへ記録内容を送信しません。": "Moods, self-care check-ins, evening notes, history and settings are stored on the device. Record contents are not sent to our servers.", "日々の記録、30日間の振り返り、カレンダー表示、シェアカードの作成": "Daily tracking, 30-day reviews, calendar history and share-card creation",
       "利用者が任意に入力する氏名、メールアドレス、電話番号、メッセージまたはメモ": "Names, email addresses, phone numbers, messages or notes entered voluntarily", "安否確認、緊急連絡先への通知、利用者が選択した機能の提供": "Safety check-ins, emergency contact notifications and requested features",
       "当社による個人データの収集は行いません。選択・撮影した写真や編集内容は、機能提供のため端末内で処理されます。": "We do not collect personal data. Selected or captured photos and edits are processed on the device.", "証明写真の作成、編集、保存": "Create, edit and save ID photos",
+      "生年月日、家族関係、給与・控除、勤務先の呼び名と勤務条件、健康保険の確認条件、年収目標、通知設定等は端末内に保存され、当社へは送信されません。広告、行動分析、ユーザートラッキング、クラウド同期はなく、マイナンバー・銀行口座・勤務先住所は収集しません。CSVやバックアップを書き出した場合、選択した保存先・共有先へ情報が渡ります。": "Birth date, family relationships, pay and deductions, employer nicknames and work conditions, health insurance conditions, income targets and notification settings are stored on the device and are not sent to us. There are no ads, behavioral analytics, user tracking or cloud sync, and we do not collect My Number, bank account or employer address details. If you export CSV or backup files, the information is passed to the save or share destination you choose.", "手取り・年収・扶養・社会保険の見通しの確認、実績と予定の管理、通知": "Review take-home pay, annual income, dependent and social insurance outlook; manage actual and planned income; notifications",
       "当社による個人データの収集は行いません。お気に入りや閲覧設定等は端末内に保存される場合があります。": "We do not collect personal data. Favorites and reading preferences may be stored on the device.", "ニュース表示、利用設定の保持": "Display news and retain settings",
       "端末内だけに保存され、当社のサーバーへ送信されない情報は、当社が収集する個人データには含まれません。": "Information stored only on the device and never sent to our servers is not personal data collected by us.", "SwimScopeの詳細": "About SwimScope",
       "SwimScopeはアカウント登録を求めず、広告SDKや第三者の行動分析SDKを使用しません。利用者が入力したニックネーム、目標、大会当日プラン、お気に入りおよび検索履歴は端末内に保存され、当社のサーバーへ送信されません。": "SwimScope requires no account and uses no advertising or third-party behavioral analytics SDKs. Nicknames, goals, meet-day plans, favorites and search history remain on the device and are not sent to our servers.",

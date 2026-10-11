@@ -3,7 +3,8 @@
     ja: {
       pageTitle: "公開中のアプリ | SunData", description: "SunDataサービス株式会社が企画・開発するiPhone・iPad向けアプリをご紹介します。",
       navTools: "Top", navPrivacy: "プライバシー", title: "日常を、少し便利にするアプリ。", lead: "SunDataサービス株式会社では、生活支援、ニュース、証明写真作成など、日々の暮らしで役立つiPhone / iPad向けアプリを企画・開発しています。",
-      published: "公開中", appCount: "8アプリ", support: "対応", areas: "領域", areaList: "勤務管理・セルフケア・生活支援・スポーツ・ニュース・証明写真",
+      published: "公開中", appCount: "9アプリ", support: "対応", areas: "領域", areaList: "勤務管理・セルフケア・生活支援・スポーツ・ニュース・証明写真",
+      kurashiStatus: "ライフ・手続き / 無料", kurashiDesc: "日本で暮らす外国人の手続きと書類を整理する7言語対応アプリ。本人・同意を確認した家族ごとのチェックリスト、目標日の通知、端末内の写真文字認識メモに対応しています。", kurashiAlt: "くらしパスのアプリアイコン",
       tedoriStatus: "家計・お金 / 無料", tedoriDesc: "給与明細をもとに手取りを記録し、年収と扶養・社会保険の見通しを確認できるアプリ。支払日別・勤務先別の実績と予定を管理できます。", tedoriAlt: "てどり日和のアプリアイコン",
       shiftStatus: "仕事効率化 / 無料・アプリ内課金", shiftDesc: "シフト入力、勤務時間・給与・交通費の概算、月間カレンダーの共有までをひとつにまとめた勤務管理アプリ。テンプレート、バックアップ、リマインダーにも対応しています。",
       koyomiStatus: "ライフスタイル / 無料", koyomiDesc: "毎日の気分、小さなセルフケア、夜のひとことを無理なく記録するアプリ。30日間の気分バランス、習慣、天気との組み合わせを振り返り、自分らしいリズムを見つけられます。記録は端末内に保存されます。",
@@ -18,7 +19,8 @@
     zh: {
       pageTitle: "已发布的 App | SunData", description: "介绍由 SunData 服务株式会社策划和开发的 iPhone 与 iPad App。",
       navTools: "Top", navPrivacy: "隐私政策", title: "让日常生活，更方便一点的 App。", lead: "SunData 服务株式会社策划并开发面向 iPhone / iPad 的实用 App，涵盖生活支持、体育、新闻和证件照制作等日常场景。",
-      published: "已发布", appCount: "8 款 App", support: "支持设备", areas: "应用领域", areaList: "排班管理 · 自我关怀 · 生活支持 · 体育 · 新闻 · 证件照",
+      published: "已发布", appCount: "9 款 App", support: "支持设备", areas: "应用领域", areaList: "排班管理 · 自我关怀 · 生活支持 · 体育 · 新闻 · 证件照",
+      kurashiStatus: "生活 · 手续 / 免费", kurashiDesc: "面向在日外国人的手续与材料整理 App，支持七种语言。可为本人及已获同意的家人分别建立清单、设置目标日提醒，并在设备内识别照片文字做备注。", kurashiAlt: "くらしパス App 图标",
       tedoriStatus: "财务 / 免费", tedoriDesc: "根据工资明细记录实发工资，并查看年收入与抚养、社会保险的预估。可按发薪日和工作单位管理实际与预定收入。", tedoriAlt: "てどり日和 App 图标",
       shiftStatus: "效率 / 免费 · 提供 App 内购买", shiftDesc: "一站式管理排班、工作时长、工资与交通费预估，并可分享月度排班日历。支持排班模板、备份恢复和提醒功能。",
       koyomiStatus: "生活方式 / 免费", koyomiDesc: "轻松记录每日心情、小小的自我关怀行动和夜间感想。可回顾最近 30 天的心情平衡、习惯与天气组合，发现属于自己的生活节奏。记录仅保存在设备内。",
@@ -33,7 +35,8 @@
     en: {
       pageTitle: "Our Apps | SunData", description: "Explore iPhone and iPad apps planned and developed by SunData Service Co., Ltd.",
       navTools: "Top", navPrivacy: "Privacy", title: "Apps that make everyday life a little easier.", lead: "SunData Service Co., Ltd. creates practical iPhone and iPad apps for everyday life, including personal safety, sports, news and ID photos.",
-      published: "Available", appCount: "8 apps", support: "Devices", areas: "Categories", areaList: "Shift management · Self-care · Lifestyle · Sports · News · ID photos",
+      published: "Available", appCount: "9 apps", support: "Devices", areas: "Categories", areaList: "Shift management · Self-care · Lifestyle · Sports · News · ID photos",
+      kurashiStatus: "Lifestyle · Paperwork / Free", kurashiDesc: "A seven-language app that helps foreign residents organize paperwork in Japan. Keep checklists for yourself and consenting family members, set target-date reminders, and save on-device photo text notes.", kurashiAlt: "Kurashi Pass app icon",
       tedoriStatus: "Finance / Free", tedoriDesc: "Record take-home pay from your pay slips and review your annual income outlook, dependent limits and social insurance. Manage actual and planned income by pay date and employer.", tedoriAlt: "Tedori Biyori app icon",
       shiftStatus: "Productivity / Free · In-App Purchases", shiftDesc: "Manage shifts, estimate hours, pay and commuting costs, and share a monthly work calendar. Includes shift templates, backup and restore, and reminders.",
       koyomiStatus: "Lifestyle / Free", koyomiDesc: "Gently track your daily mood, small self-care actions and an evening note. Review a 30-day mood balance, habits and weather patterns to discover your own rhythm. Records stay on your device.",

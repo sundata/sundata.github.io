@@ -54,12 +54,98 @@
       "対象サービスの機能、利用する外部サービス、法令等の変更に応じて、本ポリシーを改定することがあります。重要な変更がある場合は、本ページまたは対象サービス内でお知らせします。": "We may update this policy when features, external services or laws change. Material changes will be announced on this page or in the relevant Service.", "お問い合わせ窓口": "Contact", "メール：": "Email: ", "© 2026 SunDataサービス株式会社": "© 2026 SunData Service Co., Ltd."
     }
   };
+  Object.assign(shared.zh, {
+    "最終更新日：2026年10月12日": "最后更新：2026年10月12日",
+    "PackPass": "PackPass",
+    "商品の画像解析、手荷物リストと申告用下書きの作成、広告表示": "商品图片分析、行李清单和申报草稿制作、广告展示",
+    "利用者が選択した商品写真（最大6枚）とアプリ言語は、画像解析のため分析サービスを経由してOpenAIへ送信されます。開発者の分析ゲートウェイは写真、プロンプト、APIキーを記録・保存しませんが、OpenAIのAPIデータ保持方針が適用されます。手荷物情報、商品写真、申告用入力内容、言語、出発日および広告設定は端末内に保存されます。広告表示時はGoogle Mobile Adsおよび同意管理（UMP）が技術情報や広告設定を処理する場合があります。": "用户选择的商品照片（最多 6 张）和 App 语言会经分析服务发送至 OpenAI 进行图片分析。开发者的分析网关不会记录或保存照片、提示词和 API 密钥，但 OpenAI API 数据保留政策仍适用。行李信息、商品照片、申报输入内容、语言、出发日期和广告设置保存在设备内。显示广告时，Google Mobile Ads 和同意管理平台（UMP）可能会处理技术信息和广告设置。",
+    "PackPassの詳細": "PackPass 详细说明",
+    "PackPassはアカウント登録を必要としません。カメラまたは写真ライブラリから利用者が選択した商品写真（最大6枚）とアプリ言語を、画像解析のため分析サービスへ送信します。分析サービスは写真・プロンプト・APIキーを記録または保存せず、写真をOpenAIのAPIへ送信して解析します。OpenAIのAPIデータ保持方針が適用されるため、送信データが一切保持されないことを意味するものではありません。解析結果は商品名、原材料、ラベル等の読み取りを補助するもので、通関許可や公式申告の判断ではありません。": "PackPass 无需注册账号。用户从相机或照片图库选择的商品照片（最多 6 张）及 App 语言会发送至分析服务进行图片分析。分析服务不会记录或保存照片、提示词和 API 密钥，并会将照片发送到 OpenAI API 分析。OpenAI API 数据保留政策仍适用，因此并不代表发送的数据绝不会被保留。分析结果仅辅助读取商品名称、配料和标签等信息，不构成通关许可或官方申报判断。",
+    "手荷物リスト、商品写真、解析結果、利用者が入力・修正した旅客情報の下書き、言語、出発日および広告設定は端末内に保存され、開発者のサーバーには同期されません。設定画面の「手荷物を削除」から手荷物、履歴、お気に入りおよび関連写真を削除できます。アプリを削除すると端末内のアプリデータも削除されます。PDFやテキストを共有・書き出す場合は、利用者が選択した保存先または共有先へ情報が渡ります。": "行李清单、商品照片、分析结果、用户输入或修改的旅客信息草稿、语言、出发日期和广告设置保存在设备内，不会同步到开发者的服务器。可在设置中选择“删除行李记录”，删除行李、历史记录、收藏和相关照片。卸载 App 会删除设备上的 App 数据。分享或导出 PDF、文本时，信息会传递到用户选择的保存位置或分享对象。",
+    "広告を有効にした場合、ホーム画面にGoogle Mobile Adsのバナーを表示します。地域に応じてGoogleの同意管理プラットフォーム（UMP）を利用します。広告リクエストは非パーソナライズ広告を指定し、アプリはATTによるトラッキング許可を求めず、IDFA APIを呼び出しません。広告を無効にする設定と、必要な場合に表示される広告プライバシー設定をアプリ内で利用できます。Googleによるデータ処理には": "启用广告后，主页会显示 Google Mobile Ads 横幅。根据所在地区，App 会使用 Google 同意管理平台（UMP）。广告请求设为非个性化广告；App 不会请求 ATT 跟踪许可，也不会调用 IDFA API。用户可在 App 中关闭广告，并在需要时打开广告隐私设置。Google 的数据处理适用",
+    "Googleの広告プライバシーポリシー": "Google 广告隐私政策",
+    "が適用されます。": "。",
+    "PackPass専用プライバシーポリシーを読む": "阅读 PackPass 专属隐私政策"
+  });
+  Object.assign(shared.en, {
+    "最終更新日：2026年10月12日": "Last updated: October 12, 2026",
+    "PackPass": "PackPass",
+    "商品の画像解析、手荷物リストと申告用下書きの作成、広告表示": "Product image analysis, baggage lists and declaration drafts, and advertising",
+    "利用者が選択した商品写真（最大6枚）とアプリ言語は、画像解析のため分析サービスを経由してOpenAIへ送信されます。開発者の分析ゲートウェイは写真、プロンプト、APIキーを記録・保存しませんが、OpenAIのAPIデータ保持方針が適用されます。手荷物情報、商品写真、申告用入力内容、言語、出発日および広告設定は端末内に保存されます。広告表示時はGoogle Mobile Adsおよび同意管理（UMP）が技術情報や広告設定を処理する場合があります。": "Product photos (up to six) selected by the user and the app language are sent through an analysis service to OpenAI for image analysis. The developer's analysis gateway does not log or store photos, prompts or API keys, but OpenAI's API data-retention policy applies. Baggage information, product photos, declaration entries, language, departure date and ad settings are stored on the device. When ads are shown, Google Mobile Ads and its consent management platform (UMP) may process technical information and ad settings.",
+    "PackPassの詳細": "PackPass details",
+    "PackPassはアカウント登録を必要としません。カメラまたは写真ライブラリから利用者が選択した商品写真（最大6枚）とアプリ言語を、画像解析のため分析サービスへ送信します。分析サービスは写真・プロンプト・APIキーを記録または保存せず、写真をOpenAIのAPIへ送信して解析します。OpenAIのAPIデータ保持方針が適用されるため、送信データが一切保持されないことを意味するものではありません。解析結果は商品名、原材料、ラベル等の読み取りを補助するもので、通関許可や公式申告の判断ではありません。": "PackPass does not require an account. Product photos (up to six) selected from the camera or photo library, along with the app language, are sent to an analysis service for image analysis. The service does not log or store photos, prompts or API keys, and forwards photos to the OpenAI API for analysis. OpenAI's API data-retention policy applies, so this does not mean submitted data is never retained. Results assist with reading product names, ingredients and labels; they are not an import approval or official declaration decision.",
+    "手荷物リスト、商品写真、解析結果、利用者が入力・修正した旅客情報の下書き、言語、出発日および広告設定は端末内に保存され、開発者のサーバーには同期されません。設定画面の「手荷物を削除」から手荷物、履歴、お気に入りおよび関連写真を削除できます。アプリを削除すると端末内のアプリデータも削除されます。PDFやテキストを共有・書き出す場合は、利用者が選択した保存先または共有先へ情報が渡ります。": "Baggage lists, product photos, analysis results, traveller-detail drafts entered or edited by the user, language, departure date and ad settings are stored on the device and are not synced to the developer's servers. The in-app Delete Baggage Records option removes baggage, history, favorites and related photos. Uninstalling the app deletes its on-device app data. When you share or export a PDF or text, information is sent to the destination or recipient you choose.",
+    "広告を有効にした場合、ホーム画面にGoogle Mobile Adsのバナーを表示します。地域に応じてGoogleの同意管理プラットフォーム（UMP）を利用します。広告リクエストは非パーソナライズ広告を指定し、アプリはATTによるトラッキング許可を求めず、IDFA APIを呼び出しません。広告を無効にする設定と、必要な場合に表示される広告プライバシー設定をアプリ内で利用できます。Googleによるデータ処理には": "When ads are enabled, a Google Mobile Ads banner appears on the home screen. Google's User Messaging Platform (UMP) is used where applicable. Ad requests specify non-personalized ads; the app does not request App Tracking Transparency permission or call the IDFA API. You can turn ads off in the app and open ad privacy options when available. Google's data processing is subject to",
+    "Googleの広告プライバシーポリシー": "Google's advertising privacy policy",
+    "が適用されます。": ".",
+    "PackPass専用プライバシーポリシーを読む": "Read the PackPass privacy policy"
+  });
+  const packpass = {
+    zh: {
+      title: "PackPass 隐私政策 | SunData",
+      description: "PackPass 对商品照片、设备内数据、AI 图片分析和广告的处理方式。",
+      "共通ポリシー": "通用政策", "アプリ一覧": "App 一览", "プライバシーポリシー": "隐私政策",
+      "オーストラリアへ持ち込む商品の確認を支援するPackPassについて、写真、端末内データ、AI解析および広告の取り扱いを説明します。": "本政策说明 PackPass 如何处理澳大利亚入境商品检查中涉及的照片、设备内数据、AI 分析和广告。",
+      "制定日：2026年10月12日": "制定日期：2026年10月12日", "最終更新日：2026年10月12日": "最后更新：2026年10月12日",
+      "1. 基本方針": "1. 基本方针",
+      "PackPass（以下「本アプリ」）はアカウント登録を必要としません。機能提供に必要な情報を端末内に保存するほか、利用者が選択した商品写真をAI画像解析のため外部サービスへ送信します。取り扱いの詳細は以下のとおりです。": "PackPass（以下简称“本 App”）无需注册账号。除在设备内保存提供功能所需的信息外，还会将用户选择的商品照片发送至外部服务进行 AI 图片分析。具体处理方式如下。",
+      "2. 画像解析と外部送信": "2. 图片分析与外部传输",
+      "利用者がカメラで撮影または写真ライブラリから選択した商品写真（1商品につき最大6枚）とアプリ言語は、解析を依頼したときに分析サービスへ送信されます。分析サービスは写真をOpenAIのAPIへ転送して解析し、商品名、包装に表示された原材料・ラベル等の情報を含む結果を本アプリへ返します。": "用户请求分析时，通过相机拍摄或从照片图库选择的商品照片（每件商品最多 6 张）和 App 语言会发送至分析服务。分析服务将照片转发至 OpenAI API 进行分析，并将包含商品名称、包装配料和标签等信息的结果返回给本 App。",
+      "開発者が運用する分析ゲートウェイは写真、プロンプトおよびAPIキーを記録または保存しません。OpenAI APIへのリクエストでは保存機能を無効にしていますが、OpenAIのAPIデータ保持方針および適用される利用条件が適用されます。これは送信データが一切保持されないことを意味しません。写真を送信したくない場合は、画像解析を使わず、商品カテゴリを手動で選択できます。": "开发者运营的分析网关不会记录或保存照片、提示词和 API 密钥。向 OpenAI API 发出的请求已关闭存储功能，但仍适用 OpenAI API 数据保留政策及相关使用条款；这不代表提交的数据绝不会被保留。如不希望发送照片，可不使用图片分析，改为手动选择商品类别。",
+      "AIによる読み取りは誤りや不足を含む場合があります。本アプリの結果やリストは公式の通関判断、輸入許可または政府への申告ではありません。申告資料の下書きは本アプリから政府機関へ送信されません。": "AI 识别结果可能有误或不完整。本 App 的结果和清单不是官方海关判断、进口许可或提交给政府的申报。本 App 不会将申报资料草稿发送至政府机构。",
+      "3. 端末内に保存される情報": "3. 设备内保存的信息",
+      "手荷物リスト、商品写真、解析結果、商品カテゴリや内容の修正、履歴、お気に入り、旅客カード用に利用者が入力した下書き、アプリ言語、出発日および広告設定は端末内に保存され、開発者のサーバーへ同期されません。通知機能は提供していません。": "行李清单、商品照片、分析结果、商品类别或内容的修改、历史记录、收藏、用户为旅客卡输入的草稿、App 语言、出发日期和广告设置均保存在设备内，不会同步到开发者服务器。本 App 不提供通知功能。",
+      "設定画面の「手荷物を削除」から手荷物、履歴、お気に入りおよび関連写真を削除できます。旅客カードの下書き等、ほかの端末内データは本アプリの削除または端末上のアプリデータ削除により削除できます。端末のバックアップ設定等により、削除前のデータが端末バックアップに含まれる場合があります。": "可在设置中选择“删除行李记录”，删除行李、历史记录、收藏和相关照片。旅客卡草稿等其他设备内数据可通过卸载本 App 或删除设备上的 App 数据来删除。根据设备备份设置，删除前的数据可能仍包含在设备备份中。",
+      "4. カメラ、写真および書き出し": "4. 相机、照片与导出",
+      "カメラ撮影にはカメラへのアクセス許可が必要です。写真ライブラリからの選択は利用者が選んだ写真に限られます。権限はiOSの設定から変更できます。": "使用相机拍摄需要相机访问权限。从照片图库中仅选择用户指定的照片。可在 iOS 设置中修改权限。",
+      "旅客情報の入力は任意です。PDFやテキストを共有・書き出す場合、内容は利用者が選択した保存先または共有先へ渡ります。氏名、住所、旅券等の情報を入力する際は、共有先を確認してください。": "旅客信息由用户自愿输入。分享或导出 PDF、文本时，内容会传递到用户选择的保存位置或分享对象。输入姓名、地址、护照等信息时，请确认分享对象。",
+      "5. 広告と同意管理": "5. 广告与同意管理",
+      "広告表示を有効にした場合、ホーム画面にGoogle Mobile Adsのバナーを表示します。地域に応じてGoogleの同意管理プラットフォーム（UMP）を用いて同意情報や広告プライバシー設定を管理します。GoogleのSDKは広告配信・同意管理のため、端末、アプリ、ネットワークまたは広告に関する情報を処理する場合があります。": "启用广告显示后，主页会显示 Google Mobile Ads 横幅。根据所在地区，使用 Google 同意管理平台（UMP）管理同意信息和广告隐私设置。Google SDK 可能为广告投放和同意管理处理设备、App、网络或广告相关信息。",
+      "広告リクエストは非パーソナライズ広告を指定します。本アプリはATTによるトラッキング許可を求めず、IDFA APIを呼び出しません。設定画面で広告を無効にでき、必要な場合は同画面の広告プライバシー設定を開けます。Googleによる取り扱いには": "广告请求设为非个性化广告。本 App 不请求 ATT 跟踪许可，也不调用 IDFA API。可在设置中关闭广告，并在需要时打开同一页面中的广告隐私设置。Google 的处理适用",
+      "Googleの広告プライバシーポリシー": "Google 广告隐私政策",
+      "が適用されます。": "。",
+      "6. お子様のプライバシー": "6. 儿童隐私",
+      "本アプリは、法令上保護者の同意が必要な年齢のお子様から、保護者の同意なく個人情報を故意に収集しません。保護者の方は、写真解析に送信する画像や端末内に入力する情報を必要に応じて管理してください。": "本 App 不会在未经监护人同意的情况下，故意收集依法需要监护人同意的儿童个人信息。监护人应按需要管理用于图片分析的照片和设备内输入的信息。",
+      "7. 本ポリシーの変更": "7. 政策变更",
+      "本アプリの機能、外部サービスまたは法令の変更に応じて本ポリシーを改定することがあります。重要な変更は本ページまたは本アプリ内でお知らせします。": "本政策可能因 App 功能、外部服务或法律变化而修订。重要变更会在本页面或 App 内通知。",
+      "お問い合わせ": "联系我们", "メール：": "电子邮箱：", "© 2026 SunDataサービス株式会社": "© 2026 SunData 服务株式会社"
+    },
+    en: {
+      title: "PackPass Privacy Policy | SunData",
+      description: "How PackPass handles product photos, on-device data, AI image analysis and advertising.",
+      "共通ポリシー": "General policy", "アプリ一覧": "Apps", "プライバシーポリシー": "Privacy Policy",
+      "オーストラリアへ持ち込む商品の確認を支援するPackPassについて、写真、端末内データ、AI解析および広告の取り扱いを説明します。": "This policy explains how PackPass handles photos, on-device data, AI analysis and advertising while helping users check goods they plan to bring into Australia.",
+      "制定日：2026年10月12日": "Effective: October 12, 2026", "最終更新日：2026年10月12日": "Last updated: October 12, 2026",
+      "1. 基本方針": "1. Overview",
+      "PackPass（以下「本アプリ」）はアカウント登録を必要としません。機能提供に必要な情報を端末内に保存するほか、利用者が選択した商品写真をAI画像解析のため外部サービスへ送信します。取り扱いの詳細は以下のとおりです。": "PackPass does not require an account. It stores information needed for the app on your device and sends product photos you select to an external service for AI image analysis. Details are set out below.",
+      "2. 画像解析と外部送信": "2. Image analysis and external processing",
+      "利用者がカメラで撮影または写真ライブラリから選択した商品写真（1商品につき最大6枚）とアプリ言語は、解析を依頼したときに分析サービスへ送信されます。分析サービスは写真をOpenAIのAPIへ転送して解析し、商品名、包装に表示された原材料・ラベル等の情報を含む結果を本アプリへ返します。": "When you request analysis, product photos (up to six per item) taken with the camera or selected from your photo library, together with the app language, are sent to an analysis service. It forwards the photos to the OpenAI API and returns results such as product names and information read from packaging, including ingredients and labels.",
+      "開発者が運用する分析ゲートウェイは写真、プロンプトおよびAPIキーを記録または保存しません。OpenAI APIへのリクエストでは保存機能を無効にしていますが、OpenAIのAPIデータ保持方針および適用される利用条件が適用されます。これは送信データが一切保持されないことを意味しません。写真を送信したくない場合は、画像解析を使わず、商品カテゴリを手動で選択できます。": "The developer-operated analysis gateway does not log or store photos, prompts or API keys. Storage is disabled in requests to the OpenAI API, but OpenAI's API data-retention policy and applicable terms still apply; this does not mean submitted data is never retained. If you do not want to send photos, you can skip image analysis and select a product category manually.",
+      "AIによる読み取りは誤りや不足を含む場合があります。本アプリの結果やリストは公式の通関判断、輸入許可または政府への申告ではありません。申告資料の下書きは本アプリから政府機関へ送信されません。": "AI readings may be incorrect or incomplete. App results and lists are not official customs decisions, import approvals or government declarations. Draft declaration materials are not submitted to government agencies by the app.",
+      "3. 端末内に保存される情報": "3. Information stored on your device",
+      "行李リスト、商品写真、解析結果、商品カテゴリや内容の修正、履歴、お気に入り、旅客カード用に利用者が入力した下書き、アプリ言語、出発日および広告設定は端末内に保存され、開発者のサーバーへ同期されません。通知機能は提供していません。": "Baggage lists, product photos, analysis results, edits to product categories or details, history, favorites, traveller-card drafts entered by you, app language, departure date and ad settings are stored on your device and are not synced to the developer's servers. The app does not provide notifications.",
+      "設定画面の「行李記録を削除」から行李、履歴、お気に入りおよび関連写真を削除できます。旅客カードの下書き等、ほかの端末内データは本アプリの削除または端末上のアプリデータ削除により削除できます。端末のバックアップ設定等により、削除前のデータが端末バックアップに含まれる場合があります。": "Use Delete Baggage Records in Settings to remove baggage, history, favorites and related photos. Other on-device data, such as traveller-card drafts, can be removed by uninstalling the app or deleting its app data. Depending on your device backup settings, data deleted from the app may remain in a device backup.",
+      "4. カメラ、写真および書き出し": "4. Camera, photos and exports",
+      "カメラ撮影にはカメラへのアクセス許可が必要です。写真ライブラリからの選択は利用者が選んだ写真に限られます。権限はiOSの設定から変更できます。": "Camera access is required to take photos. When choosing from your photo library, only photos you select are accessed. You can change permissions in iOS Settings.",
+      "旅客情報の入力は任意です。PDFやテキストを共有・書き出す場合、内容は利用者が選択した保存先または共有先へ渡ります。氏名、住所、旅券等の情報を入力する際は、共有先を確認してください。": "Entering traveller information is optional. When you share or export a PDF or text, its contents go to the destination or recipient you select. Check the recipient before entering or sharing names, addresses, passport details or other personal information.",
+      "5. 広告と同意管理": "5. Advertising and consent",
+      "広告表示を有効にした場合、ホーム画面にGoogle Mobile Adsのバナーを表示します。地域に応じてGoogleの同意管理プラットフォーム（UMP）を用いて同意情報や広告プライバシー設定を管理します。GoogleのSDKは広告配信・同意管理のため、端末、アプリ、ネットワークまたは広告に関する情報を処理する場合があります。": "When ads are enabled, a Google Mobile Ads banner appears on the home screen. Depending on your region, Google's User Messaging Platform (UMP) is used to manage consent information and ad privacy options. Google's SDK may process device, app, network or advertising information to deliver ads and manage consent.",
+      "広告リクエストは非パーソナライズ広告を指定します。本アプリはATTによるトラッキング許可を求めず、IDFA APIを呼び出しません。設定画面で広告を無効にでき、必要な場合は同画面の広告プライバシー設定を開けます。Googleによる取り扱いには": "Ad requests specify non-personalized ads. The app does not request App Tracking Transparency permission or call the IDFA API. You can turn ads off in Settings and open ad privacy options there when available. Google's handling is subject to",
+      "Googleの広告プライバシーポリシー": "Google's advertising privacy policy",
+      "が適用されます。": ".",
+      "6. お子様のプライバシー": "6. Children's privacy",
+      "本アプリは、法令上保護者の同意が必要な年齢のお子様から、保護者の同意なく個人情報を故意に収集しません。保護者の方は、写真解析に送信する画像や端末内に入力する情報を必要に応じて管理してください。": "The app does not knowingly collect personal information from children without parental consent where consent is required by law. Parents and guardians should manage the photos sent for analysis and information entered on the device as appropriate.",
+      "7. 本ポリシーの変更": "7. Changes to this policy",
+      "本アプリの機能、外部サービスまたは法令の変更に応じて本ポリシーを改定することがあります。重要な変更は本ページまたは本アプリ内でお知らせします。": "We may update this policy when app features, external services or laws change. Material changes will be announced on this page or in the app.",
+      "お問い合わせ": "Contact", "メール：": "Email: ", "© 2026 SunDataサービス株式会社": "© 2026 SunData Service Co., Ltd."
+    }
+  };
   const swim = {
     zh: { title: "SwimScope 隐私政策 | SunData", description: "SwimScope 用户数据处理与隐私政策。", "共通ポリシー":"通用政策", "アプリ一覧":"App 一览", "プライバシーポリシー":"隐私政策", "競泳記録を安心して確認できるよう、SwimScopeが扱う情報と保存場所を明確にします。":"为了让用户安心查询游泳成绩，本政策明确说明 SwimScope 处理的信息及其保存位置。", "制定日：2026年9月6日":"制定日期：2026年9月6日", "最終更新日：2026年9月6日":"最后更新：2026年9月6日", "1. 基本方針":"1. 基本方针", "SwimScope（以下「本アプリ」）は、アカウント登録を必要とせず、開発者による個人データの収集を行いません。広告SDKおよび第三者の行動分析SDKも使用しません。":"SwimScope（以下简称“本 App”）无需注册账号，开发者不收集个人数据，也不使用广告 SDK 或第三方行为分析 SDK。", "2. 端末内に保存される情報":"2. 保存在设备内的信息", "お気に入り、検索履歴、マイ選手、ニックネーム、目標タイム、大会当日プラン、通知設定等は、本アプリの機能を提供するため利用者の端末内に保存されます。これらの情報を当社のサーバーへ送信することはありません。":"收藏、搜索记录、我的运动员、昵称、目标时间、比赛日计划和通知设置等信息仅保存在用户设备内，不会发送到本公司服务器。", "端末内の情報は、本アプリ内で該当項目を削除するか、本アプリをアンインストールすることで削除できます。":"可在 App 内删除相应项目，或卸载本 App 以删除设备内信息。", "3. 公開競技情報の参照":"3. 公开比赛信息", "本アプリは、公益財団法人日本水泳連盟が一般公開する「Results of Japan Swimming」の情報を参照し、選手、大会、所属、競技結果等の検索・表示を行います。これらは公開情報であり、本アプリが利用者から収集する個人データではありません。":"本 App 参考日本游泳联盟公开的“Results of Japan Swimming”，用于查询和显示运动员、赛事、所属及比赛结果。这些属于公开信息，并非本 App 从用户处收集的个人数据。", "本アプリは日本水泳連盟の公式アプリではなく、同連盟の承認・提携を受けたものではありません。正式な記録や判断には公式発表をご確認ください。":"本 App 不是日本游泳联盟的官方 App，也未获得其认可或合作授权。正式成绩和判断请以官方发布为准。", "4. 通信と通知":"4. 网络通信与通知", "公開競技情報の取得、購入状態の確認およびアプリ内課金の処理にはインターネット通信を使用します。アプリ内課金はAppleが処理し、当社はクレジットカード番号等の支払情報を取得しません。":"获取公开比赛信息、确认购买状态和处理 App 内购买需要联网。App 内购买由 Apple 处理，本公司不会获取信用卡号码等支付信息。", "成績更新やレース前の通知を有効にした場合、本アプリは利用者の許可を得たうえで端末の通知機能を使用します。通知の許可はiOSの設定からいつでも変更できます。":"启用成绩更新或赛前提醒后，本 App 会在获得许可后使用设备通知功能。可随时在 iOS 设置中修改通知权限。", "5. 第三者への提供":"5. 向第三方提供", "当社は、本アプリを通じて利用者の個人データを収集しないため、第三者への販売、共有または提供も行いません。AppleによるApp Storeおよび決済の取り扱いには、Appleのプライバシーポリシーが適用されます。":"本公司不通过本 App 收集个人数据，因此也不会向第三方出售、共享或提供个人数据。Apple 对 App Store 和支付的处理适用 Apple 的隐私政策。", "6. お子様のプライバシー":"6. 儿童隐私", "本アプリは、保護者の同意が必要な年齢のお子様から個人情報を故意に収集しません。保護者の方は、端末上のマイ選手、ニックネーム、目標等の入力内容を必要に応じて管理してください。":"本 App 不会故意收集依法需要监护人同意的儿童个人信息。监护人应按需要管理设备内“我的运动员”、昵称和目标等输入内容。", "7. 本ポリシーの変更":"7. 政策变更", "本アプリの機能、利用するサービスまたは法令の変更に応じて、本ポリシーを改定することがあります。重要な変更がある場合は、本ページまたは本アプリ内でお知らせします。":"本政策可能因 App 功能、所用服务或法律变化而修订。发生重要变更时，我们会在本页面或 App 内通知。", "お問い合わせ":"联系我们", "メール：":"电子邮箱：", "© 2026 SunDataサービス株式会社":"© 2026 SunData 服务株式会社" },
     en: { title: "SwimScope Privacy Policy | SunData", description: "How SwimScope handles user data and privacy.", "共通ポリシー":"General policy", "アプリ一覧":"Apps", "プライバシーポリシー":"Privacy Policy", "競泳記録を安心して確認できるよう、SwimScopeが扱う情報と保存場所を明確にします。":"This policy explains what information SwimScope handles and where it is stored.", "制定日：2026年9月6日":"Effective: September 6, 2026", "最終更新日：2026年9月6日":"Last updated: September 6, 2026", "1. 基本方針":"1. Core policy", "SwimScope（以下「本アプリ」）は、アカウント登録を必要とせず、開発者による個人データの収集を行いません。広告SDKおよび第三者の行動分析SDKも使用しません。":"SwimScope requires no account. The developer does not collect personal data or use advertising or third-party behavioral analytics SDKs.", "2. 端末内に保存される情報":"2. Information stored on your device", "お気に入り、検索履歴、マイ選手、ニックネーム、目標タイム、大会当日プラン、通知設定等は、本アプリの機能を提供するため利用者の端末内に保存されます。これらの情報を当社のサーバーへ送信することはありません。":"Favorites, search history, My Swimmers, nicknames, target times, meet-day plans and notification settings are stored on your device and are not sent to our servers.", "端末内の情報は、本アプリ内で該当項目を削除するか、本アプリをアンインストールすることで削除できます。":"Delete the relevant item in the app or uninstall SwimScope to remove on-device information.", "3. 公開競技情報の参照":"3. Public competition information", "本アプリは、公益財団法人日本水泳連盟が一般公開する「Results of Japan Swimming」の情報を参照し、選手、大会、所属、競技結果等の検索・表示を行います。これらは公開情報であり、本アプリが利用者から収集する個人データではありません。":"SwimScope references the Japan Swimming Federation's public Results of Japan Swimming service to search and display athletes, meets, affiliations and results. This is public information, not personal data collected from users.", "本アプリは日本水泳連盟の公式アプリではなく、同連盟の承認・提携を受けたものではありません。正式な記録や判断には公式発表をご確認ください。":"SwimScope is not an official or affiliated app of the Japan Swimming Federation. Refer to official announcements for authoritative results.", "4. 通信と通知":"4. Network and notifications", "公開競技情報の取得、購入状態の確認およびアプリ内課金の処理にはインターネット通信を使用します。アプリ内課金はAppleが処理し、当社はクレジットカード番号等の支払情報を取得しません。":"Internet access is used for public results, purchase status and in-app purchases. Apple processes payments; we do not receive credit card details.", "成績更新やレース前の通知を有効にした場合、本アプリは利用者の許可を得たうえで端末の通知機能を使用します。通知の許可はiOSの設定からいつでも変更できます。":"If enabled, results and pre-race alerts use device notifications with your permission. Change notification permission at any time in iOS Settings.", "5. 第三者への提供":"5. Sharing with third parties", "当社は、本アプリを通じて利用者の個人データを収集しないため、第三者への販売、共有または提供も行いません。AppleによるApp Storeおよび決済の取り扱いには、Appleのプライバシーポリシーが適用されます。":"Because we do not collect personal data through SwimScope, we do not sell, share or provide it to third parties. Apple's privacy policy applies to the App Store and payments.", "6. お子様のプライバシー":"6. Children's privacy", "本アプリは、保護者の同意が必要な年齢のお子様から個人情報を故意に収集しません。保護者の方は、端末上のマイ選手、ニックネーム、目標等の入力内容を必要に応じて管理してください。":"SwimScope does not knowingly collect personal information from children where parental consent is required. Guardians should manage on-device entries such as My Swimmers, nicknames and goals.", "7. 本ポリシーの変更":"7. Changes to this policy", "本アプリの機能、利用するサービスまたは法令の変更に応じて、本ポリシーを改定することがあります。重要な変更がある場合は、本ページまたは本アプリ内でお知らせします。":"We may update this policy when app features, services or laws change. Material changes will be announced here or in the app.", "お問い合わせ":"Contact", "メール：":"Email: ", "© 2026 SunDataサービス株式会社":"© 2026 SunData Service Co., Ltd." }
   };
   const page = document.body.dataset.privacyPage;
-  const dictionaries = page === "swim" ? swim : shared;
+  const dictionaries = page === "swim" ? swim : page === "packpass" ? packpass : shared;
   const originals = new WeakMap();
   const normalize = (value) => value.replace(/\s+/g, " ").trim();
   const textNodes = [];
@@ -69,8 +155,8 @@
     const dict = dictionaries[lang] || {};
     document.documentElement.lang = lang === "zh" ? "zh-CN" : lang;
     textNodes.forEach(node => { const original = originals.get(node); node.nodeValue = dict[original] || original; });
-    document.title = dict.title || (page === "swim" ? "SwimScope プライバシーポリシー | SunData" : "アプリ プライバシーポリシー | SunDataサービス株式会社");
-    document.querySelector('meta[name="description"]').content = dict.description || (page === "swim" ? "SwimScopeにおける利用者データの取り扱いとプライバシー方針です。" : "SunDataサービス株式会社が提供するアプリ共通のプライバシーポリシーです。");
+    document.title = dict.title || (page === "swim" ? "SwimScope プライバシーポリシー | SunData" : page === "packpass" ? "PackPass プライバシーポリシー | SunData" : "アプリ プライバシーポリシー | SunDataサービス株式会社");
+    document.querySelector('meta[name="description"]').content = dict.description || (page === "swim" ? "SwimScopeにおける利用者データの取り扱いとプライバシー方針です。" : page === "packpass" ? "PackPassが扱う商品写真、端末内データ、AI画像解析および広告に関するプライバシーポリシーです。" : "SunDataサービス株式会社が提供するアプリ共通のプライバシーポリシーです。");
     document.querySelectorAll('.privacy-language').forEach(picker => {
       picker.setAttribute('aria-label', lang === 'ja' ? '言語' : lang === 'zh' ? '语言' : 'Language');
       picker.querySelectorAll('[data-language]').forEach(button => {

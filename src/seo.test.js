@@ -91,9 +91,11 @@ describe("multilingual SEO", () => {
     const appCopy = read("public/app-pages-i18n.js");
     const privacy = read("public/privacy.html");
 
-    expect(apps).toContain("id6821520963");
+    expect(apps).not.toContain("https://apps.apple.com/app/id6821520963");
+    expect(apps).toContain('data-i18n="tedoriStatus">開発中');
     expect(apps).toContain("assets/apps/tedori-biyori.jpg");
     expect(appCopy).toContain("tedoriDesc");
+    expect(appCopy).toContain('tedoriStatus: "开发中"');
     expect(privacy).toContain("てどり日和");
   });
 
@@ -102,10 +104,12 @@ describe("multilingual SEO", () => {
     const appCopy = read("public/app-pages-i18n.js");
     const privacy = read("public/privacy.html");
 
-    expect(apps).toContain("id6821526738");
+    expect(apps).not.toContain("https://apps.apple.com/app/id6821526738");
+    expect(apps).toContain('data-i18n="kurashiStatus">開発中');
     expect(apps).toContain("assets/apps/kurashi-pass.jpg");
     expect(apps).toContain("kurashipass-privacy.html");
     expect(appCopy).toContain("kurashiDesc");
+    expect(appCopy).toContain('kurashiStatus: "开发中"');
     expect(privacy).toContain("くらしパス");
   });
 });

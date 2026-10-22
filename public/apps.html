@@ -3,6 +3,8 @@
   <head>
     <link rel="icon" href="./icon.svg" type="image/svg+xml" />
     <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; base-uri 'self'; form-action 'none'" />
+    <meta name="referrer" content="no-referrer" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>公開中のアプリ | SunData</title>
     <meta
@@ -14,12 +16,12 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="logo" href="./"
+      <a class="logo" href="#"
         ><span class="logo-mark">◉</span> SUNDATA Studio</a
       >
       <nav class="nav" aria-label="主要ナビゲーション">
         <div class="page-language" id="page-language" role="group" aria-label="言語"><span aria-hidden="true">文</span><button type="button" data-language="ja">日本語</button><button type="button" data-language="zh">中文</button><button type="button" data-language="en">English</button></div>
-        <a class="top-link" href="./" data-i18n="navTools">Top</a><a href="./privacy.html" data-i18n="navPrivacy">プライバシー</a
+        <a href="./privacy.html" data-i18n="navPrivacy">プライバシー</a
         ><a
           class="button"
           href="https://apps.apple.com/jp/developer/jianwei-chen/id1885517805"
@@ -260,7 +262,7 @@
       </section>
     </main>
     <footer class="site-footer">
-      <a class="logo" href="./"><span class="logo-mark">◉</span> SUNDATA Studio</a>
+      <a class="logo" href="#"><span class="logo-mark">◉</span> SUNDATA Studio</a>
       <p data-i18n="copyright">© 2026 SunDataサービス株式会社</p>
       <div>
         <a href="./privacy.html" data-i18n="privacy">プライバシー</a
